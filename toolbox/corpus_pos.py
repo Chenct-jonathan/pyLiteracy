@@ -27,5 +27,26 @@ def purge_pos_loc_zai(startLine, lastLine):
             print(j)
     #print(purgedDICT)
 
+
+def to_json(txtfile):
+    zai_txtfile = open(txtfile, 'r', encoding='utf-8')
+
+    count=0
+    keys=[]
+    values=[]
+    for line in zai_txtfile:
+        if count%2 == 0:
+            keys.append(line.replace("\n", ""))
+        else:
+            values.append(line)
+        count+=1
+    dictionary = dict(zip(keys, values))
+
+    with open("output.json", "w", encoding='UTF-8') as f:
+        json.dump(dictionary, f, indent = 4, ensure_ascii=False)
+
+
+
+
 if __name__ == "__main__":
     purge_pos_loc_zai(5,4539)
