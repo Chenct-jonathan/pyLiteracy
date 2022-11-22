@@ -42,11 +42,12 @@ def to_json(txtfile):
         count+=1
     dictionary = dict(zip(keys, values))
 
-    with open("output.json", "w", encoding='UTF-8') as f:
+    with open("../purged corpus/loc_zai_purged.json", "w", encoding='UTF-8') as f:
         json.dump(dictionary, f, indent = 4, ensure_ascii=False)
 
 
 
 
 if __name__ == "__main__":
-    purge_pos_loc_zai(5,4539)
+    #purge_pos_loc_zai(5,4539)
+    to_json("../purged corpus/loc_zai_purged.txt")
