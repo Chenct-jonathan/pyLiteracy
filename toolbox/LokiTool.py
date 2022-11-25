@@ -90,7 +90,7 @@ if __name__== "__main__":
     """
     Basic usage:
         - To add utterances listed in the corpus to the Loki webpage:
-        $ python3 LokiTool.py au -intent loc -jsonfile 
+        $ python3 LokiTool.py au -intent loc -jsonfile /path/to/jsonfile
         
         - To list utterances in an intent in the Loki webpage:
         $ python3 LokiTool.py lu -intent loc
