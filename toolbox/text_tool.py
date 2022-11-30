@@ -18,7 +18,6 @@ def mergePurgedJson(jsonLIST,filename):
     for i in jsonLIST:
         jFILE = json.load(open(i, encoding="utf-8"))
         resultJsonDICT.update(jFILE)
-        print(jFILE)
         mergedJson = json.JSONEncoder().encode(resultJsonDICT)
         mergedJsonFile = open(filename, "w")
         mergedJsonFile.write(mergedJson)
