@@ -1,0 +1,41 @@
+{
+    "language": "zh-tw",
+    "type": "advance",
+    "version": {
+        "atk": "v260",
+        "intent": "1.0"
+    },
+    "user_defined": {},
+    "utterance": {
+        "在台灣": {
+            "id": "d78922bf-ace8-4ca6-9ed5-36fd9118fb9b",
+            "pos": "<FUNC_inner>在</FUNC_inner><LOCATION>台灣</LOCATION>",
+            "lexy": [],
+            "pattern": "<FUNC_inner>在</FUNC_inner><(LOCATION|ENTITY_(nounHead|nouny|noun|oov))>[^<]*?</(LOCATION|ENTITY_(nounHead|nouny|noun|oov))>"
+        },
+        "在浴室": {
+            "id": "8f1421fa-0f8e-4e70-b2bb-c95eb959e79e",
+            "pos": "<FUNC_inner>在</FUNC_inner><ENTITY_nouny>浴室</ENTITY_nouny>",
+            "lexy": [],
+            "pattern": "<FUNC_in(ner|ter)>[^<]*?</FUNC_in(ner|ter)><(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>[^<]+?[室屋間場欄區點台地端]</(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>"
+        },
+        "在福建省中": {
+            "id": "a16faa24-5a5a-43a0-b592-20b77042af8a",
+            "pos": "<FUNC_inner>在</FUNC_inner><LOCATION>福建省</LOCATION><RANGE_locality>中</RANGE_locality>",
+            "lexy": [],
+            "pattern": "(<FUNC_inner>在</FUNC_inner>)<LOCATION>[^<]*?</LOCATION><RANGE_locality>[^<]*?</RANGE_locality>"
+        },
+        "在科學機構": {
+            "id": "32ab093d-118c-4d95-8303-982aa230add4",
+            "pos": "<FUNC_inner>在</FUNC_inner><ENTITY_noun>科學</ENTITY_noun><ENTITY_noun>機構</ENTITY_noun>",
+            "lexy": [],
+            "pattern": "(<FUNC_inner>在</FUNC_inner>)(<(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>[^<]*?</(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>)?<(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>(機構|[角部]落)</(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>"
+        },
+        "在東方320公里外": {
+            "id": "9a5753f6-d662-421b-b612-45f574c1f1f0",
+            "pos": "<FUNC_inner>在</FUNC_inner><LOCATION>東方</LOCATION><ENTITY_measurement>320公里</ENTITY_measurement><RANGE_locality>外</RANGE_locality>",
+            "lexy": [],
+            "pattern": "<FUNC_inner>在</FUNC_inner><(LOCATION|ENTITY_(nounHead|nouny|noun|oov))>[^<]*?</(LOCATION|ENTITY_(nounHead|nouny|noun|oov))><ENTITY_measurement>[^<]*?</ENTITY_measurement><RANGE_locality>[^<]*?</RANGE_locality>"
+        }
+    }
+}
