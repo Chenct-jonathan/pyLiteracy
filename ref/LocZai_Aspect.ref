@@ -1,0 +1,41 @@
+{
+    "language": "zh-tw",
+    "type": "advance",
+    "version": {
+        "atk": "v260",
+        "intent": "1.0"
+    },
+    "user_defined": {
+        "_asNoun": [
+            "「",
+            "」",
+            "《",
+            "》",
+            "【",
+            "】",
+            "（",
+            "）",
+            "『",
+            "』",
+            "@"
+        ]
+    },
+    "utterance": {
+        "在跑步": {
+            "id": "be87851b-f3b5-4ab0-b03b-80ef13659ecd",
+            "pos": "<ASPECT>在</ASPECT><ACTION_verb>跑步</ACTION_verb>",
+            "lexy": [
+                "(?<!</FUNC_negation>)<(ACTION_verb|VerbP)>(跑步|亂跑|奔跑|快跑|慢跑|跑走|奔走|輕推|輕撞|輕碰|散步)</(ACTION_verb|VerbP)>"
+            ],
+            "pattern": "<ASPECT>在</ASPECT><(ACTION_verb|VerbP)>[^<]*?</(ACTION_verb|VerbP)>"
+        },
+        "在工作之餘": {
+            "id": "9d155dcb-850a-4a1e-84bc-c87d00e8e2f7",
+            "pos": "<ASPECT>在</ASPECT><ACTION_verb>工作</ACTION_verb><FUNC_inner>之</FUNC_inner><ENTITY_nouny>餘</ENTITY_nouny>",
+            "lexy": [
+                "(?<!</FUNC_negation>)<(ACTION_verb|VerbP)>(工作|勞動|賣笑|運轉|加班|在職|拍戲|服役|打工|休假|工作過)</(ACTION_verb|VerbP)>"
+            ],
+            "pattern": "<ASPECT>在</ASPECT><(ACTION_verb|VerbP)>[^<]*?</(ACTION_verb|VerbP)><FUNC_inner>之</FUNC_inner><ENTITY_nouny>餘</ENTITY_nouny>"
+        }
+    }
+}

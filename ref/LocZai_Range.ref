@@ -1,0 +1,35 @@
+{
+    "language": "zh-tw",
+    "type": "advance",
+    "version": {
+        "atk": "v246",
+        "intent": "1.0"
+    },
+    "user_defined": {},
+    "utterance": {
+        "在昨天": {
+            "id": "a787557a-7e1a-4b6a-98ae-1a8997dc6c68",
+            "pos": "<FUNC_inner>在</FUNC_inner><TIME_day>昨天</TIME_day>",
+            "lexy": [],
+            "pattern": "<FUNC_inner>在</FUNC_inner>(<TIME_(holiday|justtime|day|week|month|season|year|decade)>[^<]+?</TIME_(holiday|justtime|day|week|month|season|year|decade)>){1,10}"
+        },
+        "在此時": {
+            "id": "879a355c-05a8-4fe2-a08e-8431ec432738",
+            "pos": "<FUNC_inner>在</FUNC_inner><FUNC_determiner>此</FUNC_determiner><FUNC_inner>時</FUNC_inner>",
+            "lexy": [],
+            "pattern": "(<FUNC_in(ner|ter)>[^<]*?</FUNC_in(ner|ter)>)?<FUNC_determiner>[^<]*?</FUNC_determiner>(<FUNC_in(ner|ter)>[^<]*?</FUNC_in(ner|ter)>)?"
+        },
+        "在本社區": {
+            "id": "8b764d36-dd33-46ec-9e48-df2e0b3693e6",
+            "pos": "<FUNC_inner>在</FUNC_inner><FUNC_determiner>本</FUNC_determiner><ENTITY_noun>社區</ENTITY_noun>",
+            "lexy": [],
+            "pattern": "<FUNC_inner>在</FUNC_inner>(<FUNC_determiner>[^<]+?</FUNC_determiner>|<ENTITY_DetPhrase>[^<]+?</ENTITY_DetPhrase>)<(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>[^<]+?</(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>"
+        },
+        "在此期間": {
+            "id": "7619ecf7-1fc7-4635-95e8-f2a5e737efe5",
+            "pos": "<FUNC_inner>在</FUNC_inner><ENTITY_nouny>此</ENTITY_nouny><RANGE_period>期間</RANGE_period>",
+            "lexy": [],
+            "pattern": "<FUNC_inner>在</FUNC_inner>(<(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>[^<]+?</(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>|<ENTITY_DetPhrase>[^<]+?</ENTITY_DetPhrase>|<FUNC_determiner>[^<]+?</FUNC_determiner>)(<ACTION_verb>[^<]+?</ACTION_verb>)?<RANGE_(locality|period)>[^<]+?</RANGE_(locality|period)>"
+        }
+    }
+}
