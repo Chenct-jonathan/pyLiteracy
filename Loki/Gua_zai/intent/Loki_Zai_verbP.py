@@ -31,7 +31,6 @@ def debugInfo(inputSTR, utterance):
 def getResult(inputSTR, utterance, args, resultDICT):
     debugInfo(inputSTR, utterance)
     if utterance == "我目前在職":
-        # write your code here
-        pass
+        resultDICT["Zai"].append("verbP")
 
     return resultDICT

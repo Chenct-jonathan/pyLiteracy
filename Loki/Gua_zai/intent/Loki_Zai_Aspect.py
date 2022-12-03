@@ -31,11 +31,9 @@ def debugInfo(inputSTR, utterance):
 def getResult(inputSTR, utterance, args, resultDICT):
     debugInfo(inputSTR, utterance)
     if utterance == "在工作之餘":
-        # write your code here
-        pass
+        resultDICT["Zai"].append("Aspect")
 
     if utterance == "在跑步":
-        # write your code here
-        pass
+        resultDICT["Zai"].append("Aspect")
 
     return resultDICT

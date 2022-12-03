@@ -31,31 +31,24 @@ def debugInfo(inputSTR, utterance):
 def getResult(inputSTR, utterance, args, resultDICT):
     debugInfo(inputSTR, utterance)
     if utterance == "在90%中":
-        # write your code here
-        pass
+        resultDICT["Zai"].append("State")
 
     if utterance == "在內":
-        # write your code here
-        pass
+        resultDICT["Zai"].append("State")
 
     if utterance == "在前後文":
-        # write your code here
-        pass
+        resultDICT["Zai"].append("State")
 
     if utterance == "在於":
-        # write your code here
-        pass
+        resultDICT["Zai"].append("State")
 
     if utterance == "在桌上":
-        # write your code here
-        pass
+        resultDICT["Zai"].append("State")
 
     if utterance == "在軟體方面":
-        # write your code here
-        pass
+        resultDICT["Zai"].append("State")
 
     if utterance == "收錄在第三頁":
-        # write your code here
-        pass
+        resultDICT["Zai"].append("State")
 
     return resultDICT

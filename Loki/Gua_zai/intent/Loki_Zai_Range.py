@@ -31,19 +31,15 @@ def debugInfo(inputSTR, utterance):
 def getResult(inputSTR, utterance, args, resultDICT):
     debugInfo(inputSTR, utterance)
     if utterance == "在昨天":
-        # write your code here
-        pass
+        resultDICT["Zai"].append("Range")
 
     if utterance == "在本社區":
-        # write your code here
-        pass
+        resultDICT["Zai"].append("Range")
 
     if utterance == "在此時":
-        # write your code here
-        pass
+        resultDICT["Zai"].append("Range")
 
     if utterance == "在此期間":
-        # write your code here
-        pass
+        resultDICT["Zai"].append("Range")
 
     return resultDICT
