@@ -33,4 +33,7 @@ def getResult(inputSTR, utterance, args, resultDICT):
     if utterance == "我目前在職":
         resultDICT["Zai"].append("verbP")
 
+    if utterance == "我在上廁所":
+        resultDICT["Zai"].append("verbP")
+
     return resultDICT

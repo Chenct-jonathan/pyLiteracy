@@ -42,6 +42,7 @@
         }
 """
 
+import json
 from requests import post
 from requests import codes
 import math
@@ -51,16 +52,20 @@ try:
     from intent import Loki_Zai_Aspect
     from intent import Loki_Zai_Range
     from intent import Loki_Zai_State
+    from intent import Loki_Zai_Loc
 except:
     from .intent import Loki_Zai_verbP
     from .intent import Loki_Zai_Aspect
     from .intent import Loki_Zai_Range
     from .intent import Loki_Zai_State
+    from intent import Loki_Zai_Loc
 
+with open("account.info", encoding="utf-8") as f:
+    accountDICT = json.load(f)
 
 LOKI_URL = "https://api.droidtown.co/Loki/BulkAPI/"
-USERNAME = ""
-LOKI_KEY = ""
+USERNAME = accountDICT["username"]
+LOKI_KEY = accountDICT["loki-key"]
 # 意圖過濾器說明
 # INTENT_FILTER = []        => 比對全部的意圖 (預設)
 # INTENT_FILTER = [intentN] => 僅比對 INTENT_FILTER 內的意圖
@@ -196,6 +201,10 @@ def runLoki(inputLIST, filterLIST=[]):
                 if lokiRst.getIntent(index, resultIndex) == "Zai_State":
                     resultDICT = Loki_Zai_State.getResult(key, lokiRst.getUtterance(index, resultIndex), lokiRst.getArgs(index, resultIndex), resultDICT)
 
+                # Zai_Loc
+                if lokiRst.getIntent(index, resultIndex) == "Zai_Loc":
+                    resultDICT = Loki_Zai_Loc.getResult(key, lokiRst.getUtterance(index, resultIndex), lokiRst.getArgs(index, resultIndex), resultDICT)
+
     else:
         resultDICT = {"msg": lokiRst.getMessage()}
     return resultDICT
@@ -290,11 +299,15 @@ def testIntent():
 
 if __name__ == "__main__":
     # 測試所有意圖
-    testIntent()
+    #testIntent()
 
     # 測試其它句子
     filterLIST = []
-    splitLIST = ["！", "，", "。", "？", "!", ",", "\n", "；", "\u3000", ";"]
-    resultDICT = execLoki("今天天氣如何？後天氣象如何？", filterLIST)            # output => ["今天天氣"]
-    resultDICT = execLoki("今天天氣如何？後天氣象如何？", filterLIST, splitLIST) # output => ["今天天氣", "後天氣象"]
-    resultDICT = execLoki(["今天天氣如何？", "後天氣象如何？"], filterLIST)      # output => ["今天天氣", "後天氣象"]
+    #splitLIST = ["！", "，", "。", "？", "!", ",", "\n", "；", "\u3000", ";"]
+    #resultDICT = execLoki("今天天氣如何？後天氣象如何？", filterLIST)            # output => ["今天天氣"]
+    #resultDICT = execLoki("今天天氣如何？後天氣象如何？", filterLIST, splitLIST) # output => ["今天天氣", "後天氣象"]
+    #resultDICT = execLoki(["今天天氣如何？", "後天氣象如何？"], filterLIST)      # output => ["今天天氣", "後天氣象"]
+
+    inputSTR = "在七天猶豫期間"
+    resultDICT = execLoki(inputSTR)
+    print(resultDICT)
