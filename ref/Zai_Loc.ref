@@ -5,31 +5,71 @@
         "atk": "v260",
         "intent": "1.0"
     },
-    "user_defined": {},
+    "user_defined": {
+        "_asNoun": [
+            "@",
+            "《",
+            "》",
+            "「",
+            "」",
+            "『",
+            "』",
+            "【",
+            "】",
+            "（",
+            "）"
+        ]
+    },
     "utterance": {
+        "保持在": {
+            "id": "8a041757-4ad4-4d67-b25c-d2ce51e562aa",
+            "pos": "<ACTION_verb>保持</ACTION_verb><FUNC_inner>在</FUNC_inner>",
+            "lexy": [
+                "(?<!</FUNC_negation>)<(ACTION_verb|VerbP)>(保持|保住|保全|保存|保有|保管|保藏|保護|保養|持守|持續)</(ACTION_verb|VerbP)>"
+            ],
+            "pattern": "<(ACTION_verb)>(保持|保留|保存)</(ACTION_verb)><FUNC_inner>在</FUNC_inner>"
+        },
+        "在別台": {
+            "id": "f0a7b446-f260-4b9f-968a-f091fcaed294",
+            "pos": "<FUNC_inner>在</FUNC_inner><MODIFIER>別</MODIFIER><ENTITY_nouny>台</ENTITY_nouny>",
+            "lexy": [],
+            "pattern": "<FUNC_inner>在</FUNC_inner>(<(MODIFIER|ModifierP)>(同一|別|那一?|這一?|不同|其它|另一)</(MODIFIER|ModifierP)>)<(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>台</(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>"
+        },
         "在台灣": {
             "id": "d78922bf-ace8-4ca6-9ed5-36fd9118fb9b",
             "pos": "<FUNC_inner>在</FUNC_inner><LOCATION>台灣</LOCATION>",
             "lexy": [],
-            "pattern": "<FUNC_inner>在</FUNC_inner><(LOCATION|ENTITY_(nounHead|nouny|noun|oov))>[^<]*?</(LOCATION|ENTITY_(nounHead|nouny|noun|oov))>"
+            "pattern": "<FUNC_inner>在</FUNC_inner><LOCATION>[^<]*?</LOCATION>"
         },
         "在浴室": {
             "id": "8f1421fa-0f8e-4e70-b2bb-c95eb959e79e",
             "pos": "<FUNC_inner>在</FUNC_inner><ENTITY_nouny>浴室</ENTITY_nouny>",
             "lexy": [],
-            "pattern": "<FUNC_in(ner|ter)>[^<]*?</FUNC_in(ner|ter)><(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>[^<]+?[室屋間場欄區點台地端]</(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>"
+            "pattern": "<FUNC_inner>在</FUNC_inner><(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>[^<]+?[室屋間場欄區點台地端]</(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>"
+        },
+        "在同一電腦": {
+            "id": "cc43407e-d1fe-4390-8de5-6ddcf8efecd6",
+            "pos": "<FUNC_inner>在</FUNC_inner><MODIFIER>同</MODIFIER><ENTITY_num>一</ENTITY_num><ENTITY_noun>電腦</ENTITY_noun>",
+            "lexy": [],
+            "pattern": "<FUNC_inner>在</FUNC_inner>?(<(MODIFIER|ModifierP)>同</(MODIFIER|ModifierP)>)?<ENTITY_num>一</ENTITY_num><(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>[^<]*?</(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>"
         },
         "在福建省中": {
             "id": "a16faa24-5a5a-43a0-b592-20b77042af8a",
             "pos": "<FUNC_inner>在</FUNC_inner><LOCATION>福建省</LOCATION><RANGE_locality>中</RANGE_locality>",
             "lexy": [],
-            "pattern": "(<FUNC_inner>在</FUNC_inner>)<LOCATION>[^<]*?</LOCATION><RANGE_locality>[^<]*?</RANGE_locality>"
+            "pattern": "<FUNC_inner>在</FUNC_inner><LOCATION>[^<]*?</LOCATION><RANGE_locality>[^<]*?</RANGE_locality>"
         },
         "在科學機構": {
             "id": "32ab093d-118c-4d95-8303-982aa230add4",
             "pos": "<FUNC_inner>在</FUNC_inner><ENTITY_noun>科學</ENTITY_noun><ENTITY_noun>機構</ENTITY_noun>",
             "lexy": [],
             "pattern": "(<FUNC_inner>在</FUNC_inner>)(<(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>[^<]*?</(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>)?<(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>(機構|[角部]落)</(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>"
+        },
+        "在我國之申請案": {
+            "id": "2a9be057-ce24-45b6-a518-d72036d6e171",
+            "pos": "<FUNC_inner>在</FUNC_inner><ENTITY_pronoun>我</ENTITY_pronoun><ENTITY_nounHead>國</ENTITY_nounHead><FUNC_inner>之</FUNC_inner><ENTITY_nouny>申請案</ENTITY_nouny>",
+            "lexy": [],
+            "pattern": "<FUNC_inner>在</FUNC_inner>?(<ENTITY_pronoun>[^<]*?</ENTITY_pronoun>)?<(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>[^<]*?</(UserDefined|ENTITY_(nounHead|nouny|noun|oov))><FUNC_inner>之</FUNC_inner>?<(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>[^<]*?</(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>"
         },
         "在東方320公里外": {
             "id": "9a5753f6-d662-421b-b612-45f574c1f1f0",
