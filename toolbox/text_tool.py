@@ -22,3 +22,13 @@ def mergePurgedJson(jsonLIST,filename):
         mergedJsonFile = open(filename, "w")
         mergedJsonFile.write(mergedJson)
     return mergedJsonFile
+
+def json2List(file):
+    userLIST = []
+    with open(file, encoding='UTF-8') as f:
+        userDICT = json.load(f)
+        for n in re.findall(r'[\u4e00-\u9fff]+',str(userDICT)):
+            userLIST.append(n)
+    outputSTR = str(userLIST).replace("[","").replace("]","")
+    with open("LokiUserList.txt", "w",encoding='UTF-8' ) as g:
+        g.write(outputSTR)
