@@ -2,22 +2,22 @@
     "language": "zh-tw",
     "type": "advance",
     "version": {
-        "atk": "v260",
+        "atk": "v246",
         "intent": "1.0"
     },
     "user_defined": {
         "_asNoun": [
-            "「",
-            "」",
+            "@",
             "《",
             "》",
+            "「",
+            "」",
+            "『",
+            "』",
             "【",
             "】",
             "（",
-            "）",
-            "『",
-            "』",
-            "@"
+            "）"
         ]
     },
     "utterance": {
@@ -33,6 +33,12 @@
             "lexy": [],
             "pattern": "<FUNC_inner>在</FUNC_inner><FUNC_inner>於</FUNC_inner>"
         },
+        "在2009": {
+            "id": "3944bc75-75a9-46ad-b794-04ea7c3ee7e8",
+            "pos": "<FUNC_inner>在</FUNC_inner><ENTITY_num>2009</ENTITY_num>",
+            "lexy": [],
+            "pattern": "<FUNC_inner>在</FUNC_inner><ENTITY_num>(1|2)\\d{3}</ENTITY_num>"
+        },
         "在90%中": {
             "id": "093c444c-203c-45f2-9eb7-1e99f001903f",
             "pos": "<FUNC_inner>在</FUNC_inner><ENTITY_measurement>90%</ENTITY_measurement><RANGE_locality>中</RANGE_locality>",
@@ -44,6 +50,12 @@
             "pos": "<FUNC_inner>在</FUNC_inner><ENTITY_nouny>桌</ENTITY_nouny><RANGE_locality>上</RANGE_locality>",
             "lexy": [],
             "pattern": "<FUNC_inner>在</FUNC_inner><(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>[^<]+?</(UserDefined|ENTITY_(nounHead|nouny|noun|oov))><RANGE_locality>[^<]+?</RANGE_locality>"
+        },
+        "在800年前": {
+            "id": "0cb9d6e2-9861-471f-801a-baee2cf32eef",
+            "pos": "<FUNC_inner>在</FUNC_inner><TIME_year>800年</TIME_year><RANGE_period>前</RANGE_period>",
+            "lexy": [],
+            "pattern": "<FUNC_inner>在</FUNC_inner>(<TIME_(holiday|justtime|day|week|month|season|year|decade)>[^<]*?</TIME_(holiday|justtime|day|week|month|season|year|decade)>){1,10}<RANGE_(locality|period)>[^<]*?</RANGE_(locality|period)>"
         },
         "在前後文": {
             "id": "a8fbf8d6-5f28-452c-8278-2aa321fe34c4",
@@ -57,6 +69,18 @@
             "lexy": [],
             "pattern": "<FUNC_inner>在</FUNC_inner><(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>[^<]+?</(UserDefined|ENTITY_(nounHead|nouny|noun|oov))><(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>(方面|部份|部分|狀態)</(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>"
         },
+        "長度在0以上": {
+            "id": "5ff2fedb-bfbe-41fe-9a67-80ea32f5110c",
+            "pos": "<ENTITY_nouny>長度</ENTITY_nouny><FUNC_inner>在</FUNC_inner><ENTITY_num>0</ENTITY_num><FUNC_inner>以上</FUNC_inner>",
+            "lexy": [],
+            "pattern": "<FUNC_inner>在</FUNC_inner><ENTITY_num>[^<]*?</ENTITY_num><FUNC_in(ner|ter)>[^<]*?</FUNC_in(ner|ter)>"
+        },
+        "在西元前800年": {
+            "id": "078e3091-108b-4193-a5a2-33d3ae13545e",
+            "pos": "<FUNC_inner>在</FUNC_inner><ENTITY_noun>西元</ENTITY_noun><RANGE_locality>前</RANGE_locality><TIME_year>800年</TIME_year>",
+            "lexy": [],
+            "pattern": "<FUNC_inner>在</FUNC_inner><(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>[西公]元</(UserDefined|ENTITY_(nounHead|nouny|noun|oov))><RANGE_(locality|period)>[^<]*?</RANGE_(locality|period)>(<TIME_(holiday|justtime|day|week|month|season|year|decade)>[^<]*?</TIME_(holiday|justtime|day|week|month|season|year|decade)>){1,10}"
+        },
         "收錄在第三頁": {
             "id": "ecd01a14-4845-4b55-8357-a6d0efb7b58a",
             "pos": "<ACTION_verb>收錄</ACTION_verb><FUNC_inner>在</FUNC_inner><ENTITY_DetPhrase>第三頁</ENTITY_DetPhrase>",
@@ -64,6 +88,20 @@
                 "(?<!</FUNC_negation>)<(ACTION_verb|VerbP)>(收錄|收列|灌錄|錄製|錄音|內含|包含|含有|容納|歸入|涵蓋)</(ACTION_verb|VerbP)>"
             ],
             "pattern": "(?<!</FUNC_negation>)<(ACTION_verb|VerbP)>[^<]+?</(ACTION_verb|VerbP)><FUNC_inner>在</FUNC_inner><ENTITY_DetPhrase>[^<]+?</ENTITY_DetPhrase>"
+        },
+        "在不確定的世界裡": {
+            "id": "5664eac6-65bc-4183-8fb5-40734394663d",
+            "pos": "<FUNC_inner>在</FUNC_inner><FUNC_negation>不</FUNC_negation><ACTION_verb>確定</ACTION_verb><FUNC_inner>的</FUNC_inner><LOCATION>世界</LOCATION><RANGE_locality>裡</RANGE_locality>",
+            "lexy": [
+                "(?<!</FUNC_negation>)<(ACTION_verb|VerbP)>(確定|定出|定奪|指定|敲定|斷定|確保|確立|確認|肯定|認定)</(ACTION_verb|VerbP)>"
+            ],
+            "pattern": "<FUNC_inner>在</FUNC_inner>(<FUNC_negation>[^<]*?</FUNC_negation>)?(<(ACTION_verb|VerbP)>[^<]*?</(ACTION_verb|VerbP)>|<MODIFIER>[^<]*?</MODIFIER>)?(<FUNC_in(ner|ter)>[^<]*?</FUNC_in(ner|ter)>)?(<LOCATION>[^<]*?</LOCATION>|<(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>[^<]*?</(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>)<RANGE_locality>[^<]*?</RANGE_locality>"
+        },
+        "在古典與現代之間悠遊": {
+            "id": "73f1cac9-894f-4cd1-9599-56a8ce168876",
+            "pos": "<FUNC_inner>在</FUNC_inner><MODIFIER>古典</MODIFIER><FUNC_conjunction>與</FUNC_conjunction><MODIFIER>現代</MODIFIER><FUNC_inner>之</FUNC_inner><ENTITY_nouny>間</ENTITY_nouny><MODIFIER>悠遊</MODIFIER>",
+            "lexy": [],
+            "pattern": "<FUNC_inner>在</FUNC_inner>(<(MODIFIER|ModifierP)>[^<]*?</(MODIFIER|ModifierP)>|<(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>[^<]*?</(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>)<FUNC_conjunction>[^<]*?</FUNC_conjunction>(<(MODIFIER|ModifierP)>[^<]*?</(MODIFIER|ModifierP)>|<(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>[^<]*?</(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>)(<FUNC_in(ner|ter)>之</FUNC_in(ner|ter)>)?<(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>間</(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>"
         }
     }
 }
