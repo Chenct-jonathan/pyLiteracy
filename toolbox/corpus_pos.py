@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding:utf-8 -*-
 
-from text_tool import textPurger
+from text_tool import textPurger, json2List
 from ArticutAPI import Articut
 import json
 import re
@@ -50,4 +50,5 @@ def to_json(txtfile):
 
 if __name__ == "__main__":
     #purge_pos_loc_zai(5,9222)
-    to_json("../purged corpus/loc_zai_purged.txt")
+    #to_json("../purged corpus/loc_zai_purged.txt")
+    json2List("../corpus/KNOWLEDGE_schoolTW.json")

@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding:utf-8 -*-
+import json
+import re
 
 def textPurger(tagInputSTR):
     '''
@@ -29,6 +31,7 @@ def json2List(file):
         userDICT = json.load(f)
         for n in re.findall(r'[\u4e00-\u9fff]+',str(userDICT)):
             userLIST.append(n)
-    outputSTR = str(userLIST).replace("[","").replace("]","")
-    with open("LokiUserList.txt", "w",encoding='UTF-8' ) as g:
+    outputSTR = str(userLIST).replace("[","").replace("]","").replace("'","")
+    with open("../corpusLokiUserList.txt", "w",encoding='UTF-8' ) as g:
         g.write(outputSTR)
+        
