@@ -30,10 +30,31 @@ def debugInfo(inputSTR, utterance):
 
 def getResult(inputSTR, utterance, args, resultDICT):
     debugInfo(inputSTR, utterance)
+    if utterance == "保持在":
+        resultDICT["Zai"].append("Loc")
+
+    if utterance == "在「尚有庫存」內出貨":
+        resultDICT["Zai"].append("Loc")
+
+    if utterance == "在別台電腦":
+        resultDICT["Zai"].append("Loc")
+
     if utterance == "在台灣":
         resultDICT["Zai"].append("Loc")
 
+    if utterance == "在同一電腦":
+        resultDICT["Zai"].append("Loc")
+
+    if utterance == "在我國之申請案":
+        resultDICT["Zai"].append("Loc")
+
+    if utterance == "在有限的預算中":
+        resultDICT["Zai"].append("Loc")
+
     if utterance == "在東方320公里外":
+        resultDICT["Zai"].append("Loc")
+
+    if utterance == "在正式課程之外":
         resultDICT["Zai"].append("Loc")
 
     if utterance == "在浴室":
