@@ -8,6 +8,7 @@
     "user_defined": {
         "_asNoun": [
             "@",
+            "WPPT",
             "《",
             "》",
             "「",
@@ -16,13 +17,12 @@
             "』",
             "【",
             "】",
-            "（",
-            "）",
-            "山上人家",
-            "虎頭埤",
-            "WPPT",
             "中山堂",
-            "新光三越"
+            "山上人家",
+            "新光三越",
+            "虎頭埤",
+            "（",
+            "）"
         ],
         "_asVerb": [
             "上廁所",
@@ -12706,6 +12706,12 @@
             "lexy": [],
             "pattern": "<FUNC_inner>在</FUNC_inner><(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>[^<]+?</(UserDefined|ENTITY_(nounHead|nouny|noun|oov))><(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>(方面|部份|部分|狀態)</(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>"
         },
+        "目前在第1頁": {
+            "id": "e4d66f44-ab6a-40a8-ae3e-522b73d79ace",
+            "pos": "<TIME_justtime>目前</TIME_justtime><FUNC_inner>在</FUNC_inner><ENTITY_DetPhrase>第1頁</ENTITY_DetPhrase>",
+            "lexy": [],
+            "pattern": "<FUNC_inner>在</FUNC_inner><ENTITY_DetPhrase>[^<]*?</ENTITY_DetPhrase>"
+        },
         "長度在0以上": {
             "id": "5ff2fedb-bfbe-41fe-9a67-80ea32f5110c",
             "pos": "<ENTITY_nouny>長度</ENTITY_nouny><FUNC_inner>在</FUNC_inner><ENTITY_num>0</ENTITY_num><FUNC_inner>以上</FUNC_inner>",
@@ -12724,7 +12730,13 @@
             "lexy": [
                 "(?<!</FUNC_negation>)<(ACTION_verb|VerbP)>(收錄|收列|灌錄|錄製|錄音|內含|包含|含有|容納|歸入|涵蓋)</(ACTION_verb|VerbP)>"
             ],
-            "pattern": "(?<!</FUNC_negation>)<(ACTION_verb|VerbP)>[^<]+?</(ACTION_verb|VerbP)><FUNC_inner>在</FUNC_inner>(<(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>[^<]*?</(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>)?<ENTITY_DetPhrase>[^<]+?</ENTITY_DetPhrase>"
+            "pattern": "(?<!</FUNC_negation>)<(ACTION_verb|VerbP)>[^<]+?</(ACTION_verb|VerbP)><FUNC_inner>在</FUNC_inner>(<(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>[^<]*?</(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>)?(<ENTITY_DetPhrase>[^<]+?</ENTITY_DetPhrase>|<KNOWLEDGE_currency>[^<]*?</KNOWLEDGE_currency>)"
+        },
+        "在七期新光三越": {
+            "id": "a70f034f-fd6d-4057-8ad3-cb0753b144ee",
+            "pos": "<FUNC_inner>在</FUNC_inner><ACTION_eventQuantifier>七期</ACTION_eventQuantifier><UserDefined>新光三越</UserDefined>",
+            "lexy": [],
+            "pattern": "<FUNC_inner>在</FUNC_inner><ACTION_eventQuantifier>[^<]*?</ACTION_eventQuantifier>"
         },
         "在福智高級中學": {
             "id": "f0765aa1-13ea-4328-bce1-9dd0397a6e12",
@@ -12738,7 +12750,13 @@
             "lexy": [
                 "(?<!</FUNC_negation>)<(ACTION_verb|VerbP)>(確定|定出|定奪|指定|敲定|斷定|確保|確立|確認|肯定|認定)</(ACTION_verb|VerbP)>"
             ],
-            "pattern": "<FUNC_inner>在</FUNC_inner>(<FUNC_negation>[^<]*?</FUNC_negation>)?(<ACTION_lightVerb>被</ACTION_lightVerb>)?(<FUNC_conjunction>[^<]*?</FUNC_conjunction>|<LOCATION>[^<]*?</LOCATION>|<(ACTION_verb|VerbP)>[^<]*?</(ACTION_verb|VerbP)>|<MODIFIER>[^<]*?</MODIFIER>|<(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>[^<]*?</(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>)*?(<FUNC_in(ner|ter)>[^<]*?</FUNC_in(ner|ter)>)?(<FUNC_conjunction>[^<]*?</FUNC_conjunction>|<LOCATION>[^<]*?</LOCATION>|<(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>[^<]*?</(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>|<(ACTION_verb|VerbP)>[^<]*?</(ACTION_verb|VerbP)>)*?(<FUNC_inner>之</FUNC_inner>)?<RANGE_locality>[^<]*?</RANGE_locality>"
+            "pattern": "<FUNC_inner>在</FUNC_inner>(<ENTITY_DetPhrase>這個</ENTITY_DetPhrase>)?(<FUNC_negation>[^<]*?</FUNC_negation>)?(<ACTION_lightVerb>被</ACTION_lightVerb>)?(<FUNC_conjunction>[^<]*?</FUNC_conjunction>|<LOCATION>[^<]*?</LOCATION>|<(ACTION_verb|VerbP)>[^<]*?</(ACTION_verb|VerbP)>|<MODIFIER>[^<]*?</MODIFIER>|<(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>[^<]*?</(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>)*?(<FUNC_in(ner|ter)>[^<]*?</FUNC_in(ner|ter)>)?(<FUNC_conjunction>[^<]*?</FUNC_conjunction>|<LOCATION>[^<]*?</LOCATION>|<(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>[^<]*?</(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>|<(ACTION_verb|VerbP)>[^<]*?</(ACTION_verb|VerbP)>)*?(<FUNC_inner>之</FUNC_inner>)?<RANGE_locality>[^<]*?</RANGE_locality>"
+        },
+        "在新台幣五千元以內": {
+            "id": "6cff70be-de89-4162-ab61-488eb298911b",
+            "pos": "<FUNC_inner>在</FUNC_inner><ENTITY_noun>新台幣</ENTITY_noun><KNOWLEDGE_currency>五千元</KNOWLEDGE_currency><FUNC_inner>以</FUNC_inner><RANGE_locality>內</RANGE_locality>",
+            "lexy": [],
+            "pattern": "<FUNC_inner>在</FUNC_inner>(<(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>[^<]*?</(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>)?<KNOWLEDGE_currency>[^<]*?</KNOWLEDGE_currency>((<FUNC_in(ner|ter)>[^在<]*?</FUNC_in(ner|ter)>)?<RANGE_(locality|period)>[^<]*?</RANGE_(locality|period)>|<ENTITY_oov>以下</ENTITY_oov>)"
         },
         "在古典與現代之間悠遊": {
             "id": "73f1cac9-894f-4cd1-9599-56a8ce168876",
@@ -12754,6 +12772,14 @@
                 "(?<!</FUNC_negation>)<(ACTION_verb|VerbP)>(成效|成果|成績)</(ACTION_verb|VerbP)>"
             ],
             "pattern": "<FUNC_inner>在</FUNC_inner><(MODIFIER|ModifierP)>[^<]*?</(MODIFIER|ModifierP)><RANGE_locality>[^<]*?</RANGE_locality>"
+        },
+        "收錄在被行銷者之手機": {
+            "id": "5c1ec132-0a58-4280-88b9-0a39163c07c6",
+            "pos": "<ACTION_verb>收錄</ACTION_verb><FUNC_inner>在</FUNC_inner><ACTION_lightVerb>被</ACTION_lightVerb><ENTITY_nouny>行銷者</ENTITY_nouny><FUNC_inner>之</FUNC_inner><ENTITY_noun>手機</ENTITY_noun>",
+            "lexy": [
+                "(?<!</FUNC_negation>)<(ACTION_verb|VerbP)>(收錄|收列|灌錄|錄製|錄音|內含|包含|含有|容納|歸入|涵蓋)</(ACTION_verb|VerbP)>"
+            ],
+            "pattern": "(?<!</FUNC_negation>)<(ACTION_verb|VerbP)>[^<]*?</(ACTION_verb|VerbP)><FUNC_inner>在</FUNC_inner>(<ACTION_lightVerb>被</ACTION_lightVerb>)?<(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>[^<]*?</(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>(<FUNC_in(ner|ter)>[^在再]*?</FUNC_in(ner|ter)>)?<(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>[^<]*?</(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>"
         }
     }
 }
