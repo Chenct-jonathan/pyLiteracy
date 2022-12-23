@@ -6,6 +6,18 @@
         "intent": "1.0"
     },
     "user_defined": {
+        "_FAC": [
+            "HResort",
+            "國家音樂廳",
+            "市政府",
+            "法說會",
+            "營業場所",
+            "網路媒體",
+            "縣政府",
+            "電腦網路",
+            "電腦網路媒體",
+            "音樂廳"
+        ],
         "_asNoun": [
             "@",
             "WPPT",
@@ -12756,7 +12768,7 @@
             "id": "6cff70be-de89-4162-ab61-488eb298911b",
             "pos": "<FUNC_inner>在</FUNC_inner><ENTITY_noun>新台幣</ENTITY_noun><KNOWLEDGE_currency>五千元</KNOWLEDGE_currency><FUNC_inner>以</FUNC_inner><RANGE_locality>內</RANGE_locality>",
             "lexy": [],
-            "pattern": "<FUNC_inner>在</FUNC_inner>(<(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>[^<]*?</(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>)?<KNOWLEDGE_currency>[^<]*?</KNOWLEDGE_currency>((<FUNC_in(ner|ter)>[^在<]*?</FUNC_in(ner|ter)>)?<RANGE_(locality|period)>[^<]*?</RANGE_(locality|period)>|<ENTITY_oov>以下</ENTITY_oov>)"
+            "pattern": "<FUNC_inner>在</FUNC_inner>(<(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>[^<]*?</(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>)?<KNOWLEDGE_currency>[^<]*?</KNOWLEDGE_currency>((<FUNC_in(ner|ter)>[^在<]*?</FUNC_in(ner|ter)>)?<RANGE_(locality|period)>[^<]*?</RANGE_(locality|period)>|<ENTITY_oov>以下</ENTITY_oov>|<FUNC_inner>[^<]*?</FUNC_inner>)"
         },
         "在古典與現代之間悠遊": {
             "id": "73f1cac9-894f-4cd1-9599-56a8ce168876",
@@ -12780,6 +12792,41 @@
                 "(?<!</FUNC_negation>)<(ACTION_verb|VerbP)>(收錄|收列|灌錄|錄製|錄音|內含|包含|含有|容納|歸入|涵蓋)</(ACTION_verb|VerbP)>"
             ],
             "pattern": "(?<!</FUNC_negation>)<(ACTION_verb|VerbP)>[^<]*?</(ACTION_verb|VerbP)><FUNC_inner>在</FUNC_inner>(<ACTION_lightVerb>被</ACTION_lightVerb>)?<(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>[^<]*?</(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>(<FUNC_in(ner|ter)>[^在再]*?</FUNC_in(ner|ter)>)?<(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>[^<]*?</(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>"
+        },
+        "長度在0以上的任意字串": {
+            "id": "66514990-69f9-4ed7-a398-4c8a48bc84f4",
+            "pos": "<ENTITY_nouny>長度</ENTITY_nouny><FUNC_inner>在</FUNC_inner><ENTITY_num>0</ENTITY_num><RANGE_locality>以上</RANGE_locality><FUNC_inner>的</FUNC_inner><ACTION_verb>任意</ACTION_verb><ENTITY_nouny>字串</ENTITY_nouny>",
+            "lexy": [
+                "(?<!</FUNC_negation>)<(ACTION_verb|VerbP)>(任意|給定|仿射|常量|值域|開集|取值|閉包)</(ACTION_verb|VerbP)>"
+            ],
+            "pattern": "<FUNC_inner>在</FUNC_inner><ENTITY_num>[^<]*?</ENTITY_num><RANGE_(locality|period)>[^<]*?</RANGE_(locality|period)>"
+        },
+        "目前情趣內衣多在數千元之譜": {
+            "id": "f64735b8-b41b-4a94-9f1e-dea48df667e8",
+            "pos": "<TIME_justtime>目前</TIME_justtime><ENTITY_oov>情趣</ENTITY_oov><ENTITY_nouny>內衣</ENTITY_nouny><MODIFIER>多</MODIFIER><FUNC_inner>在</FUNC_inner><KNOWLEDGE_currency>數千元</KNOWLEDGE_currency><FUNC_inner>之</FUNC_inner><ENTITY_nouny>譜</ENTITY_nouny>",
+            "lexy": [],
+            "pattern": "<FUNC_inner>在</FUNC_inner><KNOWLEDGE_currency>[^<]*?</KNOWLEDGE_currency><FUNC_in(ner|ter)>之</FUNC_in(ner|ter)><(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>譜</(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>"
+        },
+        "可用來保障您在線上傳輸的資料不會外流": {
+            "id": "1b607e23-2ab7-4d18-aad7-8fb7f350450b",
+            "pos": "<MODAL>可</MODAL><ACTION_verb>用來</ACTION_verb><ACTION_verb>保障</ACTION_verb><ENTITY_pronoun>您</ENTITY_pronoun><FUNC_inner>在</FUNC_inner><MODIFIER>線上</MODIFIER><ACTION_verb>傳輸</ACTION_verb><FUNC_inner>的</FUNC_inner><ENTITY_noun>資料</ENTITY_noun><FUNC_negation>不</FUNC_negation><MODAL>會</MODAL><ACTION_verb>外流</ACTION_verb>",
+            "lexy": [
+                "(?<!</FUNC_negation>)<(ACTION_verb|VerbP)>(用來|用|拿來|利用|為了|指用|使用|藉由|藉此|有用|當作)</(ACTION_verb|VerbP)>",
+                "(?<!</FUNC_negation>)<(ACTION_verb|VerbP)>(保障|保修|保固|保管|保衛|保證|保護|力保|擔保|確保|昭示)</(ACTION_verb|VerbP)>",
+                "(?<!</FUNC_negation>)<(ACTION_verb|VerbP)>(傳輸|傳出|傳達|傳遞|輸電|寄送|播送|發送|轉告|轉發|存儲)</(ACTION_verb|VerbP)>",
+                "(?<!</FUNC_negation>)<(ACTION_verb|VerbP)>(外流|外逃|流入|枯竭|過剩|外移|驟減|流向|流出|流失|外洩)</(ACTION_verb|VerbP)>"
+            ],
+            "pattern": "<FUNC_inner>在</FUNC_inner><(MODIFIER|ModifierP)>[^<]*?[上下前後]</(MODIFIER|ModifierP)>"
+        },
+        "可以讓你在不增加任何成本的狀況下接觸更多顧客": {
+            "id": "00202945-e903-4e47-8d9e-b508e7cddefe",
+            "pos": "<MODAL>可以</MODAL><ACTION_verb>讓</ACTION_verb><ENTITY_pronoun>你</ENTITY_pronoun><FUNC_inner>在</FUNC_inner><FUNC_negation>不</FUNC_negation><ACTION_verb>增加</ACTION_verb><QUANTIFIER>任何</QUANTIFIER><ENTITY_nounHead>成本</ENTITY_nounHead><FUNC_inner>的</FUNC_inner><ENTITY_noun>狀況</ENTITY_noun><RANGE_locality>下</RANGE_locality><ACTION_verb>接觸</ACTION_verb><DegreeP>更多</DegreeP><ENTITY_noun>顧客</ENTITY_noun>",
+            "lexy": [
+                "(?<!</FUNC_negation>)<(ACTION_verb|VerbP)>(讓|禮讓|讓位|讓步|避讓|任聽|任隨|屈服|拋開|放出|放過)</(ACTION_verb|VerbP)>",
+                "(?<!</FUNC_negation>)<(ACTION_verb|VerbP)>(增加|加劇|加大|加強|加添|加重|增多|增大|增強|增添|增補)</(ACTION_verb|VerbP)>",
+                "(?<!</FUNC_negation>)<(ACTION_verb|VerbP)>(接觸|碰觸|觸動|觸及|觸摸|觸擊|觸碰|感動|互動|聯繫|認識)</(ACTION_verb|VerbP)>"
+            ],
+            "pattern": "<FUNC_inner>在</FUNC_inner>(<FUNC_negation>[^<]*?</FUNC_negation>)?(<(ACTION_verb|VerbP)>[^<]*?</(ACTION_verb|VerbP)>|<QUANTIFIER>[^<]*?</QUANTIFIER>|<(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>[^<]*?</(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>)+<FUNC_inner>[之的]</FUNC_inner><(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>狀況</(UserDefined|ENTITY_(nounHead|nouny|noun|oov))><RANGE_(locality|period)>[^<]*?</RANGE_(locality|period)>"
         }
     }
 }
