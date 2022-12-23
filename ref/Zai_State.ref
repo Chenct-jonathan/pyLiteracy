@@ -12807,6 +12807,15 @@
             "lexy": [],
             "pattern": "<FUNC_inner>在</FUNC_inner><KNOWLEDGE_currency>[^<]*?</KNOWLEDGE_currency><FUNC_in(ner|ter)>之</FUNC_in(ner|ter)><(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>譜</(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>"
         },
+        "並在會後舉行年終尾牙聚餐活動": {
+            "id": "8850451c-2e76-454e-a722-7bc640373497",
+            "pos": "<FUNC_inner>並</FUNC_inner><FUNC_inner>在</FUNC_inner><MODAL>會</MODAL><RANGE_locality>後</RANGE_locality><ACTION_verb>舉行</ACTION_verb><ENTITY_nouny>年終尾牙</ENTITY_nouny><ACTION_verb>聚餐</ACTION_verb><ENTITY_nouny>活動</ENTITY_nouny>",
+            "lexy": [
+                "(?<!</FUNC_negation>)<(ACTION_verb|VerbP)>(舉行|舉辦|開幕|召開了|舉行過|舉辦了|舉行了|召開|閉幕|舉辦過|出席)</(ACTION_verb|VerbP)>",
+                "(?<!</FUNC_negation>)<(ACTION_verb|VerbP)>(聚餐|餐敘|歡聚|相聚|用膳|用餐|閒聊|逛街|吃飯|小酌|碰面)</(ACTION_verb|VerbP)>"
+            ],
+            "pattern": "<FUNC_inner>在</FUNC_inner><MODAL>會</MODAL><RANGE_(locality|period)>[^<]*?</RANGE_(locality|period)><(ACTION_verb|VerbP)>[^<]*?</(ACTION_verb|VerbP)>"
+        },
         "可用來保障您在線上傳輸的資料不會外流": {
             "id": "1b607e23-2ab7-4d18-aad7-8fb7f350450b",
             "pos": "<MODAL>可</MODAL><ACTION_verb>用來</ACTION_verb><ACTION_verb>保障</ACTION_verb><ENTITY_pronoun>您</ENTITY_pronoun><FUNC_inner>在</FUNC_inner><MODIFIER>線上</MODIFIER><ACTION_verb>傳輸</ACTION_verb><FUNC_inner>的</FUNC_inner><ENTITY_noun>資料</ENTITY_noun><FUNC_negation>不</FUNC_negation><MODAL>會</MODAL><ACTION_verb>外流</ACTION_verb>",
