@@ -12675,27 +12675,47 @@
         ]
     },
     "utterance": {
-        "在事前": {
-            "id": "8ff3111c-1722-4131-8124-765ae1744c59",
-            "pos": "<FUNC_inner>在</FUNC_inner><MODIFIER>事前</MODIFIER>",
+        "不在此限": {
+            "id": "ecff0267-9c38-4d11-afa2-ca2d4a2304d7",
+            "pos": "<FUNC_negation>不</FUNC_negation><FUNC_inner>在</FUNC_inner><ENTITY_nouny>此限</ENTITY_nouny>",
             "lexy": [],
-            "pattern": "<FUNC_inner>在</FUNC_inner><(MODIFIER|ModifierP)>事[前後]</(MODIFIER|ModifierP)>"
+            "pattern": "<FUNC_negation>[^<]*?</FUNC_negation><FUNC_inner>在</FUNC_inner><(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>此限</(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>"
         },
-        "在事發當時": {
-            "id": "edf266ac-4c8d-466c-a189-cb7fced994ef",
-            "pos": "<ASPECT>在</ASPECT><ACTION_verb>事發</ACTION_verb><TIME_justtime>當時</TIME_justtime>",
+        "依稀在目": {
+            "id": "2e133ea8-7c07-49f3-b6ed-c4afb1e9473c",
+            "pos": "<ACTION_verb>依稀</ACTION_verb><FUNC_inner>在</FUNC_inner><ENTITY_nouny>目</ENTITY_nouny>",
             "lexy": [
-                "(?<!</FUNC_negation>)<(ACTION_verb|VerbP)>(事發|案發|出事|墜機|遇襲|失蹤|遇害|失聯|犯案|接報|行凶)</(ACTION_verb|VerbP)>"
+                "(?<!</FUNC_negation>)<(ACTION_verb|VerbP)>(依稀|掬|猶存|懸掛著|隨處|飄揚著|見身|刻畫著|斷壁|見圓|流露了)</(ACTION_verb|VerbP)>"
             ],
-            "pattern": "<ASPECT>在</ASPECT><(ACTION_verb|VerbP)>事發</(ACTION_verb|VerbP)>(<TIME_(holiday|justtime|day|week|month|season|year|decade)>[^<]*?時</TIME_(holiday|justtime|day|week|month|season|year|decade)>){1,10}"
+            "pattern": "(?<!</FUNC_negation>)<(ACTION_verb|VerbP)>依稀</(ACTION_verb|VerbP)><FUNC_inner>在</FUNC_inner><(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>目</(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>"
         },
-        "我目前在職": {
-            "id": "8dbeb8a2-4ddd-4f55-a239-d9650a08d613",
-            "pos": "<ENTITY_pronoun>我</ENTITY_pronoun><TIME_justtime>目前</TIME_justtime><ACTION_verb>在職</ACTION_verb>",
+        "在在顯示": {
+            "id": "196144e9-0bf3-4b4d-90bf-b3d48a9a5759",
+            "pos": "<MODIFIER>在在</MODIFIER><ACTION_verb>顯示</ACTION_verb>",
             "lexy": [
-                "(?<!</FUNC_negation>)<(ACTION_verb|VerbP)>(在職|到職|到賣|待業|在學|跑多|大拚|入考|合穿著|現職|合穿)</(ACTION_verb|VerbP)>"
+                "(?<!</FUNC_negation>)<(ACTION_verb|VerbP)>(顯示|展示|指示|揭示|昭示|標示|演示|示例|示範|表示|開示)</(ACTION_verb|VerbP)>"
             ],
-            "pattern": "<(ACTION_verb|VerbP)>在[^<]+?</(ACTION_verb|VerbP)>"
+            "pattern": "<(MODIFIER|ModifierP)>在在</(MODIFIER|ModifierP)><(ACTION_verb|VerbP)>顯示</(ACTION_verb|VerbP)>"
+        },
+        "在明明德": {
+            "id": "dbc5302b-89f9-42b8-925e-c8861310984f",
+            "pos": "<FUNC_inner>在</FUNC_inner><ENTITY_nouny>明明德</ENTITY_nouny>",
+            "lexy": [],
+            "pattern": "<FUNC_inner>在</FUNC_inner><(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>明明德</(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>"
+        },
+        "在止於至善": {
+            "id": "a8355e86-7429-4c58-9dcc-2537a4a1afe6",
+            "pos": "<ASPECT>在</ASPECT><ACTION_verb>止於</ACTION_verb><FUNC_inner>至</FUNC_inner><MODIFIER>善</MODIFIER>",
+            "lexy": [
+                "(?<!</FUNC_negation>)<(ACTION_verb|VerbP)>(止於|起於|聚興|駐操|續接|緊靠|緊鄰|相接|鋪鎮|流經|關鄉)</(ACTION_verb|VerbP)>"
+            ],
+            "pattern": "(<ASPECT>在</ASPECT>)?<(ACTION_verb|VerbP)>止於</(ACTION_verb|VerbP)>(<FUNC_inner>至</FUNC_inner>)(<(MODIFIER|ModifierP)>善</(MODIFIER|ModifierP)>)"
+        },
+        "你在答非所問": {
+            "id": "1399eb65-4bcb-4cd4-8609-0b1bcff53381",
+            "pos": "<ENTITY_pronoun>你</ENTITY_pronoun><FUNC_inner>在</FUNC_inner><IDIOM>答非所問</IDIOM>",
+            "lexy": [],
+            "pattern": "<ENTITY_pronoun>[^<]*?</ENTITY_pronoun><FUNC_inner>在</FUNC_inner><IDIOM>[^<]*?</IDIOM>"
         }
     }
 }
