@@ -2,7 +2,7 @@
     "language": "zh-tw",
     "type": "advance",
     "version": {
-        "atk": "v260",
+        "atk": "v261",
         "intent": "1.0"
     },
     "user_defined": {
@@ -32,10 +32,19 @@
             "中山堂",
             "山上人家",
             "新光三越",
+            "白玉",
             "虎頭埤",
             "（",
             "）",
-            "白玉"
+            "老湖口",
+            "7-11",
+            "五大都會區",
+            "六都",
+            "八位元環境",
+            "過季廣場",
+            "鐵砧山",
+            "時機點",
+            "申報戶"
         ],
         "_asVerb": [
             "上廁所",
@@ -12661,7 +12670,8 @@
             "龜山國小",
             "龜山國民中學",
             "龜山國民小學",
-            "龜山幼兒園"
+            "龜山幼兒園",
+            "喬治商職"
         ]
     },
     "utterance": {
@@ -12679,9 +12689,9 @@
         },
         "在此時": {
             "id": "879a355c-05a8-4fe2-a08e-8431ec432738",
-            "pos": "<FUNC_inner>在</FUNC_inner><FUNC_determiner>此</FUNC_determiner><FUNC_inner>時</FUNC_inner>",
+            "pos": "<FUNC_inner>在</FUNC_inner><TIME_justtime>此時</TIME_justtime>",
             "lexy": [],
-            "pattern": "(<FUNC_in(ner|ter)>[^<]*?</FUNC_in(ner|ter)>)?<FUNC_determiner>[^<]*?</FUNC_determiner>(<FUNC_in(ner|ter)>[^<]*?</FUNC_in(ner|ter)>)?"
+            "pattern": "<FUNC_in(ner|ter)>[^<]*?</FUNC_in(ner|ter)>(<TIME_(holiday|justtime|day|week|month|season|year|decade)>[^<]*?</TIME_(holiday|justtime|day|week|month|season|year|decade)>){1,10}"
         },
         "在8張內": {
             "id": "903e0186-456e-4687-91c1-014f37034648",
