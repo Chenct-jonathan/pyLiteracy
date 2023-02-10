@@ -2,7 +2,7 @@
     "language": "zh-tw",
     "type": "advance",
     "version": {
-        "atk": "v261",
+        "atk": "v260",
         "intent": "1.0"
     },
     "user_defined": {
@@ -32,19 +32,11 @@
             "中山堂",
             "山上人家",
             "新光三越",
-            "白玉",
             "虎頭埤",
             "（",
             "）",
-            "老湖口",
-            "7-11",
-            "五大都會區",
-            "六都",
-            "八位元環境",
-            "過季廣場",
-            "鐵砧山",
-            "時機點",
-            "申報戶"
+            "白玉",
+            "資金"
         ],
         "_asVerb": [
             "上廁所",
@@ -12670,8 +12662,40 @@
             "龜山國小",
             "龜山國民中學",
             "龜山國民小學",
-            "龜山幼兒園",
-            "喬治商職"
+            "龜山幼兒園"
+        ],
+        "_schoolDegree": [
+            "小一",
+            "小二",
+            "小三",
+            "小四",
+            "小五",
+            "小六",
+            "國一",
+            "國二",
+            "國三",
+            "高一",
+            "高二",
+            "高三",
+            "大一",
+            "大二",
+            "大三",
+            "大四",
+            "大五",
+            "大六",
+            "大七",
+            "碩一",
+            "碩二",
+            "碩三",
+            "碩四",
+            "碩五",
+            "博一",
+            "博二",
+            "博三",
+            "博四",
+            "博五",
+            "博六",
+            "博七"
         ]
     },
     "utterance": {
@@ -12689,15 +12713,21 @@
         },
         "在此時": {
             "id": "879a355c-05a8-4fe2-a08e-8431ec432738",
-            "pos": "<FUNC_inner>在</FUNC_inner><TIME_justtime>此時</TIME_justtime>",
+            "pos": "<FUNC_inner>在</FUNC_inner><FUNC_determiner>此</FUNC_determiner><FUNC_inner>時</FUNC_inner>",
             "lexy": [],
-            "pattern": "<FUNC_in(ner|ter)>[^<]*?</FUNC_in(ner|ter)>(<TIME_(holiday|justtime|day|week|month|season|year|decade)>[^<]*?</TIME_(holiday|justtime|day|week|month|season|year|decade)>){1,10}"
+            "pattern": "(<FUNC_in(ner|ter)>[^<]*?</FUNC_in(ner|ter)>)?<FUNC_determiner>[^<]*?</FUNC_determiner>(<FUNC_in(ner|ter)>[^<]*?</FUNC_in(ner|ter)>)?"
         },
         "在8張內": {
             "id": "903e0186-456e-4687-91c1-014f37034648",
             "pos": "<FUNC_inner>在</FUNC_inner><ENTITY_classifier>8張</ENTITY_classifier><RANGE_locality>內</RANGE_locality>",
             "lexy": [],
             "pattern": "<FUNC_inner>在</FUNC_inner><ENTITY_classifier>[^<]*?</ENTITY_classifier><RANGE_locality>[^<]*?</RANGE_locality>"
+        },
+        "在大三時": {
+            "id": "c6d4f115-1631-4ff0-8a56-405a60dc2b80",
+            "pos": "<FUNC_inner>在</FUNC_inner><UserDefined>大三</UserDefined><FUNC_inner>時</FUNC_inner>",
+            "lexy": [],
+            "pattern": "<FUNC_inner>在</FUNC_inner><(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>[大小國高碩博][一二三四五六七八]</(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>(<FUNC_in(ner|ter)>[^<]*?</FUNC_in(ner|ter)>)?"
         },
         "在本社區": {
             "id": "8b764d36-dd33-46ec-9e48-df2e0b3693e6",
@@ -12779,6 +12809,22 @@
             ],
             "pattern": "<FUNC_inner>在</FUNC_inner><FUNC_negation>[^<]*?</FUNC_negation><(ACTION_verb|VerbP)>[^<]*?</(ACTION_verb|VerbP)>(<FUNC_inner>[^<]*?</FUNC_inner>)?<(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>時[^<]*?</(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>[^<]*?"
         },
+        "不論在高或低轉速時": {
+            "id": "45b1d06c-c96c-4074-afe3-39565cc9c0d0",
+            "pos": "<FUNC_inter>不論</FUNC_inter><FUNC_inner>在</FUNC_inner><MODIFIER>高</MODIFIER><FUNC_conjunction>或</FUNC_conjunction><ACTION_verb>低轉</ACTION_verb><ENTITY_nouny>速</ENTITY_nouny><FUNC_inner>時</FUNC_inner>",
+            "lexy": [
+                "(?<!</FUNC_negation>)<(ACTION_verb|VerbP)>(低轉|控步|逃星|高轉|拔離|射砲|載轉|心動過|射炮|賣通|採急)</(ACTION_verb|VerbP)>"
+            ],
+            "pattern": "<FUNC_inner>在</FUNC_inner><(MODIFIER|ModifierP)>[^<]*?</(MODIFIER|ModifierP)><FUNC_conjunction>或[^<]*?</FUNC_conjunction><(ACTION_verb|VerbP)>[^<]*?</(ACTION_verb|VerbP)><(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>[^<]*?</(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>(<FUNC_in(ner|ter)>[^<]*?</FUNC_in(ner|ter)>)?"
+        },
+        "在國內七天猶豫期間": {
+            "id": "64f064a3-348b-41f0-954e-bd23d8c2c1e6",
+            "pos": "<FUNC_inner>在</FUNC_inner><MODIFIER>國內</MODIFIER><TIME_day>七天</TIME_day><ACTION_verb>猶豫</ACTION_verb><RANGE_period>期間</RANGE_period>",
+            "lexy": [
+                "(?<!</FUNC_negation>)<(ACTION_verb|VerbP)>(猶豫|猶疑|動搖|懷疑|搖擺|游移|質疑|遲疑|傷心|沮喪|氣憤)</(ACTION_verb|VerbP)>"
+            ],
+            "pattern": "<FUNC_inner>在</FUNC_inner>(<(MODIFIER|ModifierP)>[^<]*?</(MODIFIER|ModifierP)>)?(<TIME_(holiday|justtime|day|week|month|season|year|decade)>[^<]*?</TIME_(holiday|justtime|day|week|month|season|year|decade)>){1,10}<(ACTION_verb|VerbP)>[^<]*?</(ACTION_verb|VerbP)><RANGE_(locality|period)>[^<]*?</RANGE_(locality|period)>"
+        },
         "在未送達財政處以前": {
             "id": "81c2a137-6999-4ae9-8092-2c8185bda1aa",
             "pos": "<FUNC_inner>在</FUNC_inner><FUNC_negation>未</FUNC_negation><ACTION_verb>送達</ACTION_verb><ENTITY_nouny>財政處</ENTITY_nouny><TIME_justtime>以前</TIME_justtime>",
@@ -12794,6 +12840,23 @@
                 "(?<!</FUNC_negation>)<(ACTION_verb|VerbP)>(升|升旗|升起|度量|比試|測量|量度|量測|更升|升到|跳升)</(ACTION_verb|VerbP)>"
             ],
             "pattern": "<FUNC_inner>在</FUNC_inner>(<(MODIFIER|ModifierP)>[大小]</(MODIFIER|ModifierP)>)?<ENTITY_num>[^<]*?</ENTITY_num><(ACTION_verb|VerbP)>升</(ACTION_verb|VerbP)>(<(MODIFIER|ModifierP)>[大小]</(MODIFIER|ModifierP)>)?<ENTITY_num>[^<]*?</ENTITY_num>(<TIME_(holiday|justtime|day|week|month|season|year|decade)>[^<]*?</TIME_(holiday|justtime|day|week|month|season|year|decade)>){1,10}<RANGE_(locality|period)>[^<]*?</RANGE_(locality|period)>"
+        },
+        "在大量出現不動產市場時": {
+            "id": "20442666-f8d4-4a84-990d-d10c223d045b",
+            "pos": "<FUNC_inner>在</FUNC_inner><QUANTIFIER>大量</QUANTIFIER><ACTION_verb>出現</ACTION_verb><ENTITY_noun>不動產</ENTITY_noun><ENTITY_nounHead>市場</ENTITY_nounHead><FUNC_inner>時</FUNC_inner>",
+            "lexy": [
+                "(?<!</FUNC_negation>)<(ACTION_verb|VerbP)>(出現|呈現|展現|浮現|現形|現身|表現|顯現|來到|到來|到達)</(ACTION_verb|VerbP)>"
+            ],
+            "pattern": "<FUNC_inner>在</FUNC_inner>(<QUANTIFIER>[^<]*?</QUANTIFIER>)?<(ACTION_verb|VerbP)>[^<]*?</(ACTION_verb|VerbP)><(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>[^<]*?</(UserDefined|ENTITY_(nounHead|nouny|noun|oov))><(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>[^<]*?</(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>(<FUNC_in(ner|ter)>時[^<]*?</FUNC_in(ner|ter)>)?"
+        },
+        "在沒有取得他人同意之前": {
+            "id": "83f16451-f850-4508-9ad2-edcb1bc58f20",
+            "pos": "<FUNC_inner>在</FUNC_inner><FUNC_negation>沒有</FUNC_negation><ACTION_verb>取得</ACTION_verb><ENTITY_pronoun>他人</ENTITY_pronoun><ACTION_verb>同意</ACTION_verb><TIME_justtime>之前</TIME_justtime>",
+            "lexy": [
+                "(?<!</FUNC_negation>)<(ACTION_verb|VerbP)>(取得|博取|博得|取來|奪得|得到|得著|掙得|獲取|獲得|謀取)</(ACTION_verb|VerbP)>",
+                "(?<!</FUNC_negation>)<(ACTION_verb|VerbP)>(同意|認同|讚同|贊同|一致|允准|准予|吻合|批准|承認|接納)</(ACTION_verb|VerbP)>"
+            ],
+            "pattern": "<FUNC_inner>在</FUNC_inner>(<FUNC_negation>[^<]*?</FUNC_negation>)?<(ACTION_verb|VerbP)>[^<]*?</(ACTION_verb|VerbP)>(<ENTITY_pronoun>[^<]*?</ENTITY_pronoun>)?<(ACTION_verb|VerbP)>[^<]*?</(ACTION_verb|VerbP)>(<TIME_(holiday|justtime|day|week|month|season|year|decade)>[^<]*?</TIME_(holiday|justtime|day|week|month|season|year|decade)>){1,10}"
         },
         "在您向圖書館說再見的同時": {
             "id": "6755b23a-1017-4174-b2e6-b49a194f7444",
@@ -12812,6 +12875,24 @@
             ],
             "pattern": "<FUNC_inner>在</FUNC_inner>((<ENTITY_pronoun>[^<]*?</ENTITY_pronoun>)|(<(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>[^<]*?</(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>)){0,2}(<(MODIFIER|ModifierP)>[^<]*?</(MODIFIER|ModifierP)>)?<(ACTION_verb|VerbP)>[^<]*?</(ACTION_verb|VerbP)>(<FUNC_inner>的</FUNC_inner>)?((<TIME_(holiday|justtime|day|week|month|season|year|decade)>[^<]*?</TIME_(holiday|justtime|day|week|month|season|year|decade)>){1,10}|(<ENTITY_noun>時間|地點</ENTITY_noun>))"
         },
+        "在您急須資金週轉的關鍵時刻": {
+            "id": "1766c04e-f169-4e81-83aa-dc3c7ea061dd",
+            "pos": "<FUNC_inner>在</FUNC_inner><ENTITY_pronoun>您</ENTITY_pronoun><MODIFIER>急</MODIFIER><MODAL>須</MODAL><UserDefined>資金</UserDefined><ACTION_verb>週轉</ACTION_verb><FUNC_inner>的</FUNC_inner><MODIFIER>關鍵</MODIFIER><ENTITY_noun>時刻</ENTITY_noun>",
+            "lexy": [
+                "(?<!</FUNC_negation>)<(ACTION_verb|VerbP)>(週轉|周轉|繳租|償付|告罄|借貸|總租|收租|籌措|放款|付租)</(ACTION_verb|VerbP)>"
+            ],
+            "pattern": "<FUNC_inner>在</FUNC_inner>(<ENTITY_pronoun>[^<]*?</ENTITY_pronoun>)?(<(MODIFIER|ModifierP)>[^<]*?</(MODIFIER|ModifierP)>)?(<MODAL>[^<]*?</MODAL>)?<(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>[^<]*?</(UserDefined|ENTITY_(nounHead|nouny|noun|oov))><(ACTION_verb|VerbP)>[^<]*?</(ACTION_verb|VerbP)>(<FUNC_in(ner|ter)>[^<]*?</FUNC_in(ner|ter)>)?(<(MODIFIER|ModifierP)>[^<]*?</(MODIFIER|ModifierP)>)?<(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>時[^<]*?</(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>"
+        },
+        "在自動控制設備領域成立以來": {
+            "id": "9c12eb05-767b-499a-a843-d45b50f1c7b9",
+            "pos": "<FUNC_inner>在</FUNC_inner><MODIFIER>自動</MODIFIER><ACTION_verb>控制</ACTION_verb><ENTITY_nouny>設備領域</ENTITY_nouny><ACTION_verb>成立</ACTION_verb><ENTITY_nouny>以</ENTITY_nouny><ACTION_verb>來</ACTION_verb>",
+            "lexy": [
+                "(?<!</FUNC_negation>)<(ACTION_verb|VerbP)>(控制|掌控|操控|操縱|調節|管控|調控|支配|監控|控管|壓制)</(ACTION_verb|VerbP)>",
+                "(?<!</FUNC_negation>)<(ACTION_verb|VerbP)>(成立|創立|建立|樹立|設立|創建|創記錄|創設|創辦|創造|安排)</(ACTION_verb|VerbP)>",
+                "(?<!</FUNC_negation>)<(ACTION_verb|VerbP)>(來|上來|下來|來到|前來|回來|進來|來第|學來|去|端來)</(ACTION_verb|VerbP)>"
+            ],
+            "pattern": "<FUNC_inner>在</FUNC_inner>(.+)?<(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>以</(UserDefined|ENTITY_(nounHead|nouny|noun|oov))><(ACTION_verb|VerbP)>來</(ACTION_verb|VerbP)>"
+        },
         "在您還不確定是否要辦理退貨以前": {
             "id": "d2e25d94-792b-4be7-b62b-42700bed7819",
             "pos": "<FUNC_inner>在</FUNC_inner><ENTITY_pronoun>您</ENTITY_pronoun><FUNC_inner>還</FUNC_inner><FUNC_negation>不</FUNC_negation><ACTION_verb>確定</ACTION_verb><CLAUSE_YesNoQ>是否</CLAUSE_YesNoQ><ACTION_verb>要</ACTION_verb><ACTION_verb>辦理</ACTION_verb><ACTION_verb>退貨</ACTION_verb><TIME_justtime>以前</TIME_justtime>",
@@ -12822,6 +12903,16 @@
                 "(?<!</FUNC_negation>)<(ACTION_verb|VerbP)>(退貨|退下|退出|退回|退守|退票|退行|退還|回來|回去|回敬)</(ACTION_verb|VerbP)>"
             ],
             "pattern": "<FUNC_inner>在</FUNC_inner>(<ENTITY_pronoun>[^<]*?</ENTITY_pronoun>)?(<FUNC_in(ner|ter)>[^<]*?</FUNC_in(ner|ter)>)?<FUNC_negation>[^<]*?</FUNC_negation><(ACTION_verb|VerbP)>[^<]*?</(ACTION_verb|VerbP)><CLAUSE_YesNoQ>[^<]*?</CLAUSE_YesNoQ>(<(ACTION_verb|VerbP)>[^<]*?</(ACTION_verb|VerbP)>){0,3}(<TIME_(holiday|justtime|day|week|month|season|year|decade)>[之以][^<]*?</TIME_(holiday|justtime|day|week|month|season|year|decade)>){1,10}"
+        },
+        "在巧妙使用總距控制和週期變距控制之前": {
+            "id": "e4c7327e-4d1a-4e19-b862-484d7b765ece",
+            "pos": "<FUNC_inner>在</FUNC_inner><MODIFIER>巧妙</MODIFIER><ACTION_verb>使用</ACTION_verb><ENTITY_nouny>總距</ENTITY_nouny><ACTION_verb>控制</ACTION_verb><FUNC_conjunction>和</FUNC_conjunction><ENTITY_noun>週期</ENTITY_noun><VerbP>變距</VerbP><ACTION_verb>控制</ACTION_verb><TIME_justtime>之前</TIME_justtime>",
+            "lexy": [
+                "(?<!</FUNC_negation>)<(ACTION_verb|VerbP)>(使用|利用|動用|應用|採用|施用|沿用|活用|運用|假借|憑靠)</(ACTION_verb|VerbP)>",
+                "(?<!</FUNC_negation>)<(ACTION_verb|VerbP)>(控制|掌控|操控|操縱|調節|管控|調控|支配|監控|控管|壓制)</(ACTION_verb|VerbP)>",
+                "(?<!</FUNC_negation>)<(ACTION_verb|VerbP)>(變距|滾轉|抽氣|振動|拉桿)</(ACTION_verb|VerbP)>"
+            ],
+            "pattern": "<FUNC_inner>在</FUNC_inner>(<FUNC_negation>[^<]*?</FUNC_negation>)?(<(MODIFIER|ModifierP)>[^<]*?</(MODIFIER|ModifierP)>)?<(ACTION_verb|VerbP)>[^<]*?</(ACTION_verb|VerbP)><(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>[^<]*?</(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>(<(ACTION_verb|VerbP)>[^<]*?</(ACTION_verb|VerbP)>)?(<FUNC_conjunction>[^<]*?</FUNC_conjunction><(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>[^<]*?</(UserDefined|ENTITY_(nounHead|nouny|noun|oov))><(ACTION_verb|VerbP)>[^<]*?</(ACTION_verb|VerbP)>(<(ACTION_verb|VerbP)>[^<]*?</(ACTION_verb|VerbP)>)?)?(<TIME_(holiday|justtime|day|week|month|season|year|decade)>[^<]*?</TIME_(holiday|justtime|day|week|month|season|year|decade)>){1,10}"
         },
         "在您使用臺北捷運公司網站以及其延伸服務網站所提供的服務時": {
             "id": "de832016-e703-4368-b71c-737512113cc0",

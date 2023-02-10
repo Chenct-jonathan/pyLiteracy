@@ -2,7 +2,7 @@
     "language": "zh-tw",
     "type": "advance",
     "version": {
-        "atk": "v261",
+        "atk": "v260",
         "intent": "1.0"
     },
     "user_defined": {
@@ -32,19 +32,11 @@
             "中山堂",
             "山上人家",
             "新光三越",
-            "白玉",
             "虎頭埤",
             "（",
             "）",
-            "老湖口",
-            "7-11",
-            "五大都會區",
-            "六都",
-            "八位元環境",
-            "過季廣場",
-            "鐵砧山",
-            "時機點",
-            "申報戶"
+            "白玉",
+            "資金"
         ],
         "_asVerb": [
             "上廁所",
@@ -12670,8 +12662,40 @@
             "龜山國小",
             "龜山國民中學",
             "龜山國民小學",
-            "龜山幼兒園",
-            "喬治商職"
+            "龜山幼兒園"
+        ],
+        "_schoolDegree": [
+            "小一",
+            "小二",
+            "小三",
+            "小四",
+            "小五",
+            "小六",
+            "國一",
+            "國二",
+            "國三",
+            "高一",
+            "高二",
+            "高三",
+            "大一",
+            "大二",
+            "大三",
+            "大四",
+            "大五",
+            "大六",
+            "大七",
+            "碩一",
+            "碩二",
+            "碩三",
+            "碩四",
+            "碩五",
+            "博一",
+            "博二",
+            "博三",
+            "博四",
+            "博五",
+            "博六",
+            "博七"
         ]
     },
     "utterance": {
@@ -12682,6 +12706,12 @@
                 "(?<!</FUNC_negation>)<(ACTION_verb|VerbP)>(跑步|亂跑|奔跑|快跑|慢跑|跑走|奔走|輕推|輕撞|輕碰|散步)</(ACTION_verb|VerbP)>"
             ],
             "pattern": "<ASPECT>在</ASPECT><(ACTION_verb|VerbP)>[^<]*?</(ACTION_verb|VerbP)>"
+        },
+        "都在幹嘛": {
+            "id": "c1a59888-b5ef-42df-b666-6f0969205211",
+            "pos": "<QUANTIFIER>都</QUANTIFIER><FUNC_inner>在</FUNC_inner><CLAUSE_WhyQ>幹嘛</CLAUSE_WhyQ>",
+            "lexy": [],
+            "pattern": "(<QUANTIFIER>[^<]*?</QUANTIFIER>)?<FUNC_inner>在</FUNC_inner>(<CLAUSE_WhyQ>[^<]*?</CLAUSE_WhyQ>|(<ACTION_verb>[<^]*?</ACTION_verb><CLAUSE_WhatQ>什麼</CLAUSE_WhatQ>))"
         },
         "在工作之餘": {
             "id": "9d155dcb-850a-4a1e-84bc-c87d00e8e2f7",
@@ -12696,31 +12726,6 @@
             "pos": "<FUNC_inner>在</FUNC_inner><MODIFIER>輕輕</MODIFIER><FUNC_inner>的</FUNC_inner><ENTITY_nouny>燒</ENTITY_nouny>",
             "lexy": [],
             "pattern": "(<FUNC_in(ner|ter)>[^<]*?</FUNC_in(ner|ter)>)?(<(MODIFIER|ModifierP)>[^<]*?</(MODIFIER|ModifierP)>)?(<FUNC_inner>[的地底]</FUNC_inner>)?<(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>燒</(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>"
-        },
-        "在您收到商品之前": {
-            "id": "256b437d-d6cf-4f45-acd8-7371848f3aeb",
-            "pos": "<FUNC_inner>在</FUNC_inner><ENTITY_pronoun>您</ENTITY_pronoun><ACTION_verb>收到</ACTION_verb><ENTITY_noun>商品</ENTITY_noun><TIME_justtime>之前</TIME_justtime>",
-            "lexy": [
-                "(?<!</FUNC_negation>)<(ACTION_verb|VerbP)>(收到|收取|收受|領到|接納|領取|接到了|接到|收到了|寄出|寄來)</(ACTION_verb|VerbP)>"
-            ],
-            "pattern": "(<FUNC_in(ner|ter)>[^<]*?</FUNC_in(ner|ter)>)?(<ENTITY_pronoun>[^<]*?</ENTITY_pronoun>)?<(ACTION_verb|VerbP)>收到</(ACTION_verb|VerbP)><(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>商品</(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>(<TIME_(holiday|justtime|day|week|month|season|year|decade)>[^<]*?</TIME_(holiday|justtime|day|week|month|season|year|decade)>){1,10}"
-        },
-        "在大三升大四暑假期間": {
-            "id": "ba48fb50-b5c3-4862-87b8-3a17886d5d34",
-            "pos": "<FUNC_inner>在</FUNC_inner><MODIFIER>大</MODIFIER><ENTITY_num>三</ENTITY_num><ACTION_verb>升</ACTION_verb><MODIFIER>大</MODIFIER><ENTITY_num>四</ENTITY_num><TIME_season>暑假</TIME_season><RANGE_period>期間</RANGE_period>",
-            "lexy": [
-                "(?<!</FUNC_negation>)<(ACTION_verb|VerbP)>(升|升旗|升起|度量|比試|測量|量度|量測|更升|升到|跳升)</(ACTION_verb|VerbP)>"
-            ],
-            "pattern": "<FUNC_inner>在</FUNC_inner>(<(MODIFIER|ModifierP)>[大小]</(MODIFIER|ModifierP)>)?<ENTITY_num>[^<]*?</ENTITY_num><(ACTION_verb|VerbP)>升</(ACTION_verb|VerbP)>(<(MODIFIER|ModifierP)>[大小]</(MODIFIER|ModifierP)>)?<ENTITY_num>[^<]*?</ENTITY_num>(<TIME_(holiday|justtime|day|week|month|season|year|decade)>[^<]*?</TIME_(holiday|justtime|day|week|month|season|year|decade)>){1,10}<RANGE_(locality|period)>[^<]*?</RANGE_(locality|period)>"
-        },
-        "在您向圖書館說再見的同時": {
-            "id": "265b4466-9e97-4217-8cdb-10dd8a592967",
-            "pos": "<FUNC_inner>在</FUNC_inner><ENTITY_pronoun>您</ENTITY_pronoun><FUNC_inner>向</FUNC_inner><ENTITY_noun>圖書館</ENTITY_noun><ACTION_verb>說</ACTION_verb><ACTION_verb>再見</ACTION_verb><FUNC_inner>的</FUNC_inner><TIME_justtime>同時</TIME_justtime>",
-            "lexy": [
-                "(?<!</FUNC_negation>)<(ACTION_verb|VerbP)>(說|演說|說話|宣判|拼讀|談到|辯護|常說|說了|講|罵)</(ACTION_verb|VerbP)>",
-                "(?<!</FUNC_negation>)<(ACTION_verb|VerbP)>(再見|再會|再見過|再見了|有見過|說話了|相見|愛了|相守|料想|接吻)</(ACTION_verb|VerbP)>"
-            ],
-            "pattern": "<FUNC_inner>在</FUNC_inner>(<ENTITY_pronoun>[^<]*?</ENTITY_pronoun>)?((<FUNC_inner>[向對]</FUNC_inner>)|(<FUNC_conjunction>[跟和]</FUNC_conjunction>))<(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>[^<]*?</(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>(<(ACTION_verb|VerbP)>[^<]*?</(ACTION_verb|VerbP)>){1,2}(<FUNC_inner>[^<]*?</FUNC_inner>)(<TIME_(holiday|justtime|day|week|month|season|year|decade)>[^<]*?</TIME_(holiday|justtime|day|week|month|season|year|decade)>){1,10}"
         }
     }
 }
