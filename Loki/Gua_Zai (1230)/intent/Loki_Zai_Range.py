@@ -30,28 +30,90 @@ def debugInfo(inputSTR, utterance):
 
 def getResult(inputSTR, utterance, args, resultDICT):
     debugInfo(inputSTR, utterance)
-    if utterance == "在國內七天猶豫期間":
+    if utterance == "在18歲":
         resultDICT["Zai"].append("Range")
-        pass
 
     if utterance == "在昨天":
         resultDICT["Zai"].append("Range")
-        pass
-
-    if utterance == "在本社區":
-        resultDICT["Zai"].append("Range")
-        pass
 
     if utterance == "在此時":
         resultDICT["Zai"].append("Range")
-        pass
+
+    if utterance == "在8張內":
+        resultDICT["Zai"].append("Range")
+
+    if utterance == "在大三時":
+        resultDICT["Zai"].append("Range")
+
+    if utterance == "在本社區":
+        resultDICT["Zai"].append("Range")
 
     if utterance == "在此期間":
         resultDICT["Zai"].append("Range")
-        pass
+
+    if utterance == "在酷熱暑假":
+        resultDICT["Zai"].append("Range")
+
+    if utterance == "在最短的時間":
+        resultDICT["Zai"].append("Range")
+
+    if utterance == "在最高年級時":
+        resultDICT["Zai"].append("Range")
+
+    if utterance == "在您執行列印時":
+        resultDICT["Zai"].append("Range")
+
+    if utterance == "在沒英文顯示時":
+        resultDICT["Zai"].append("Range")
+
+    if utterance == "在該書問世之後":
+        resultDICT["Zai"].append("Range")
 
     if utterance == "收在胡適文存集":
         resultDICT["Zai"].append("Range")
-        pass
 
+    if utterance == "在您收到商品之前":
+        resultDICT["Zai"].append("Range")
+
+    if utterance == "在沒有營業的時間":
+        resultDICT["Zai"].append("Range")
+
+    if utterance == "不論在高或低轉速時":
+        resultDICT["Zai"].append("Range")
+
+    if utterance == "在未送達財政處以前":
+        resultDICT["Zai"].append("Range")
+
+    if utterance == "在大三升大四暑假期間":
+        resultDICT["Zai"].append("Range")
+
+    if utterance == "在大量出現不動產市場時":
+        resultDICT["Zai"].append("Range")
+
+    if utterance == "在沒有取得他人同意之前":
+        resultDICT["Zai"].append("Range")
+
+    if utterance == "在您向圖書館說再見的同時":
+        resultDICT["Zai"].append("Range")
+
+    if utterance == "在白玉蘿蔔陸續播種的10月份":
+        resultDICT["Zai"].append("Range")
+
+    if utterance == "在您急須資金週轉的關鍵時刻":
+        resultDICT["Zai"].append("Range")
+
+    if utterance == "在自動控制設備領域成立以來":
+        resultDICT["Zai"].append("Range")
+
+    if utterance == "在您還不確定是否要辦理退貨以前":
+        resultDICT["Zai"].append("Range")
+
+    if utterance == "在巧妙使用總距控制和週期變距控制之前":
+        resultDICT["Zai"].append("Range")
+
+    if utterance == "在您使用臺北捷運公司網站以及其延伸服務網站所提供的服務時":
+        resultDICT["Zai"].append("Range")
+
+    if utterance == "在國內七天猶豫期間":
+        resultDICT["Zai"].append("Range")
     return resultDICT

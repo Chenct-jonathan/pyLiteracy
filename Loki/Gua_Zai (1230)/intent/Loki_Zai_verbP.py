@@ -32,6 +32,11 @@ def getResult(inputSTR, utterance, args, resultDICT):
     debugInfo(inputSTR, utterance)
     if utterance == "我目前在職":
         resultDICT["Zai"].append("verbP")
-        pass
+
+    if utterance == "在事前":
+        resultDICT["Zai"].append("verbP")
+
+    if utterance == "在事發當時":
+        resultDICT["Zai"].append("verbP")
 
     return resultDICT

@@ -32,14 +32,14 @@ def getResult(inputSTR, utterance, args, resultDICT):
     debugInfo(inputSTR, utterance)
     if utterance == "在工作之餘":
         resultDICT["Zai"].append("Aspect")
-        pass
 
     if utterance == "在跑步":
         resultDICT["Zai"].append("Aspect")
-        pass
 
     if utterance == "在輕輕的燒":
         resultDICT["Zai"].append("Aspect")
-        pass
+
+    if utterance == "都在幹嘛":
+        resultDICT["Zai"].append("Aspect")
 
     return resultDICT
