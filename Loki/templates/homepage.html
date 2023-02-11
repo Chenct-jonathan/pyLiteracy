@@ -4,19 +4,29 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>pyLiteracy 中文檢查器</title>
-  <link rel="icon" href="{{ url_for('static', filename='img/alpaca_logo.ico') }}">
-  <script src="jquery-3.1.1.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 </head>
 <body>
-  <form action="test.php" method="post">
+  <form>
     <div>
       <label>Input：</label><br>
-      <textarea class="inline-block" style="width:70%;height:300px;" name="inputSTR"></textarea>
-      <button type="submit">Check</button>
+      <textarea class="inline-block" style="width:70%;height:300px;" id="inputSTR"></textarea>
+      <button id="submit">Check</button>
     </div>
     <div>
-      <p class="inline-block" style="width:70%;height:300px;" name="outputSTR"></p>
-    </div>    
+      <p id="result" class="inline-block" style="width:70%;height:300px;" name="outputSTR"></p>
+    </div>
   </form>
 </body>
+<script>
+    $("#submit").click(function(){
+        console.log("clicked");
+        var txt = $("#inputSTR").val();
+        console.log("輸入:"+txt);
+        $.post("/gua", {"inputSTR":txt}, function(result){
+            console.log(result);
+            $("#result").html(result);
+        });
+    });
+</script>
 </html>
