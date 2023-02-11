@@ -7,7 +7,6 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 </head>
 <body>
-  <form>
     <div>
       <label>Input：</label><br>
       <textarea class="inline-block" style="width:70%;height:300px;" id="inputSTR"></textarea>
@@ -16,17 +15,29 @@
     <div>
       <p id="result" class="inline-block" style="width:70%;height:300px;" name="outputSTR"></p>
     </div>
-  </form>
 </body>
 <script>
     $("#submit").click(function(){
-        console.log("clicked");
-        var txt = $("#inputSTR").val();
-        console.log("輸入:"+txt);
-        $.post("/gua", {"inputSTR":txt}, function(result){
-            console.log(result);
-            $("#result").html(result);
-        });
+        submit();
     });
+
+    function submit(){
+        var payload = {};
+        payload["inputSTR"] = $("#inputSTR").val();
+        $("#result").html("");
+        $.ajax({url: "/gua",
+                data: JSON.stringify(payload),
+                type: "POST",
+                dataType: "json",
+                contentType: "application/json;charset=utf-8",
+            success: function(returnData){
+                $("#result").html(returnData.checkResult);
+            },
+            error: function(xhr, ajaxOptions, thrownError){
+                alert("error: "+ xhr.status);
+                alert(thrownError);
+            }
+        });
+    }
 </script>
 </html>

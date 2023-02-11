@@ -3,6 +3,7 @@
 
 
 from flask import Flask
+from flask import jsonify
 from flask import render_template
 from flask import request
 import json
@@ -27,12 +28,22 @@ app = Flask(__name__)
 def home():
     return render_template("homepage.html")
 
-@app.route("/gua", methods=["POST", "GET"])
+@app.route("/gua", methods=["POST"])
 def zaiChecker():
-    if request.method == "POST" or request.method == "GET":
+    print("What happened?!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+    if request.method == "POST":# or request.method == "GET":
         sentenceLIST = []
-        inputSTR = request.values["inputSTR"]
+        inputDICT = request.json
+        inputSTR = inputDICT["inputSTR"]
+        if inputSTR.strip() == "":
+            return jsonify({"returnData":""})
+
         articutDICT = articut.parse(inputSTR)
+        if articutDICT["status"] == True:
+            pass
+        else:
+            return jsonify({"returnData": articutDICT["msg"]})
+
         for i in articutDICT["result_pos"]:
             if len(i) <= 1:
                 sentenceLIST.append(i)
@@ -49,7 +60,8 @@ def zaiChecker():
                     app.logger.info("變成{}".format("".join(sentenceLIST)))
             else:
                 sentenceLIST.append(re.sub(pat, "", i))
-        return "".join(sentenceLIST)
+        response = jsonify({"checkResult":"<br>".join(sentenceLIST)})
+        return response
 
 if __name__ == "__main__":
     app.run(debug=True)
