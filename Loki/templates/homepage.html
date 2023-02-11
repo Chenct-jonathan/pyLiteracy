@@ -3,10 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>賴田捕手</title>
+  <title>pyLiteracy 中文檢查器</title>
+  <link rel="icon" href="{{ url_for('static', filename='img/alpaca_logo.ico') }}">
+  <script src="jquery-3.1.1.min.js"></script>
 </head>
 <body>
-  <h1>賴田捕手第 20 天</h1>
-  <p>全身都是肌肉沒半點腦子。反正，那就是鄭尼那晚照顧的草泥馬。我完全無法了解，我發誓我沒辦法。</p>
+  <form action="test.php" method="post">
+    <div>
+      <label>Input：</label><br>
+      <textarea class="inline-block" style="width:70%;height:300px;" name="inputSTR"></textarea>
+      <button type="submit">Check</button>
+    </div>
+    <div>
+      <p class="inline-block" style="width:70%;height:300px;" name="outputSTR"></p>
+    </div>    
+  </form>
 </body>
 </html>
