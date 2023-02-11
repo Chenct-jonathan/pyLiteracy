@@ -24,7 +24,7 @@ articut = Articut(username=accountDICT["username"], apikey=accountDICT["apikey"]
 app = Flask(__name__)
 
 @app.route("/")
-def test():
+def home():
     return render_template("homepage.html")
 
 @app.route("/gua", methods=["POST", "GET"])
