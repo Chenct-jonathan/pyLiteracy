@@ -58,7 +58,7 @@ except:
     from .intent import Loki_Zai_Aspect
     from .intent import Loki_Zai_Range
     from .intent import Loki_Zai_State
-    from intent import Loki_Zai_Loc
+    from .intent import Loki_Zai_Loc
 
 with open("account.info", encoding="utf-8") as f:
     accountDICT = json.load(f)
@@ -313,16 +313,16 @@ if __name__ == "__main__":
     #resultDICT = execLoki("今天天氣如何？後天氣象如何？", filterLIST)            # output => ["今天天氣"]
     #resultDICT = execLoki("今天天氣如何？後天氣象如何？", filterLIST, splitLIST) # output => ["今天天氣", "後天氣象"]
     #resultDICT = execLoki(["今天天氣如何？", "後天氣象如何？"], filterLIST)      # output => ["今天天氣", "後天氣象"]
-    
+
     inputSTR = "17曾道雄製作《台語創作歌曲之夜》在國家音樂廳演出"
     #inputSTR = input("請輸入要檢查的句子：")
     resultDICT = execLoki(inputSTR)
-    
+
     """
     if resultDICT["Zai"] == []:
         print("\n再啦!為什麼不好好選字呢？")
     else:
-        pass 
+        pass
     """
 
-    print(resultDICT)    
+    print(resultDICT)
