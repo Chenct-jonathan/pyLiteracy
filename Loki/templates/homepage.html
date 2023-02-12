@@ -24,7 +24,7 @@
     //定義 submit() 的內容如下
     function submit(){
         var payload = {};                                        //準備上傳的內容為 payload
-        payload["inputSTR"] = $("#inputSTR").val();              //將輸入區內的字串值載入 payload 中
+        payload["inputSTR"] = $("#inputSTR").val();              //將輸入區內的字串值載入 payload 中，給定 key 為 "inputSTR"
         $("#result").html("");                                   //將 id 為 result 的結果呈現區清空
         $.ajax({url: "/gua",                                     //使用 $.ajas() 功能將內容送出
                 data: JSON.stringify(payload),
