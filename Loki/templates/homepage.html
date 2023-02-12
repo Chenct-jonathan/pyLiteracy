@@ -17,23 +17,24 @@
     </div>
 </body>
 <script>
+    //id 為 submit 的元素被按下 (click) 時，執行 submit() 這支程式
     $("#submit").click(function(){
         submit();
     });
-
+    //定義 submit() 的內容如下
     function submit(){
-        var payload = {};
-        payload["inputSTR"] = $("#inputSTR").val();
-        $("#result").html("");
-        $.ajax({url: "/gua",
+        var payload = {};                                        //準備上傳的內容為 payload
+        payload["inputSTR"] = $("#inputSTR").val();              //將輸入區內的字串值載入 payload 中
+        $("#result").html("");                                   //將 id 為 result 的結果呈現區清空
+        $.ajax({url: "/gua",                                     //使用 $.ajas() 功能將內容送出
                 data: JSON.stringify(payload),
                 type: "POST",
                 dataType: "json",
                 contentType: "application/json;charset=utf-8",
-            success: function(returnData){
+            success: function(returnData){                       //若成功處理，則將 id 為 result 的區塊填入 returnData 的 checkResult 值。
                 $("#result").html(returnData.checkResult);
             },
-            error: function(xhr, ajaxOptions, thrownError){
+            error: function(xhr, ajaxOptions, thrownError){     //若處理失敗，跳出錯誤原因資訊。
                 alert("error: "+ xhr.status);
                 alert(thrownError);
             }

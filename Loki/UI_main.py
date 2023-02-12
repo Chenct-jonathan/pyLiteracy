@@ -30,21 +30,20 @@ def home():
 
 @app.route("/gua", methods=["POST"])
 def zaiChecker():
-    print("What happened?!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
     if request.method == "POST":# or request.method == "GET":
         sentenceLIST = []
         inputDICT = request.json
-        inputSTR = inputDICT["inputSTR"]
-        if inputSTR.strip() == "":
+        inputSTR = inputDICT["inputSTR"]          #此行對應 .js 中的：payload["inputSTR"] = $("#inputSTR").val(); //將輸入區內的字串值載入 payload 中，給定 key 為 "inputSTR"
+        if inputSTR.strip() == "":                #檢查一下，如果送空白字串上來，就回覆空字串。
             return jsonify({"returnData":""})
 
-        articutDICT = articut.parse(inputSTR)
-        if articutDICT["status"] == True:
+        articutDICT = articut.parse(inputSTR)     #如果不是空字串，就把字串送給 Articut 處理以便斷句。
+        if articutDICT["status"] == True:         #若斷句結果正常結束，就繼續往下走。否則就回覆 jsonify() 後的結果。
             pass
         else:
             return jsonify({"returnData": articutDICT["msg"]})
 
-        for i in articutDICT["result_pos"]:
+        for i in articutDICT["result_pos"]:       #將 Articut 處理後的每一句，送入 Loki 模型中處理。
             if len(i) <= 1:
                 sentenceLIST.append(i)
             elif "<FUNC_inner>在</FUNC_inner>" in i or "<ASPECT>在</ASPECT>" in i:
@@ -60,7 +59,7 @@ def zaiChecker():
                     app.logger.info("變成{}".format("".join(sentenceLIST)))
             else:
                 sentenceLIST.append(re.sub(pat, "", i))
-        response = jsonify({"checkResult":"<br>".join(sentenceLIST)})
+        response = jsonify({"checkResult":"<br>".join(sentenceLIST)})    #將最終結果以 jsonify() 包裝後回傳到前端 .js
         return response
 
 if __name__ == "__main__":
