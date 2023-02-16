@@ -32,154 +32,119 @@ def getResult(inputSTR, utterance, args, resultDICT):
     debugInfo(inputSTR, utterance)
     if utterance == "保持在":
         resultDICT["Zai"].append("Loc")
-        pass
 
     if utterance == "在90.6K處":
         resultDICT["Zai"].append("Loc")
-        pass
 
     if utterance == "在「尚有庫存」內出貨":
         resultDICT["Zai"].append("Loc")
-        pass
 
     if utterance == "在一個空間":
         resultDICT["Zai"].append("Loc")
-        pass
 
     if utterance == "在一般的營業場所":
         resultDICT["Zai"].append("Loc")
-        pass
 
     if utterance == "在中文系":
         resultDICT["Zai"].append("Loc")
-        pass
 
     if utterance == "在你我生活的台灣":
         resultDICT["Zai"].append("Loc")
-        pass
 
     if utterance == "在其中":
         resultDICT["Zai"].append("Loc")
-        pass
 
     if utterance == "在別台電腦":
         resultDICT["Zai"].append("Loc")
-        pass
 
     if utterance == "在北區長北街66號":
         resultDICT["Zai"].append("Loc")
-        pass
 
     if utterance == "在原付款憑單":
         resultDICT["Zai"].append("Loc")
-        pass
 
     if utterance == "在台灣":
         resultDICT["Zai"].append("Loc")
-        pass
 
     if utterance == "在同一電腦":
         resultDICT["Zai"].append("Loc")
-        pass
 
     if utterance == "在國內":
         resultDICT["Zai"].append("Loc")
-        pass
 
     if utterance == "在國外購買商品":
         resultDICT["Zai"].append("Loc")
-        pass
 
     if utterance == "在國家音樂廳":
         resultDICT["Zai"].append("Loc")
-        pass
 
     if utterance == "在大台中地區":
         resultDICT["Zai"].append("Loc")
-        pass
 
     if utterance == "在大集大利網站":
         resultDICT["Zai"].append("Loc")
-        pass
 
     if utterance == "在我國":
         resultDICT["Zai"].append("Loc")
-        pass
 
     if utterance == "在我國之申請案":
         resultDICT["Zai"].append("Loc")
-        pass
 
     if utterance == "在所有7-11":
         resultDICT["Zai"].append("Loc")
-        pass
 
     if utterance == "在有限的預算中":
         resultDICT["Zai"].append("Loc")
-        pass
 
     if utterance == "在朝馬路上":
         resultDICT["Zai"].append("Loc")
-        pass
 
     if utterance == "在本款":
         resultDICT["Zai"].append("Loc")
-        pass
 
     if utterance == "在東方320公里外":
         resultDICT["Zai"].append("Loc")
-        pass
 
     if utterance == "在桃米社區":
         resultDICT["Zai"].append("Loc")
-        pass
 
     if utterance == "在正式課程之外":
         resultDICT["Zai"].append("Loc")
-        pass
 
     if utterance == "在此":
         resultDICT["Zai"].append("Loc")
-        pass
 
     if utterance == "在此處":
         resultDICT["Zai"].append("Loc")
-        pass
 
     if utterance == "在浴室":
         resultDICT["Zai"].append("Loc")
-        pass
 
     if utterance == "在無法蓋圖書館的地方":
         resultDICT["Zai"].append("Loc")
-        pass
 
     if utterance == "在福建省中":
         resultDICT["Zai"].append("Loc")
-        pass
 
     if utterance == "在科學機構":
         resultDICT["Zai"].append("Loc")
-        pass
 
     if utterance == "在許多角落":
         resultDICT["Zai"].append("Loc")
-        pass
 
     if utterance == "在該國":
         resultDICT["Zai"].append("Loc")
-        pass
 
     if utterance == "在車水馬龍的道路上":
         resultDICT["Zai"].append("Loc")
-        pass
 
     if utterance == "在金融和投資等方面":
         resultDICT["Zai"].append("Loc")
-        pass
 
     if utterance == "紅色木屋在綠樹中掩映":
         resultDICT["Zai"].append("Loc")
-        pass
+
+    if utterance == "在哪裡":
+        resultDICT["Zai"].append("Loc")
 
     return resultDICT

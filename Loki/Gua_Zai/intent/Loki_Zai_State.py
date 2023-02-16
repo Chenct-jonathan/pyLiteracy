@@ -32,114 +32,83 @@ def getResult(inputSTR, utterance, args, resultDICT):
     debugInfo(inputSTR, utterance)
     if utterance == "上半年是在4或5月":
         resultDICT["Zai"].append("State")
-        pass
 
     if utterance == "並在會後舉行年終尾牙聚餐活動":
         resultDICT["Zai"].append("State")
-        pass
 
     if utterance == "優勝廠商在二家以上者":
         resultDICT["Zai"].append("State")
-        pass
 
     if utterance == "可以讓你在不增加任何成本的狀況下接觸更多顧客":
         resultDICT["Zai"].append("State")
-        pass
 
     if utterance == "可用來保障您在線上傳輸的資料不會外流":
         resultDICT["Zai"].append("State")
-        pass
 
     if utterance == "在2009":
         resultDICT["Zai"].append("State")
-        pass
 
     if utterance == "在800年前":
         resultDICT["Zai"].append("State")
-        pass
 
     if utterance == "在90%中":
         resultDICT["Zai"].append("State")
-        pass
 
     if utterance == "在七期新光三越":
         resultDICT["Zai"].append("State")
-        pass
 
     if utterance == "在不確定的世界裡":
         resultDICT["Zai"].append("State")
-        pass
 
     if utterance == "在內":
         resultDICT["Zai"].append("State")
-        pass
 
     if utterance == "在前後文":
         resultDICT["Zai"].append("State")
-        pass
 
     if utterance == "在古典與現代之間悠遊":
         resultDICT["Zai"].append("State")
-        pass
 
     if utterance == "在新台幣五千元以內":
         resultDICT["Zai"].append("State")
-        pass
 
     if utterance == "在於":
         resultDICT["Zai"].append("State")
-        pass
 
     if utterance == "在桌上":
         resultDICT["Zai"].append("State")
-        pass
 
     if utterance == "在每人每月新臺幣1,800元限額內":
         resultDICT["Zai"].append("State")
-        pass
 
     if utterance == "在短期內較易收得成效":
         resultDICT["Zai"].append("State")
-        pass
-
-    if utterance == "在福智高級中學":
-        resultDICT["Zai"].append("State")
-        pass
 
     if utterance == "在西元前800年":
         resultDICT["Zai"].append("State")
-        pass
 
     if utterance == "在該範圍內":
         resultDICT["Zai"].append("State")
-        pass
 
     if utterance == "在軟體方面":
         resultDICT["Zai"].append("State")
-        pass
 
     if utterance == "收錄在第三頁":
         resultDICT["Zai"].append("State")
-        pass
 
     if utterance == "收錄在被行銷者之手機":
         resultDICT["Zai"].append("State")
-        pass
 
     if utterance == "目前在第1頁":
         resultDICT["Zai"].append("State")
-        pass
 
     if utterance == "目前情趣內衣多在數千元之譜":
         resultDICT["Zai"].append("State")
-        pass
 
     if utterance == "長度在0以上":
         resultDICT["Zai"].append("State")
-        pass
 
     if utterance == "長度在0以上的任意字串":
         resultDICT["Zai"].append("State")
-        pass
 
     return resultDICT
