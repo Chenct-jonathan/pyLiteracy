@@ -12805,12 +12805,6 @@
             "lexy": [],
             "pattern": "<FUNC_inner>在</FUNC_inner><ACTION_eventQuantifier>[^<]*?</ACTION_eventQuantifier>"
         },
-        "在福智高級中學": {
-            "id": "ac4a53f2-5cb5-4e5c-8995-f26c007f49d0",
-            "pos": "<FUNC_inner>在</FUNC_inner><UserDefined>福智高級中學</UserDefined>",
-            "lexy": [],
-            "pattern": "<FUNC_inner>在</FUNC_inner><UserDefined>[^<]*?</UserDefined>"
-        },
         "上半年是在4或5月": {
             "id": "c6430fe3-36b5-4633-bcdb-7c46287e33b8",
             "pos": "<RANGE_locality>上</RANGE_locality><TIME_year>半年</TIME_year><AUX>是</AUX><FUNC_inner>在</FUNC_inner><ENTITY_num>4</ENTITY_num><FUNC_conjunction>或</FUNC_conjunction><TIME_month>5月</TIME_month>",
