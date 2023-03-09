@@ -16,9 +16,11 @@
             "縣政府",
             "電腦網路",
             "電腦網路媒體",
+            "非保險醫療機構",
             "音樂廳"
         ],
         "_asNoun": [
+            "7-11",
             "@",
             "WPPT",
             "《",
@@ -29,18 +31,41 @@
             "』",
             "【",
             "】",
+            "七星山",
             "中山堂",
+            "五大都會區",
+            "伺服器",
+            "八位元環境",
+            "六都",
+            "前提",
+            "坡度",
+            "太祖媽廟",
+            "太興社區",
+            "學習時空",
             "山上人家",
+            "已開發國家",
+            "師生",
             "新光三越",
-            "虎頭埤",
-            "（",
-            "）",
+            "時機點",
+            "申報戶",
             "白玉",
-            "資金"
+            "老湖口",
+            "舊檢查哨",
+            "虎頭埤",
+            "親等",
+            "資金",
+            "過季廣場",
+            "鐵砧山",
+            "飛比價格",
+            "（",
+            "）"
         ],
         "_asVerb": [
             "上廁所",
-            "日趨多樣"
+            "便民",
+            "兩稅合一",
+            "日趨多樣",
+            "欺壓"
         ],
         "_schoolTW": [
             "一甲國中",
@@ -3004,6 +3029,7 @@
             "善糖國民小學",
             "喜樹國小",
             "喜樹國民小學",
+            "喬治商職",
             "喬治工商",
             "喬治高級工商職業學校",
             "嘉中",
@@ -12665,37 +12691,37 @@
             "龜山幼兒園"
         ],
         "_schoolDegree": [
-            "小一",
-            "小二",
-            "小三",
-            "小四",
-            "小五",
-            "小六",
-            "國一",
-            "國二",
-            "國三",
-            "高一",
-            "高二",
-            "高三",
-            "大一",
-            "大二",
-            "大三",
-            "大四",
-            "大五",
-            "大六",
-            "大七",
-            "碩一",
-            "碩二",
-            "碩三",
-            "碩四",
-            "碩五",
             "博一",
-            "博二",
+            "博七",
             "博三",
-            "博四",
+            "博二",
             "博五",
             "博六",
-            "博七"
+            "博四",
+            "國一",
+            "國三",
+            "國二",
+            "大一",
+            "大七",
+            "大三",
+            "大二",
+            "大五",
+            "大六",
+            "大四",
+            "小一",
+            "小三",
+            "小二",
+            "小五",
+            "小六",
+            "小四",
+            "碩一",
+            "碩三",
+            "碩二",
+            "碩五",
+            "碩四",
+            "高一",
+            "高三",
+            "高二"
         ]
     },
     "utterance": {
@@ -12817,6 +12843,12 @@
             ],
             "pattern": "<FUNC_inner>在</FUNC_inner><(MODIFIER|ModifierP)>[^<]*?</(MODIFIER|ModifierP)><FUNC_conjunction>或[^<]*?</FUNC_conjunction><(ACTION_verb|VerbP)>[^<]*?</(ACTION_verb|VerbP)><(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>[^<]*?</(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>(<FUNC_in(ner|ter)>[^<]*?</FUNC_in(ner|ter)>)?"
         },
+        "在不定期展覽活動時": {
+            "id": "63f96e57-ac39-4856-bf6e-4ee9d9631873",
+            "pos": "<FUNC_inner>在</FUNC_inner><FUNC_negation>不</FUNC_negation><MODIFIER>定期</MODIFIER><ENTITY_nounHead>展覽活動</ENTITY_nounHead><FUNC_inner>時</FUNC_inner>",
+            "lexy": [],
+            "pattern": "<FUNC_inner>在</FUNC_inner>(<FUNC_negation>不</FUNC_negation>)?(<(MODIFIER|ModifierP)>[^<]*?</(MODIFIER|ModifierP)>)?<(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>[^<]*?</(UserDefined|ENTITY_(nounHead|nouny|noun|oov))><FUNC_inner>時</FUNC_inner>"
+        },
         "在國內七天猶豫期間": {
             "id": "64f064a3-348b-41f0-954e-bd23d8c2c1e6",
             "pos": "<FUNC_inner>在</FUNC_inner><MODIFIER>國內</MODIFIER><TIME_day>七天</TIME_day><ACTION_verb>猶豫</ACTION_verb><RANGE_period>期間</RANGE_period>",
@@ -12833,6 +12865,14 @@
             ],
             "pattern": "<FUNC_inner>在</FUNC_inner><FUNC_negation>[^<]*?</FUNC_negation><(ACTION_verb|VerbP)>[^<]*?</(ACTION_verb|VerbP)><(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>[^<]*?</(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>(<TIME_(holiday|justtime|day|week|month|season|year|decade)>[之以][^<]*?</TIME_(holiday|justtime|day|week|month|season|year|decade)>){1,10}"
         },
+        "在重新開創新事業時": {
+            "id": "4513a6d7-0670-4fde-9b17-681be6935359",
+            "pos": "<FUNC_inner>在</FUNC_inner><MODIFIER>重新</MODIFIER><ACTION_verb>開</ACTION_verb><MODIFIER>創新</MODIFIER><ENTITY_noun>事業</ENTITY_noun><FUNC_inner>時</FUNC_inner>",
+            "lexy": [
+                "(?<!</FUNC_negation>)<(ACTION_verb|VerbP)>(開|開了|有開|發開|正開|站開|原開|到開|集搬|開過|改開)</(ACTION_verb|VerbP)>"
+            ],
+            "pattern": "<FUNC_inner>在</FUNC_inner>(<(UserDefined|ENTITY_(nounHead|nouny|noun|oov|person|pronoun))>[^<]*?</(UserDefined|ENTITY_(nounHead|nouny|noun|oov|person|pronoun))>)?(<(MODIFIER|ModifierP)>[^<]*?</(MODIFIER|ModifierP)>)?<(ACTION_verb|VerbP)>[^<]*?</(ACTION_verb|VerbP)>(<(MODIFIER|ModifierP)>[^<]*?</(MODIFIER|ModifierP)>)?<(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>[^<]*?</(UserDefined|ENTITY_(nounHead|nouny|noun|oov))><FUNC_inner>時</FUNC_inner>"
+        },
         "在大三升大四暑假期間": {
             "id": "0638115a-5ffc-4203-902b-3c1521ca15d5",
             "pos": "<FUNC_inner>在</FUNC_inner><MODIFIER>大</MODIFIER><ENTITY_num>三</ENTITY_num><ACTION_verb>升</ACTION_verb><MODIFIER>大</MODIFIER><ENTITY_num>四</ENTITY_num><TIME_season>暑假</TIME_season><RANGE_period>期間</RANGE_period>",
@@ -12840,6 +12880,15 @@
                 "(?<!</FUNC_negation>)<(ACTION_verb|VerbP)>(升|升旗|升起|度量|比試|測量|量度|量測|更升|升到|跳升)</(ACTION_verb|VerbP)>"
             ],
             "pattern": "<FUNC_inner>在</FUNC_inner>(<(MODIFIER|ModifierP)>[大小]</(MODIFIER|ModifierP)>)?<ENTITY_num>[^<]*?</ENTITY_num><(ACTION_verb|VerbP)>升</(ACTION_verb|VerbP)>(<(MODIFIER|ModifierP)>[大小]</(MODIFIER|ModifierP)>)?<ENTITY_num>[^<]*?</ENTITY_num>(<TIME_(holiday|justtime|day|week|month|season|year|decade)>[^<]*?</TIME_(holiday|justtime|day|week|month|season|year|decade)>){1,10}<RANGE_(locality|period)>[^<]*?</RANGE_(locality|period)>"
+        },
+        "在初步溝通配合客戶之後": {
+            "id": "16bb39b7-263f-44f4-a1d4-b319f5fa30dd",
+            "pos": "<FUNC_inner>在</FUNC_inner><MODIFIER>初步</MODIFIER><ACTION_verb>溝通</ACTION_verb><ACTION_verb>配合</ACTION_verb><ENTITY_noun>客戶</ENTITY_noun><RANGE_period>之後</RANGE_period>",
+            "lexy": [
+                "(?<!</FUNC_negation>)<(ACTION_verb|VerbP)>(溝通|接通|交結|傳告|接合|搭接|灌輸|協調|協商|互動|交流)</(ACTION_verb|VerbP)>",
+                "(?<!</FUNC_negation>)<(ACTION_verb|VerbP)>(配合|合作|合用|合辦|吻合|整合|符合|配製|協調|協辦|改動)</(ACTION_verb|VerbP)>"
+            ],
+            "pattern": "<FUNC_inner>在</FUNC_inner>(<(MODIFIER|ModifierP)>[^<]*?</(MODIFIER|ModifierP)>)?<(ACTION_verb|VerbP)>[^<]*?</(ACTION_verb|VerbP)>(<(ACTION_verb|VerbP)>[^<]*?</(ACTION_verb|VerbP)>)?<(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>[^<]*?</(UserDefined|ENTITY_(nounHead|nouny|noun|oov))><RANGE_(locality|period)>[之以][^<]*?</RANGE_(locality|period)>"
         },
         "在大量出現不動產市場時": {
             "id": "20442666-f8d4-4a84-990d-d10c223d045b",
@@ -12866,6 +12915,15 @@
                 "(?<!</FUNC_negation>)<(ACTION_verb|VerbP)>(再見|再會|再見過|再見了|有見過|說話了|相見|愛了|相守|料想|接吻)</(ACTION_verb|VerbP)>"
             ],
             "pattern": "<FUNC_inner>在</FUNC_inner>(<ENTITY_pronoun>[^<]*?</ENTITY_pronoun>)?((<FUNC_inner>[向對]</FUNC_inner>)|(<FUNC_conjunction>[跟和]</FUNC_conjunction>))<(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>[^<]*?</(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>(<(ACTION_verb|VerbP)>[^<]*?</(ACTION_verb|VerbP)>){1,2}(<FUNC_inner>[^<]*?</FUNC_inner>)(<TIME_(holiday|justtime|day|week|month|season|year|decade)>[^<]*?</TIME_(holiday|justtime|day|week|month|season|year|decade)>){1,10}"
+        },
+        "在飽受殖民欺壓的日治時期": {
+            "id": "e3ebaf93-30ac-479a-9944-dd42039a9cdb",
+            "pos": "<FUNC_inner>在</FUNC_inner><MODIFIER>飽</MODIFIER><ACTION_verb>受</ACTION_verb><ACTION_verb>殖民</ACTION_verb><UserDefined>欺壓</UserDefined><FUNC_inner>的</FUNC_inner><ENTITY_noun>日治時期</ENTITY_noun>",
+            "lexy": [
+                "(?<!</FUNC_negation>)<(ACTION_verb|VerbP)>(受|受到|受此|受到了|有受|受著|遭受|受當|受風|受宮|趨完)</(ACTION_verb|VerbP)>",
+                "(?<!</FUNC_negation>)<(ACTION_verb|VerbP)>(殖民|統治|侵略)</(ACTION_verb|VerbP)>"
+            ],
+            "pattern": "<FUNC_inner>在</FUNC_inner>(<(MODIFIER|ModifierP)>[^<]*?</(MODIFIER|ModifierP)>)?<(ACTION_verb|VerbP)>受</(ACTION_verb|VerbP)>((<(ACTION_verb|VerbP)>[^<]*?</(ACTION_verb|VerbP)>)|(<(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>[^<]*?</(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>)){1,2}(<FUNC_in(ner|ter)>[^<]*?</FUNC_in(ner|ter)>)?<(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>[^<]*?[時期]</(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>"
         },
         "在白玉蘿蔔陸續播種的10月份": {
             "id": "69f00d00-fcde-4b5c-9894-ff3fa91de648",
