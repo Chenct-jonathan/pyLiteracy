@@ -83,7 +83,8 @@ Repetitive-zai (再) and LocativePeriodic-zai (在) share the same pronunciation
 6. 將複製下來的金鑰貼上到檔案 account.info 中：
 ```
 {
-    "username" : " ***輸入USERNAME(註冊信箱)*** ",
+    "username" : " ***輸入 USERNAME (註冊信箱)*** ",
+    "api-key" : " ***將 Articut 金鑰貼到這裡*** ",
     "loki-key" : " ***將專案金鑰貼到這裡*** ",
 }
 ```
