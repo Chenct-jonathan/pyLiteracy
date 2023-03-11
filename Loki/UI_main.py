@@ -48,7 +48,7 @@ def zaiChecker():
                 sentenceLIST.append(i)
             elif "<FUNC_inner>在</FUNC_inner>" in i or "<ASPECT>在</ASPECT>" in i:
                 checkResultDICT = execLoki(inputSTR)
-                if checkResultDICT["Zai"] == "":
+                if checkResultDICT["Zai"] != []:
                     sentenceLIST.append(re.sub(pat, "", i))
                 else:
                     if "<FUNC_inner>在</FUNC_inner>" in i:

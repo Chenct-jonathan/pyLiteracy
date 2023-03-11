@@ -48,4 +48,7 @@ def getResult(inputSTR, utterance, args, resultDICT):
     if utterance == "在止於至善":
         resultDICT["Zai"].append("Idiom")
 
+    if utterance == "老神在在":
+        resultDICT["Zai"].append("Idiom")
+
     return resultDICT
