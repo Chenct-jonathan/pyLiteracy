@@ -61,7 +61,6 @@ except:
     from .intent import Loki_Zai_Loc
 
 import os
-BASEPATH = os.path.dirname(os.path.abspath(__file__))
 
 with open("{}/../../account.info".format(BASEPATH), encoding="utf-8") as f:
     accountDICT = json.load(f)
