@@ -90,7 +90,7 @@ Repetitive-zai (再) and LocativePeriodic-zai (在) share the same pronunciation
 
 開始使用
 -------------
-- 執行指令：`$ python .\Loki\UI_main.py
+- 執行指令：`$ python .\Loki\UI_main.py`
 - 在瀏覽器開啟 http://127.0.0.1:5000
 
 
