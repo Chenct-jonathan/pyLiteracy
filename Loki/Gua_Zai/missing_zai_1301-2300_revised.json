@@ -38,9 +38,9 @@
     *"柱塞就在",
     problem ?c"在與犬貓管理有關之議題", => range
     ?c"在了聶繼承老師的課程中", => skip (Articut needs fix.)
-    ?b"不知道要將愛犬寄放在哪邊嗎",  => new intent Q-mark
-    ?b"訪問者明確知道自己在什麼位置", => new intent Q-mark
-    ?b"搞不清自己在什麼位置",        => new intent Q-mark
+    done h"不知道要將愛犬寄放在哪邊嗎",  => new intent Q-mark
+    done h"訪問者明確知道自己在什麼位置", => new intent Q-mark
+    done h"搞不清自己在什麼位置",        => new intent Q-mark
     done a"在初步溝通配合客戶之後",
     *"園主謝元在先生世代為茶農家族",
     b"在全馬來西亞受到當地居民與觀光客的喜愛並於香港日本熱賣中",
