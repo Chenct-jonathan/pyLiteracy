@@ -16,6 +16,7 @@
             "縣政府",
             "電腦網路",
             "電腦網路媒體",
+            "非保險醫療機構",
             "音樂廳"
         ],
         "_asNoun": [
@@ -30,6 +31,7 @@
             "』",
             "【",
             "】",
+            "七星山",
             "中山堂",
             "五大都會區",
             "伺服器",
@@ -37,8 +39,11 @@
             "六都",
             "前提",
             "坡度",
+            "太祖媽廟",
+            "太興社區",
             "學習時空",
             "山上人家",
+            "已開發國家",
             "師生",
             "新光三越",
             "時機點",
@@ -59,7 +64,8 @@
             "上廁所",
             "便民",
             "兩稅合一",
-            "日趨多樣"
+            "日趨多樣",
+            "欺壓"
         ],
         "_schoolTW": [
             "一甲國中",
@@ -12719,13 +12725,21 @@
         ]
     },
     "utterance": {
+        "在唱歌": {
+            "id": "a1a288eb-fdb3-44cb-bcdb-67a81d23071b",
+            "pos": "<ASPECT>在</ASPECT><ACTION_verb>唱歌</ACTION_verb>",
+            "lexy": [
+                "(?<!</FUNC_negation>)<(ACTION_verb|VerbP)>(唱歌|吟唱|唱誦|彈唱|歌頌|清唱|演唱|高唱|高歌|彈奏|彈琴)</(ACTION_verb|VerbP)>"
+            ],
+            "pattern": "<ASPECT>在</ASPECT><(ACTION_verb|VerbP)>[^<]*?</(ACTION_verb|VerbP)>"
+        },
         "在跑步": {
             "id": "be87851b-f3b5-4ab0-b03b-80ef13659ecd",
             "pos": "<ASPECT>在</ASPECT><ACTION_verb>跑步</ACTION_verb>",
             "lexy": [
                 "(?<!</FUNC_negation>)<(ACTION_verb|VerbP)>(跑步|亂跑|奔跑|快跑|慢跑|跑走|奔走|輕推|輕撞|輕碰|散步)</(ACTION_verb|VerbP)>"
             ],
-            "pattern": "<ASPECT>在</ASPECT><(ACTION_verb|VerbP)>[^<]*?</(ACTION_verb|VerbP)>(?!<ACTION_eventQuantifier>)(?!<ENTITY_classifier>)"
+            "pattern": "<ASPECT>在</ASPECT><(ACTION_verb|VerbP)>[^<]*?</(ACTION_verb|VerbP)>(?!<ENTITY_pronoun>[^<]</ENTITY_pronoun><ACTION_eventQuantifier>)(?!<ACTION_eventQuantifier>)(?!<ENTITY_classifier>)"
         },
         "都在幹嘛": {
             "id": "c1a59888-b5ef-42df-b666-6f0969205211",
