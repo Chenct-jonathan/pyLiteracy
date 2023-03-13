@@ -129,4 +129,7 @@ def getResult(inputSTR, utterance, args, resultDICT):
     if utterance == "就像是一條鐵橋被挾在兩壁之間":
         resultDICT["Zai"].append("State")
 
+    if utterance == "在90%中":
+        resultDICT["Zai"].append("State")
+
     return resultDICT

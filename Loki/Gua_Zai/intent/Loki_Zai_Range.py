@@ -132,4 +132,22 @@ def getResult(inputSTR, utterance, args, resultDICT):
     if utterance == "在便於確定拍賣範圍":
         resultDICT["Zai"].append("Range")
 
+    if utterance == "在7,500人次左右":
+        resultDICT["Zai"].append("Range")
+
+    if utterance == "在前項公告期間內":
+        resultDICT["Zai"].append("Range")
+
+    if utterance == "在有效期間者":
+        resultDICT["Zai"].append("Range")
+
+    if utterance == "在未獲您的授權以及同意時":
+        resultDICT["Zai"].append("Range")
+
+    if utterance == "在緊急時":
+        resultDICT["Zai"].append("Range")
+
+    if utterance == "在該時間":
+        resultDICT["Zai"].append("Range")
+
     return resultDICT

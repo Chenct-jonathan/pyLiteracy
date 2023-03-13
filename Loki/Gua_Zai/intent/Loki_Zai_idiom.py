@@ -51,4 +51,16 @@ def getResult(inputSTR, utterance, args, resultDICT):
     if utterance == "老神在在":
         resultDICT["Zai"].append("Idiom")
 
+    if utterance == "在滿天星斗":
+        resultDICT["Zai"].append("Idiom")
+
+    if utterance == "旨在為":
+        resultDICT["Zai"].append("Idiom")
+
+    if utterance == "目的在使":
+        resultDICT["Zai"].append("Idiom")
+
+    if utterance == "身在何處":
+        resultDICT["Zai"].append("Idiom")
+
     return resultDICT

@@ -31,15 +31,12 @@ def debugInfo(inputSTR, utterance):
 def getResult(inputSTR, utterance, args, resultDICT):
     debugInfo(inputSTR, utterance)
     if utterance == "在什麼位置":
-        # write your code here
-        pass
+        resultDICT["Zai"].append("QMarker")
 
     if utterance == "在哪邊嗎":
-        # write your code here
-        pass
+        resultDICT["Zai"].append("QMarker")
 
     if utterance == "在嗎":
-        # write your code here
-        pass
+        resultDICT["Zai"].append("QMarker")
 
     return resultDICT
