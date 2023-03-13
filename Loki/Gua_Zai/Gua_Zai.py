@@ -54,6 +54,7 @@ try:
     from intent import Loki_Zai_State
     from intent import Loki_Zai_Loc
     from intent import Loki_Zai_idiom
+    from intent import Loki_Zai_QMarker
 except:
     from .intent import Loki_Zai_verbP
     from .intent import Loki_Zai_Aspect
@@ -61,6 +62,7 @@ except:
     from .intent import Loki_Zai_State
     from .intent import Loki_Zai_Loc
     from .intent import Loki_Zai_idiom
+    from .intent import Loki_Zai_QMarker
 
 import os
 BASEPATH = os.path.dirname(os.path.abspath(__file__))
