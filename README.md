@@ -101,7 +101,8 @@ Repetitive-zai (再) and LocativePeriodic-zai (在) share the same pronunciation
 
 Jonathan Chen：[chenjonathan901210@gmail.com](mailto:chenjonathan901210@gmail.com)
 
-PeterWolf：[peter.w@droidtown.co](mailto:peter.w@droidtown.co)
-
 Joe Huang：[joehuangx@gmail.com](mailto:joehuangx@gmail.com)      
 
+PeterWolf：[peter.w@droidtown.co](mailto:peter.w@droidtown.co)
+
+Lisi Yang：[lisi16810@gmail.com](mailto:lisi16810@gmail.com)
