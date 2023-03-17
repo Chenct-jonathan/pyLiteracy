@@ -132,4 +132,7 @@ def getResult(inputSTR, utterance, args, resultDICT):
     if utterance == "在90%中":
         resultDICT["Zai"].append("State")
 
+    if utterance == "水溫要控制在20度買哪種冷卻機好":
+        resultDICT["Zai"].append("State")
+
     return resultDICT
