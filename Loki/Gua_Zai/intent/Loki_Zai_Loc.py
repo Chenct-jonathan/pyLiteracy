@@ -30,7 +30,14 @@ def debugInfo(inputSTR, utterance):
 
 def getResult(inputSTR, utterance, args, resultDICT):
     debugInfo(inputSTR, utterance)
+
     if utterance == "保持在":
+        resultDICT["Zai"].append("Loc")
+
+    if utterance == "在13.5公里叉路口":
+        resultDICT["Zai"].append("Loc")
+
+    if utterance == "在62快速道路":
         resultDICT["Zai"].append("Loc")
 
     if utterance == "在90.6K處":
@@ -40,6 +47,9 @@ def getResult(inputSTR, utterance, args, resultDICT):
         resultDICT["Zai"].append("Loc")
 
     if utterance == "在一般的營業場所":
+        resultDICT["Zai"].append("Loc")
+
+    if utterance == "在一處":
         resultDICT["Zai"].append("Loc")
 
     if utterance == "在不方便接手機的場合":
@@ -66,6 +76,9 @@ def getResult(inputSTR, utterance, args, resultDICT):
     if utterance == "在台灣":
         resultDICT["Zai"].append("Loc")
 
+    if utterance == "在台灣大道":
+        resultDICT["Zai"].append("Loc")
+
     if utterance == "在各知名大學":
         resultDICT["Zai"].append("Loc")
 
@@ -85,6 +98,9 @@ def getResult(inputSTR, utterance, args, resultDICT):
         resultDICT["Zai"].append("Loc")
 
     if utterance == "在我國之申請案":
+        resultDICT["Zai"].append("Loc")
+
+    if utterance == "在我家工廠":
         resultDICT["Zai"].append("Loc")
 
     if utterance == "在最不起眼的地方":
@@ -127,6 +143,9 @@ def getResult(inputSTR, utterance, args, resultDICT):
         resultDICT["Zai"].append("Loc")
 
     if utterance == "在許多角落":
+        resultDICT["Zai"].append("Loc")
+
+    if utterance == "在該屆南方影展":
         resultDICT["Zai"].append("Loc")
 
     if utterance == "在該校":

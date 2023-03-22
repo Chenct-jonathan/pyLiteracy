@@ -116,17 +116,38 @@ def getResult(inputSTR, utterance, args, resultDICT):
 
     if utterance == "在國內七天猶豫期間":
         resultDICT["Zai"].append("Range")
-        
+
     if utterance == "在不定期展覽活動時":
         resultDICT["Zai"].append("Range")
-        
+
     if utterance == "在初步溝通配合客戶之後":
         resultDICT["Zai"].append("Range")
-        
+
     if utterance == "在飽受殖民欺壓的日治時期":
         resultDICT["Zai"].append("Range")
-        
+
     if utterance == "在重新開創新事業時":
         resultDICT["Zai"].append("Range")
-        
+
+    if utterance == "在便於確定拍賣範圍":
+        resultDICT["Zai"].append("Range")
+
+    if utterance == "在7,500人次左右":
+        resultDICT["Zai"].append("Range")
+
+    if utterance == "在前項公告期間內":
+        resultDICT["Zai"].append("Range")
+
+    if utterance == "在有效期間者":
+        resultDICT["Zai"].append("Range")
+
+    if utterance == "在未獲您的授權以及同意時":
+        resultDICT["Zai"].append("Range")
+
+    if utterance == "在緊急時":
+        resultDICT["Zai"].append("Range")
+
+    if utterance == "在該時間":
+        resultDICT["Zai"].append("Range")
+
     return resultDICT

@@ -16,12 +16,13 @@
             "縣政府",
             "電腦網路",
             "電腦網路媒體",
-            "音樂廳",
-            "非保險醫療機構"
+            "非保險醫療機構",
+            "音樂廳"
         ],
         "_asNoun": [
             "7-11",
             "@",
+            "ITIS",
             "WPPT",
             "《",
             "》",
@@ -31,40 +32,50 @@
             "』",
             "【",
             "】",
+            "七星山",
             "中山堂",
             "五大都會區",
             "伺服器",
+            "兩輪",
             "八位元環境",
             "六都",
             "前提",
             "坡度",
+            "太祖媽廟",
+            "太興社區",
             "學習時空",
             "山上人家",
+            "已開發國家",
             "師生",
             "新光三越",
             "時機點",
+            "林蔭",
             "申報戶",
             "白玉",
             "老湖口",
             "舊檢查哨",
             "虎頭埤",
+            "虛無縹渺",
             "親等",
             "資金",
             "過季廣場",
             "鐵砧山",
+            "限度",
             "飛比價格",
-            "太祖媽廟",
             "（",
             "）",
-            "已開發國家",
-            "七星山",
-            "太興社區"
+            "七號倉庫",
+            "非開放空間",
+            "叉路口",
+            "南方影展",
+            "三崁店莊北"
         ],
         "_asVerb": [
             "上廁所",
             "便民",
             "兩稅合一",
-            "日趨多樣"
+            "日趨多樣",
+            "欺壓"
         ],
         "_schoolTW": [
             "一甲國中",
@@ -12738,6 +12749,12 @@
             ],
             "pattern": "<(ACTION_verb)>(保持|保留|保存)</(ACTION_verb)><FUNC_inner>在</FUNC_inner>"
         },
+        "在一處": {
+            "id": "a4233384-61c5-427f-92d7-4351b103c3d8",
+            "pos": "<FUNC_inner>在</FUNC_inner><ENTITY_classifier>一處</ENTITY_classifier>",
+            "lexy": [],
+            "pattern": "<FUNC_inner>在</FUNC_inner><ENTITY_classifier>[^<]*?</ENTITY_classifier>"
+        },
         "在其中": {
             "id": "efa835fc-f4d0-41ee-82a5-7ec8f3611810",
             "pos": "<FUNC_inner>在</FUNC_inner><FUNC_inner>其中</FUNC_inner>",
@@ -12760,7 +12777,7 @@
             "id": "16c96498-f750-45d4-8dc5-a53d341d0ff1",
             "pos": "<FUNC_inner>在</FUNC_inner><ENTITY_pronoun>我</ENTITY_pronoun><ENTITY_nounHead>國</ENTITY_nounHead>",
             "lexy": [],
-            "pattern": "<FUNC_inner>在</FUNC_inner>?(<ENTITY_pronoun>[^<]*?</ENTITY_pronoun>)?<(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>國</(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>"
+            "pattern": "<FUNC_inner>在</FUNC_inner>(<ENTITY_pronoun>[^<]*?</ENTITY_pronoun>)?<(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>國</(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>"
         },
         "在本款": {
             "id": "4e682f25-abcb-49e8-96b9-395578c5309a",
@@ -12790,7 +12807,7 @@
             "id": "03ab6a94-5b4a-4bf2-8825-967861bd0851",
             "pos": "<FUNC_inner>在</FUNC_inner><MODAL>該</MODAL><ENTITY_oov>校</ENTITY_oov>",
             "lexy": [],
-            "pattern": "<FUNC_inner>在</FUNC_inner>?(<MODAL>[^<]*?</MODAL>)?<(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>[校|區|公所]</(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>"
+            "pattern": "<FUNC_inner>在</FUNC_inner>(<MODAL>[^<]*?</MODAL>)?<(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>[校|區|公所]</(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>"
         },
         "在90.6K處": {
             "id": "cfef0307-9065-4b98-af74-359556b58007",
@@ -12798,7 +12815,7 @@
             "lexy": [
                 "(?<!</FUNC_negation>)<(ACTION_verb|VerbP)>(處|處亦|處設|處改|處原|處轄|處下|處正|處說|處等|處劃)</(ACTION_verb|VerbP)>"
             ],
-            "pattern": "<FUNC_inner>在</FUNC_inner>?<ENTITY_num>[^<]*?</ENTITY_num><(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>K</(UserDefined|ENTITY_(nounHead|nouny|noun|oov))><(ACTION_verb|VerbP)>處</(ACTION_verb|VerbP)>"
+            "pattern": "<FUNC_inner>在</FUNC_inner><ENTITY_num>[^<]*?</ENTITY_num><(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>K</(UserDefined|ENTITY_(nounHead|nouny|noun|oov))><(ACTION_verb|VerbP)>處</(ACTION_verb|VerbP)>"
         },
         "在中文系": {
             "id": "0c5210be-e173-4124-88ed-a010900959d9",
@@ -12810,7 +12827,7 @@
             "id": "4a961f72-9d1b-46d0-b259-8e1eb4c4f641",
             "pos": "<FUNC_inner>在</FUNC_inner><ENTITY_classifier>兩個</ENTITY_classifier><ENTITY_noun>校區</ENTITY_noun>",
             "lexy": [],
-            "pattern": "<FUNC_inner>在</FUNC_inner>?<ENTITY_classifier>[^<]*?</ENTITY_classifier><(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>[^<]*?</(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>"
+            "pattern": "<FUNC_inner>在</FUNC_inner><ENTITY_classifier>[^<]*?</ENTITY_classifier><(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>[^<]*?</(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>"
         },
         "在別台電腦": {
             "id": "23f97a23-bdc8-426c-a638-42fac1f868a4",
@@ -12818,17 +12835,29 @@
             "lexy": [],
             "pattern": "<FUNC_inner>在</FUNC_inner>(<(MODIFIER|ModifierP)>(同一|別|那一?|這一?|不同|其它|另一)</(MODIFIER|ModifierP)>)<(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>台+[^<]*?</(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>"
         },
+        "在台灣大道": {
+            "id": "9e2e7bde-76ab-46e9-a0f0-8385818ed805",
+            "pos": "<FUNC_inner>在</FUNC_inner><KNOWLEDGE_routeTW>台灣大道</KNOWLEDGE_routeTW>",
+            "lexy": [],
+            "pattern": "<FUNC_inner>在</FUNC_inner><KNOWLEDGE_routeTW>[^<]*?</KNOWLEDGE_routeTW>"
+        },
         "在同一電腦": {
             "id": "cc43407e-d1fe-4390-8de5-6ddcf8efecd6",
             "pos": "<FUNC_inner>在</FUNC_inner><MODIFIER>同</MODIFIER><ENTITY_num>一</ENTITY_num><ENTITY_noun>電腦</ENTITY_noun>",
             "lexy": [],
-            "pattern": "<FUNC_inner>在</FUNC_inner>?(<(MODIFIER|ModifierP)>同</(MODIFIER|ModifierP)>)?<ENTITY_num>一</ENTITY_num><(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>[^<]*?</(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>"
+            "pattern": "<FUNC_inner>在</FUNC_inner>(<(MODIFIER|ModifierP)>同</(MODIFIER|ModifierP)>)?<ENTITY_num>一</ENTITY_num><(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>[^<]*?</(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>"
+        },
+        "在我家工廠": {
+            "id": "f2e10a56-8b1b-43c7-b600-a763811d1cdb",
+            "pos": "<FUNC_inner>在</FUNC_inner><ENTITY_possessive>我</ENTITY_possessive><ENTITY_noun>家</ENTITY_noun><ENTITY_noun>工廠</ENTITY_noun>",
+            "lexy": [],
+            "pattern": "<FUNC_inner>在</FUNC_inner><ENTITY_possessive>[^<]*?</ENTITY_possessive><(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>[^<]*?</(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>"
         },
         "在梅林步道": {
             "id": "dc7f3fc2-42cc-4057-af04-205a79f27b42",
             "pos": "<FUNC_inner>在</FUNC_inner><ENTITY_pronoun>梅林</ENTITY_pronoun><ENTITY_nouny>步道</ENTITY_nouny>",
             "lexy": [],
-            "pattern": "<FUNC_inner>在</FUNC_inner>?(<ENTITY_pronoun>[^<]*?</ENTITY_pronoun>)?<(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>[^<]*?</(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>"
+            "pattern": "<FUNC_inner>在</FUNC_inner>(<ENTITY_pronoun>[^<]*?</ENTITY_pronoun>)?<(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>[^<]*?</(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>"
         },
         "在福建省中": {
             "id": "a16faa24-5a5a-43a0-b592-20b77042af8a",
@@ -12846,19 +12875,25 @@
             "id": "1efe6d8d-3360-4553-932f-e8baa57512db",
             "pos": "<FUNC_inner>在</FUNC_inner><QUANTIFIER>許多</QUANTIFIER><ENTITY_nouny>角落</ENTITY_nouny>",
             "lexy": [],
-            "pattern": "<FUNC_inner>在</FUNC_inner>?(<QUANTIFIER>[^<]*?</QUANTIFIER>)?<(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>角落</(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>"
+            "pattern": "<FUNC_inner>在</FUNC_inner>(<QUANTIFIER>[^<]*?</QUANTIFIER>)?<(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>角落</(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>"
+        },
+        "在62快速道路": {
+            "id": "6a0b14ed-59af-41d3-8b10-d4489c7e5de4",
+            "pos": "<FUNC_inner>在</FUNC_inner><ENTITY_num>62</ENTITY_num><MODIFIER>快速</MODIFIER><ENTITY_noun>道路</ENTITY_noun>",
+            "lexy": [],
+            "pattern": "<FUNC_inner>在</FUNC_inner><ENTITY_num>[^<]*?</ENTITY_num>(<(MODIFIER|ModifierP)>[^<]*?</(MODIFIER|ModifierP)>)?<(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>[^<]*?</(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>"
         },
         "在全馬來西亞": {
             "id": "e36d815b-f09a-4a69-9196-a0f3e5a2afe3",
             "pos": "<FUNC_inner>在</FUNC_inner><QUANTIFIER>全</QUANTIFIER><LOCATION>馬來西亞</LOCATION>",
             "lexy": [],
-            "pattern": "<FUNC_inner>在</FUNC_inner>?(<QUANTIFIER>[^<]*?</QUANTIFIER>)?<LOCATION>[^<]*?</LOCATION>"
+            "pattern": "<FUNC_inner>在</FUNC_inner>(<QUANTIFIER>[^<]*?</QUANTIFIER>)?<LOCATION>[^<]*?</LOCATION>"
         },
         "在各知名大學": {
             "id": "f5f2edd4-72eb-4e36-a1b9-62a47c9790a8",
             "pos": "<FUNC_inner>在</FUNC_inner><QUANTIFIER>各</QUANTIFIER><MODIFIER>知名</MODIFIER><ENTITY_noun>大學</ENTITY_noun>",
             "lexy": [],
-            "pattern": "<FUNC_inner>在</FUNC_inner>?<QUANTIFIER>[^<]*?</QUANTIFIER>(<(MODIFIER|ModifierP)>[^<]*?</(MODIFIER|ModifierP)>)?<(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>[^<]*?</(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>"
+            "pattern": "<FUNC_inner>在</FUNC_inner><QUANTIFIER>[^<]*?</QUANTIFIER>(<(MODIFIER|ModifierP)>[^<]*?</(MODIFIER|ModifierP)>)?<(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>[^<]*?</(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>"
         },
         "在國家音樂廳": {
             "id": "f96a35dc-f878-4d7d-b0ec-567dc1ed3e05",
@@ -12870,7 +12905,7 @@
             "id": "213912fb-5abf-411c-9f1b-5c34cf87d508",
             "pos": "<FUNC_inner>在</FUNC_inner><ENTITY_num>萬</ENTITY_num><MODIFIER_color>綠</MODIFIER_color><ENTITY_nounHead>樹叢</ENTITY_nounHead><RANGE_locality>中</RANGE_locality>",
             "lexy": [],
-            "pattern": "<FUNC_inner>在</FUNC_inner>?<ENTITY_num>[^<]*?</ENTITY_num><MODIFIER_color>[^<]*?</MODIFIER_color><(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>[^<]*?</(UserDefined|ENTITY_(nounHead|nouny|noun|oov))><RANGE_(locality|period)>[^<]*?</RANGE_(locality|period)>"
+            "pattern": "<FUNC_inner>在</FUNC_inner><ENTITY_num>[^<]*?</ENTITY_num><MODIFIER_color>[^<]*?</MODIFIER_color><(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>[^<]*?</(UserDefined|ENTITY_(nounHead|nouny|noun|oov))><RANGE_(locality|period)>[^<]*?</RANGE_(locality|period)>"
         },
         "在何種職系工作": {
             "id": "c883df39-35f5-419e-838d-04d7fca63ba6",
@@ -12878,7 +12913,7 @@
             "lexy": [
                 "(?<!</FUNC_negation>)<(ACTION_verb|VerbP)>(工作|勞動|賣笑|運轉|待業|休假|工作過|加班|在職|工作了|拍戲)</(ACTION_verb|VerbP)>"
             ],
-            "pattern": "<FUNC_inner>在</FUNC_inner>?<CLAUSE_WhatQ>[^<]*?</CLAUSE_WhatQ><ENTITY_classifier>[^<]*?</ENTITY_classifier><(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>[^<]*?</(UserDefined|ENTITY_(nounHead|nouny|noun|oov))><(ACTION_verb|VerbP)>[^<]*?</(ACTION_verb|VerbP)>"
+            "pattern": "<FUNC_inner>在</FUNC_inner><CLAUSE_WhatQ>[^<]*?</CLAUSE_WhatQ><ENTITY_classifier>[^<]*?</ENTITY_classifier><(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>[^<]*?</(UserDefined|ENTITY_(nounHead|nouny|noun|oov))><(ACTION_verb|VerbP)>[^<]*?</(ACTION_verb|VerbP)>"
         },
         "在國外購買商品": {
             "id": "3eaf2be8-32f0-4146-aef1-359fff020b31",
@@ -12892,13 +12927,13 @@
             "id": "2a9be057-ce24-45b6-a518-d72036d6e171",
             "pos": "<FUNC_inner>在</FUNC_inner><ENTITY_pronoun>我</ENTITY_pronoun><ENTITY_nounHead>國</ENTITY_nounHead><FUNC_inner>之</FUNC_inner><ENTITY_nouny>申請案</ENTITY_nouny>",
             "lexy": [],
-            "pattern": "<FUNC_inner>在</FUNC_inner>?(<ENTITY_pronoun>[^<]*?</ENTITY_pronoun>)?<(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>[^<]*?</(UserDefined|ENTITY_(nounHead|nouny|noun|oov))><FUNC_inner>之</FUNC_inner>?<(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>[^<]*?</(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>"
+            "pattern": "<FUNC_inner>在</FUNC_inner>(<ENTITY_pronoun>[^<]*?</ENTITY_pronoun>)?<(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>[^<]*?</(UserDefined|ENTITY_(nounHead|nouny|noun|oov))><FUNC_inner>之</FUNC_inner>?<(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>[^<]*?</(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>"
         },
         "在有限的預算中": {
             "id": "7309fd6a-2f17-44f2-8aa8-f95636cac12a",
             "pos": "<FUNC_inner>在</FUNC_inner><MODIFIER>有限</MODIFIER><FUNC_inner>的</FUNC_inner><ENTITY_noun>預算</ENTITY_noun><RANGE_locality>中</RANGE_locality>",
             "lexy": [],
-            "pattern": "<FUNC_inner>在</FUNC_inner>?(<(MODIFIER|ModifierP)>[^<]*?</(MODIFIER|ModifierP)>)?(<FUNC_in(ner|ter)>[^<]*?</FUNC_in(ner|ter)>)?<(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>[^<]*?</(UserDefined|ENTITY_(nounHead|nouny|noun|oov))><RANGE_(locality|period)>[^<]*?</RANGE_(locality|period)>"
+            "pattern": "<FUNC_inner>在</FUNC_inner>(<(MODIFIER|ModifierP)>[^<]*?</(MODIFIER|ModifierP)>)?(<FUNC_in(ner|ter)>[^<]*?</FUNC_in(ner|ter)>)?<(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>[^<]*?</(UserDefined|ENTITY_(nounHead|nouny|noun|oov))><RANGE_(locality|period)>[^<]*?</RANGE_(locality|period)>"
         },
         "在東方320公里外": {
             "id": "9a5753f6-d662-421b-b612-45f574c1f1f0",
@@ -12910,19 +12945,31 @@
             "id": "596c9907-eeff-42d3-afc3-b27f7cbc4d73",
             "pos": "<FUNC_inner>在</FUNC_inner><MODIFIER>正式</MODIFIER><ENTITY_noun>課程</ENTITY_noun><FUNC_inner>之</FUNC_inner><RANGE_locality>外</RANGE_locality>",
             "lexy": [],
-            "pattern": "<FUNC_inner>在</FUNC_inner>?(<(MODIFIER|ModifierP)>[^<]*?</(MODIFIER|ModifierP)>)?<(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>[^<]*?</(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>(<FUNC_in(ner|ter)>[^<]*?</FUNC_in(ner|ter)>)?<RANGE_(locality|period)>[^<]*?</RANGE_(locality|period)>"
+            "pattern": "<FUNC_inner>在</FUNC_inner>(<(MODIFIER|ModifierP)>[^<]*?</(MODIFIER|ModifierP)>)?<(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>[^<]*?</(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>(<FUNC_in(ner|ter)>[^<]*?</FUNC_in(ner|ter)>)?<RANGE_(locality|period)>[^<]*?</RANGE_(locality|period)>"
+        },
+        "在該屆南方影展": {
+            "id": "611a97cc-8e1b-4938-9dd1-da7cedb205f6",
+            "pos": "<FUNC_inner>在</FUNC_inner><MODAL>該</MODAL><ENTITY_nounHead>屆</ENTITY_nounHead><UserDefined>南方影展</UserDefined>",
+            "lexy": [],
+            "pattern": "<FUNC_inner>在</FUNC_inner>(<MODAL>[^<]*?</MODAL>)?<(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>[^<]*?</(UserDefined|ENTITY_(nounHead|nouny|noun|oov))><(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>[^<]*?</(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>"
+        },
+        "在13.5公里叉路口": {
+            "id": "d14a43ea-a118-4e6b-9164-07990d798e83",
+            "pos": "<FUNC_inner>在</FUNC_inner><ENTITY_measurement>13.5公里</ENTITY_measurement><UserDefined>叉路口</UserDefined>",
+            "lexy": [],
+            "pattern": "<FUNC_inner>在</FUNC_inner><ENTITY_measurement>[^<]*?</ENTITY_measurement><(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>[^<]*?</(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>"
         },
         "在一般的營業場所": {
             "id": "e345875e-a841-40a0-ac2f-0bfccfa261fa",
             "pos": "<FUNC_inner>在</FUNC_inner><MODIFIER>一般</MODIFIER><FUNC_inner>的</FUNC_inner><UserDefined>營業場所</UserDefined>",
             "lexy": [],
-            "pattern": "<FUNC_inner>在</FUNC_inner>?(<(MODIFIER|ModifierP)>[^<]*?</(MODIFIER|ModifierP)>)?(<FUNC_in(ner|ter)>[^<]*?</FUNC_in(ner|ter)>)?<(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>[^<]*?</(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>"
+            "pattern": "<FUNC_inner>在</FUNC_inner>(<(MODIFIER|ModifierP)>[^<]*?</(MODIFIER|ModifierP)>)?(<FUNC_in(ner|ter)>[^<]*?</FUNC_in(ner|ter)>)?<(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>[^<]*?</(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>"
         },
         "在最不起眼的地方": {
             "id": "7e24939b-e8bd-4154-b168-96d273f29fc4",
             "pos": "<FUNC_inner>在</FUNC_inner><DegreeP>最不起眼</DegreeP><FUNC_inner>的</FUNC_inner><ENTITY_noun>地方</ENTITY_noun>",
             "lexy": [],
-            "pattern": "<FUNC_inner>在</FUNC_inner>?<DegreeP>[^<]*?</DegreeP>(<FUNC_in(ner|ter)>[^<]*?</FUNC_in(ner|ter)>)?<(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>[^<]*?</(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>"
+            "pattern": "<FUNC_inner>在</FUNC_inner><DegreeP>[^<]*?</DegreeP>(<FUNC_in(ner|ter)>[^<]*?</FUNC_in(ner|ter)>)?<(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>[^<]*?</(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>"
         },
         "在金融和投資等方面": {
             "id": "060df509-edcb-4a84-85cb-d7eca54ccda2",
@@ -12931,7 +12978,7 @@
                 "(?<!</FUNC_negation>)<(ACTION_verb|VerbP)>(投資|出資|投入|投注|付出|增資|招商|私募|併購|持股|放款)</(ACTION_verb|VerbP)>",
                 "(?<!</FUNC_negation>)<(ACTION_verb|VerbP)>(等|久等|稍等|等候|等到|等待|等第|等級|候補|安排|待遇)</(ACTION_verb|VerbP)>"
             ],
-            "pattern": "<FUNC_inner>在</FUNC_inner>?<(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>[^<]*?</(UserDefined|ENTITY_(nounHead|nouny|noun|oov))><FUNC_conjunction>[^<]*?</FUNC_conjunction><(ACTION_verb|VerbP)>[^<]*?</(ACTION_verb|VerbP)><(ACTION_verb|VerbP)>[^<]*?</(ACTION_verb|VerbP)><(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>方面</(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>"
+            "pattern": "<FUNC_inner>在</FUNC_inner><(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>[^<]*?</(UserDefined|ENTITY_(nounHead|nouny|noun|oov))><FUNC_conjunction>[^<]*?</FUNC_conjunction><(ACTION_verb|VerbP)>[^<]*?</(ACTION_verb|VerbP)><(ACTION_verb|VerbP)>[^<]*?</(ACTION_verb|VerbP)><(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>方面</(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>"
         },
         "在「尚有庫存」內出貨": {
             "id": "2a82eb3a-224b-4d40-9bd1-0043f77e4ac7",
@@ -12940,13 +12987,13 @@
                 "(?<!</FUNC_negation>)<(ACTION_verb|VerbP)>(有|具有|兼有|存有|帶有|懷有|持有|擁有|有了|有著|保留)</(ACTION_verb|VerbP)>",
                 "(?<!</FUNC_negation>)<(ACTION_verb|VerbP)>(出貨|裝運|轉運|運出|供貨|代工|試產|封裝|量產|交貨|生產)</(ACTION_verb|VerbP)>"
             ],
-            "pattern": "<FUNC_inner>在</FUNC_inner>?<(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>[^<]*?</(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>(<FUNC_in(ner|ter)>[^<]*?</FUNC_in(ner|ter)>)?<(ACTION_verb|VerbP)>[^<]*?</(ACTION_verb|VerbP)><(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>[^<]*?</(UserDefined|ENTITY_(nounHead|nouny|noun|oov))><(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>[^<]*?</(UserDefined|ENTITY_(nounHead|nouny|noun|oov))><RANGE_(locality|period)>[^<]*?</RANGE_(locality|period)><(ACTION_verb|VerbP)>[^<]*?</(ACTION_verb|VerbP)>"
+            "pattern": "<FUNC_inner>在</FUNC_inner><(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>[^<]*?</(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>(<FUNC_in(ner|ter)>[^<]*?</FUNC_in(ner|ter)>)?<(ACTION_verb|VerbP)>[^<]*?</(ACTION_verb|VerbP)><(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>[^<]*?</(UserDefined|ENTITY_(nounHead|nouny|noun|oov))><(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>[^<]*?</(UserDefined|ENTITY_(nounHead|nouny|noun|oov))><RANGE_(locality|period)>[^<]*?</RANGE_(locality|period)><(ACTION_verb|VerbP)>[^<]*?</(ACTION_verb|VerbP)>"
         },
         "在不方便接手機的場合": {
             "id": "c2a81aa6-e5c0-4f09-8e8c-4237a5172f36",
             "pos": "<FUNC_inner>在</FUNC_inner><FUNC_negation>不</FUNC_negation><MODIFIER>方便</MODIFIER><ENTITY_nouny>接手機</ENTITY_nouny><FUNC_inner>的</FUNC_inner><ENTITY_noun>場合</ENTITY_noun>",
             "lexy": [],
-            "pattern": "<FUNC_inner>在</FUNC_inner>?<FUNC_negation>[^<]*?</FUNC_negation>(<(MODIFIER|ModifierP)>[^<]*?</(MODIFIER|ModifierP)>)?<(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>[^<]*?</(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>(<FUNC_in(ner|ter)>[^<]*?</FUNC_in(ner|ter)>)?<(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>[^<]*?</(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>"
+            "pattern": "<FUNC_inner>在</FUNC_inner><FUNC_negation>[^<]*?</FUNC_negation>(<(MODIFIER|ModifierP)>[^<]*?</(MODIFIER|ModifierP)>)?<(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>[^<]*?</(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>(<FUNC_in(ner|ter)>[^<]*?</FUNC_in(ner|ter)>)?<(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>[^<]*?</(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>"
         },
         "紅色木屋在綠樹中掩映": {
             "id": "73a73d7b-e18a-4961-b7c2-df069d504a35",
@@ -12954,7 +13001,7 @@
             "lexy": [
                 "(?<!</FUNC_negation>)<(ACTION_verb|VerbP)>(掩映|佇立|矗立|優游|點綴著|繚繞|種滿|徜徉|扶疏|布滿|依傍)</(ACTION_verb|VerbP)>"
             ],
-            "pattern": "<FUNC_inner>在</FUNC_inner>?<MODIFIER_color>[^<]*?</MODIFIER_color><(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>[^<]*?</(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>"
+            "pattern": "<FUNC_inner>在</FUNC_inner><MODIFIER_color>[^<]*?</MODIFIER_color><(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>[^<]*?</(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>"
         }
     }
 }

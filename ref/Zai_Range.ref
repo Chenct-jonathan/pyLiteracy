@@ -12767,6 +12767,18 @@
             "lexy": [],
             "pattern": "<FUNC_inner>在</FUNC_inner>(<(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>[^<]+?</(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>|<ENTITY_DetPhrase>[^<]+?</ENTITY_DetPhrase>|<FUNC_determiner>[^<]+?</FUNC_determiner>)(<ACTION_verb>[^<]+?</ACTION_verb>)?<RANGE_(locality|period)>[^<]+?</RANGE_(locality|period)>"
         },
+        "在緊急時": {
+            "id": "b1cec9fb-f87f-40a9-bd07-9b013b265559",
+            "pos": "<FUNC_inner>在</FUNC_inner><MODIFIER>緊急</MODIFIER><FUNC_inner>時</FUNC_inner>",
+            "lexy": [],
+            "pattern": "<FUNC_inner>在</FUNC_inner>(<(MODIFIER|ModifierP)>[^<]*?</(MODIFIER|ModifierP)>)?<FUNC_inner>時</FUNC_inner>"
+        },
+        "在該時間": {
+            "id": "da2151d8-d510-4ec9-9f26-7cbe3ea40aa7",
+            "pos": "<FUNC_inner>在</FUNC_inner><MODAL>該</MODAL><ENTITY_noun>時間</ENTITY_noun>",
+            "lexy": [],
+            "pattern": "<FUNC_inner>在</FUNC_inner>((<MODAL>該</MODAL>)|(<FUNC_determiner>[^<]*?</FUNC_determiner>)|(<ENTITY_DetPhrase>[^<]*?</ENTITY_DetPhrase>))<(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>[^<]*?</(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>"
+        },
         "在酷熱暑假": {
             "id": "b947b2ff-aa96-429f-88b7-5e340aa4d6b5",
             "pos": "<FUNC_inner>在</FUNC_inner><MODIFIER>酷熱</MODIFIER><TIME_season>暑假</TIME_season>",
@@ -12784,6 +12796,18 @@
             "pos": "<FUNC_inner>在</FUNC_inner><DegreeP>最高</DegreeP><ENTITY_nounHead>年級</ENTITY_nounHead><FUNC_inner>時</FUNC_inner>",
             "lexy": [],
             "pattern": "<FUNC_inner>在</FUNC_inner><DegreeP>[^<]*?</DegreeP><(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>[^<]*?</(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>(<FUNC_in(ner|ter)>時</FUNC_in(ner|ter)>)?"
+        },
+        "在有效期間者": {
+            "id": "4593bd94-146c-4d72-b11a-b7387b68a487",
+            "pos": "<FUNC_inner>在</FUNC_inner><MODIFIER>有效</MODIFIER><RANGE_period>期間</RANGE_period><ENTITY_oov>者</ENTITY_oov>",
+            "lexy": [],
+            "pattern": "<FUNC_inner>在</FUNC_inner>(<(MODIFIER|ModifierP)>[^<]*?</(MODIFIER|ModifierP)>)?<RANGE_(locality|period)>[^<]*?</RANGE_(locality|period)><(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>者</(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>"
+        },
+        "在7,500人次左右": {
+            "id": "08baade0-abc6-4ade-be18-d4496c8307a8",
+            "pos": "<FUNC_inner>在</FUNC_inner><ENTITY_num>7,500</ENTITY_num><ENTITY_noun>人</ENTITY_noun><ACTION_eventQuantifier>次</ACTION_eventQuantifier><MODIFIER>左右</MODIFIER>",
+            "lexy": [],
+            "pattern": "<FUNC_inner>在</FUNC_inner><ENTITY_num>7,500</ENTITY_num>(<(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>[^<]*?</(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>)?<ACTION_eventQuantifier>[^<]*?</ACTION_eventQuantifier>(<(MODIFIER|ModifierP)>左右</(MODIFIER|ModifierP)>)?"
         },
         "在您執行列印時": {
             "id": "0248eece-2b68-4f34-a59e-a79422ed039f",
@@ -12819,6 +12843,14 @@
             ],
             "pattern": "(?<!</FUNC_negation>)<(ACTION_verb|VerbP)>收</(ACTION_verb|VerbP)><FUNC_inner>在</FUNC_inner>(<ENTITY_person>[^<]*?</ENTITY_person>)?(<(ACTION_verb|VerbP)>[^<]+?[集]</(ACTION_verb|VerbP)>|<(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>[^<]+?[集]</(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>)"
         },
+        "在前項公告期間內": {
+            "id": "3927686e-7848-4e67-ab5e-fcf7ba933d10",
+            "pos": "<FUNC_inner>在</FUNC_inner><MODIFIER>前項</MODIFIER><ACTION_verb>公告</ACTION_verb><RANGE_period>期間</RANGE_period><RANGE_locality>內</RANGE_locality>",
+            "lexy": [
+                "(?<!</FUNC_negation>)<(ACTION_verb|VerbP)>(公告|張貼|發貼|暫定|佈告|核准|公佈|發布|公布|公示|告示)</(ACTION_verb|VerbP)>"
+            ],
+            "pattern": "<FUNC_inner>在</FUNC_inner>(<(MODIFIER|ModifierP)>[^<]*?</(MODIFIER|ModifierP)>)?<(ACTION_verb|VerbP)>[^<]*?</(ACTION_verb|VerbP)><RANGE_(locality|period)>[^<]*?</RANGE_(locality|period)>(<RANGE_(locality|period)>[^<]*?</RANGE_(locality|period)>)?"
+        },
         "在您收到商品之前": {
             "id": "cc7b74c3-bc2e-49fe-a080-6141286a1dde",
             "pos": "<FUNC_inner>在</FUNC_inner><ENTITY_pronoun>您</ENTITY_pronoun><ACTION_verb>收到</ACTION_verb><ENTITY_noun>商品</ENTITY_noun><TIME_justtime>之前</TIME_justtime>",
@@ -12848,6 +12880,15 @@
             "pos": "<FUNC_inner>在</FUNC_inner><FUNC_negation>不</FUNC_negation><MODIFIER>定期</MODIFIER><ENTITY_nounHead>展覽活動</ENTITY_nounHead><FUNC_inner>時</FUNC_inner>",
             "lexy": [],
             "pattern": "<FUNC_inner>在</FUNC_inner>(<FUNC_negation>不</FUNC_negation>)?(<(MODIFIER|ModifierP)>[^<]*?</(MODIFIER|ModifierP)>)?<(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>[^<]*?</(UserDefined|ENTITY_(nounHead|nouny|noun|oov))><FUNC_inner>時</FUNC_inner>"
+        },
+        "在便於確定拍賣範圍": {
+            "id": "276a27ed-f6a5-4dc0-92a1-c93054d9a834",
+            "pos": "<FUNC_inner>在</FUNC_inner><MODAL>便</MODAL><FUNC_inner>於</FUNC_inner><ACTION_verb>確定</ACTION_verb><ACTION_verb>拍賣</ACTION_verb><ENTITY_nouny>範圍</ENTITY_nouny>",
+            "lexy": [
+                "(?<!</FUNC_negation>)<(ACTION_verb|VerbP)>(確定|定出|定奪|指定|敲定|斷定|確保|確立|確認|肯定|認定)</(ACTION_verb|VerbP)>",
+                "(?<!</FUNC_negation>)<(ACTION_verb|VerbP)>(拍賣|出賣|售賣|法拍|熱賣|甩賣|變賣|販賣|賣出|賣掉|賤賣)</(ACTION_verb|VerbP)>"
+            ],
+            "pattern": "<FUNC_inner>在</FUNC_inner>(<MODAL>[^<]*?</MODAL>)?(<FUNC_in(ner|ter)>[^<]*?</FUNC_in(ner|ter)>)?<(ACTION_verb|VerbP)>[^<]*?</(ACTION_verb|VerbP)><(ACTION_verb|VerbP)>[^<]*?</(ACTION_verb|VerbP)><(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>範圍</(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>"
         },
         "在國內七天猶豫期間": {
             "id": "64f064a3-348b-41f0-954e-bd23d8c2c1e6",
@@ -12915,6 +12956,16 @@
                 "(?<!</FUNC_negation>)<(ACTION_verb|VerbP)>(再見|再會|再見過|再見了|有見過|說話了|相見|愛了|相守|料想|接吻)</(ACTION_verb|VerbP)>"
             ],
             "pattern": "<FUNC_inner>在</FUNC_inner>(<ENTITY_pronoun>[^<]*?</ENTITY_pronoun>)?((<FUNC_inner>[向對]</FUNC_inner>)|(<FUNC_conjunction>[跟和]</FUNC_conjunction>))<(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>[^<]*?</(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>(<(ACTION_verb|VerbP)>[^<]*?</(ACTION_verb|VerbP)>){1,2}(<FUNC_inner>[^<]*?</FUNC_inner>)(<TIME_(holiday|justtime|day|week|month|season|year|decade)>[^<]*?</TIME_(holiday|justtime|day|week|month|season|year|decade)>){1,10}"
+        },
+        "在未獲您的授權以及同意時": {
+            "id": "cfd21751-76f3-46f9-995b-248f2e7b06f0",
+            "pos": "<FUNC_inner>在</FUNC_inner><FUNC_negation>未</FUNC_negation><ACTION_verb>獲</ACTION_verb><ENTITY_pronoun>您</ENTITY_pronoun><FUNC_inner>的</FUNC_inner><ACTION_verb>授權</ACTION_verb><FUNC_conjunction>以及</FUNC_conjunction><ACTION_verb>同意</ACTION_verb><FUNC_inner>時</FUNC_inner>",
+            "lexy": [
+                "(?<!</FUNC_negation>)<(ACTION_verb|VerbP)>(獲|俘獲|拿獲|捉獲|捕獲|搜獲|擄獲|擒獲|繳獲|奪取|奪得)</(ACTION_verb|VerbP)>",
+                "(?<!</FUNC_negation>)<(ACTION_verb|VerbP)>(授權|委託|批准|核准|確認|追認|審核|審批|認可|首肯|認證)</(ACTION_verb|VerbP)>",
+                "(?<!</FUNC_negation>)<(ACTION_verb|VerbP)>(同意|認同|讚同|贊同|一致|允准|准予|吻合|批准|承認|接納)</(ACTION_verb|VerbP)>"
+            ],
+            "pattern": "<FUNC_inner>在</FUNC_inner><FUNC_negation>[^<]*?</FUNC_negation><(ACTION_verb|VerbP)>[^<]*?</(ACTION_verb|VerbP)>(<ENTITY_pronoun>[^<]*?</ENTITY_pronoun>)?(<FUNC_in(ner|ter)>[^<]*?</FUNC_in(ner|ter)>)?<(ACTION_verb|VerbP)>[^<]*?</(ACTION_verb|VerbP)><FUNC_conjunction>[^<]*?</FUNC_conjunction><(ACTION_verb|VerbP)>[^<]*?</(ACTION_verb|VerbP)><FUNC_inner>時</FUNC_inner>"
         },
         "在飽受殖民欺壓的日治時期": {
             "id": "e3ebaf93-30ac-479a-9944-dd42039a9cdb",

@@ -9,8 +9,8 @@
 <body>
     <div>
       <label>Input：</label><br>
-      <textarea class="inline-block" style="width:70%;height:300px;" id="inputSTR"></textarea>
-      <input type="submit" id="submit" value="Check">
+      <textarea  id="inputSTR" class="inline-block" style="width:70%;height:300px;"></textarea>
+      <input id="submit" type="submit" value="Check">
       <div id="thinking" style="display:none;"><img src="{{url_for('static', filename='person-man.gif')}}"></div>
     </div>
     <div>
@@ -27,12 +27,14 @@
         $("#thinking").show(200);                                //顯示處理動畫
         var payload = {};                                        //準備上傳的內容為 payload
         payload["inputSTR"] = $("#inputSTR").val();              //將輸入區內的字串值載入 payload 中，給定 key 為 "inputSTR"
-        $("#result").html("");                                   //將 id 為 result 的結果呈現區清空
+        $("#result").val("");                                   //將 id 為 result 的結果呈現區清空
+        //console.log("準備要上傳："+payload["inputSTR"]);
         $.ajax({url: "/gua",                                     //使用 $.ajas() 功能將內容送出
                 data: JSON.stringify(payload),
                 type: "POST",
                 dataType: "json",
                 contentType: "application/json;charset=utf-8",
+                timeout: 20000,
             success: function(returnData){                       //若成功處理，則將 id 為 result 的區塊填入 returnData 的 checkResult 值。
                 $("#result").html(returnData.checkResult);
                 $("#thinking").hide(200);                        //隱藏處理動畫

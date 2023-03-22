@@ -15,7 +15,7 @@ from Gua_Zai.Gua_Zai import execLoki
 
 BASEPATH = os.path.dirname(os.path.abspath(__file__))
 try:
-    with open("{}/account.info".format(BASEPATH), encoding="utf-8") as f:
+    with open("{}/../account.info".format(BASEPATH), encoding="utf-8") as f:
         accountDICT = json.load(f)
 except:
     print("提示！！目前使用 Articut 每小時公用字數中！！")

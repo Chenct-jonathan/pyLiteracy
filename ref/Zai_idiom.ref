@@ -16,6 +16,7 @@
             "縣政府",
             "電腦網路",
             "電腦網路媒體",
+            "非保險醫療機構",
             "音樂廳"
         ],
         "_asNoun": [
@@ -30,6 +31,7 @@
             "』",
             "【",
             "】",
+            "七星山",
             "中山堂",
             "五大都會區",
             "伺服器",
@@ -37,8 +39,11 @@
             "六都",
             "前提",
             "坡度",
+            "太祖媽廟",
+            "太興社區",
             "學習時空",
             "山上人家",
+            "已開發國家",
             "師生",
             "新光三越",
             "時機點",
@@ -59,7 +64,8 @@
             "上廁所",
             "便民",
             "兩稅合一",
-            "日趨多樣"
+            "日趨多樣",
+            "欺壓"
         ],
         "_schoolTW": [
             "一甲國中",
@@ -12719,6 +12725,12 @@
         ]
     },
     "utterance": {
+        "旨在為": {
+            "id": "d0438948-9fba-4cd8-8a66-8df936cdfad6",
+            "pos": "<ENTITY_oov>旨</ENTITY_oov><FUNC_inner>在</FUNC_inner><AUX>為</AUX>",
+            "lexy": [],
+            "pattern": "<(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>旨</(UserDefined|ENTITY_(nounHead|nouny|noun|oov))><FUNC_inner>在</FUNC_inner><AUX>為</AUX>"
+        },
         "不在此限": {
             "id": "ecff0267-9c38-4d11-afa2-ca2d4a2304d7",
             "pos": "<FUNC_negation>不</FUNC_negation><FUNC_inner>在</FUNC_inner><ENTITY_nouny>此限</ENTITY_nouny>",
@@ -12747,11 +12759,23 @@
             "lexy": [],
             "pattern": "<FUNC_inner>在</FUNC_inner><(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>明明德</(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>"
         },
+        "目的在使": {
+            "id": "e0abdd2b-f0f8-4fbe-a356-0ec5fb64ca74",
+            "pos": "<ENTITY_oov>目的</ENTITY_oov><FUNC_inner>在</FUNC_inner><ACTION_lightVerb>使</ACTION_lightVerb>",
+            "lexy": [],
+            "pattern": "<(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>目的</(UserDefined|ENTITY_(nounHead|nouny|noun|oov))><FUNC_inner>在</FUNC_inner><ACTION_lightVerb>[^<]*?</ACTION_lightVerb>"
+        },
         "老神在在": {
             "id": "364f3ae0-d00c-44cc-a65e-7106e057289d",
             "pos": "<IDIOM>老神在在</IDIOM>",
             "lexy": [],
             "pattern": "<IDIOM>[^<]*?在在</IDIOM>"
+        },
+        "身在何處": {
+            "id": "38a1a041-4a3a-49e1-8447-a207d2a52982",
+            "pos": "<ENTITY_oov>身</ENTITY_oov><FUNC_inner>在</FUNC_inner><CLAUSE_WhereQ>何處</CLAUSE_WhereQ>",
+            "lexy": [],
+            "pattern": "<(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>身</(UserDefined|ENTITY_(nounHead|nouny|noun|oov))><FUNC_inner>在</FUNC_inner><CLAUSE_WhereQ>何處|哪裡</CLAUSE_WhereQ>"
         },
         "在止於至善": {
             "id": "a8355e86-7429-4c58-9dcc-2537a4a1afe6",
@@ -12760,6 +12784,12 @@
                 "(?<!</FUNC_negation>)<(ACTION_verb|VerbP)>(止於|起於|聚興|駐操|續接|緊靠|緊鄰|相接|鋪鎮|流經|關鄉)</(ACTION_verb|VerbP)>"
             ],
             "pattern": "(<ASPECT>在</ASPECT>)?<(ACTION_verb|VerbP)>止於</(ACTION_verb|VerbP)>(<FUNC_inner>至</FUNC_inner>)(<(MODIFIER|ModifierP)>善</(MODIFIER|ModifierP)>)"
+        },
+        "在滿天星斗": {
+            "id": "1fe6dec7-b3e0-4263-a6ed-12fbca523b45",
+            "pos": "<FUNC_inner>在</FUNC_inner><IDIOM>滿天星斗</IDIOM>",
+            "lexy": [],
+            "pattern": "<FUNC_inner>在</FUNC_inner><IDIOM>[^<]*?</IDIOM>"
         },
         "你在答非所問": {
             "id": "1399eb65-4bcb-4cd4-8609-0b1bcff53381",

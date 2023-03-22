@@ -120,4 +120,25 @@ def getResult(inputSTR, utterance, args, resultDICT):
     if utterance == "飄盪在兩輪間的是她的裙襬":
         resultDICT["Zai"].append("State")
 
+    if utterance == "23.9%在1,000元":
+        resultDICT["Zai"].append("State")
+
+    if utterance == "開口面積在四平方公尺":
+        resultDICT["Zai"].append("State")
+
+    if utterance == "就像是一條鐵橋被挾在兩壁之間":
+        resultDICT["Zai"].append("State")
+
+    if utterance == "在90%中":
+        resultDICT["Zai"].append("State")
+
+    if utterance == "水溫要控制在20度買哪種冷卻機好":
+        resultDICT["Zai"].append("State")
+
+    if utterance == "遺囑人在不違反關於特留分規定之範圍內":
+        resultDICT["Zai"].append("State")
+
+    if utterance == "在2.99到3.99%之間":
+        resultDICT["Zai"].append("State")
+
     return resultDICT
