@@ -42,7 +42,4 @@ def getResult(inputSTR, utterance, args, resultDICT):
     if utterance == "都在幹嘛":
         resultDICT["Zai"].append("Aspect")
 
-    if utterance == "在唱歌":
-        resultDICT["Zai"].append("Aspect")
-
     return resultDICT
