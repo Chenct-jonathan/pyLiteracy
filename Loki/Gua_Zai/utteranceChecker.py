@@ -11,11 +11,11 @@ with open("../../purged corpus/loc_zai_purged.json", encoding="utf-8") as jFILE:
 
 missingLIST = []
 
-for c in corpusLIST[3301:4301]:
+for c in corpusLIST[:5001]:
     resultDICT = execLoki(c)
     if resultDICT["Zai"] == []:
         print("Missing pattern: {}".format(c))
         missingLIST.append(c)
 
-with open("missing_zai_3301-4301.json", "w", encoding="utf-8") as jFILE:
+with open("missing_zai_0-5000.json", "w", encoding="utf-8") as jFILE:
     json.dump(missingLIST, jFILE, ensure_ascii=False, indent=4)
