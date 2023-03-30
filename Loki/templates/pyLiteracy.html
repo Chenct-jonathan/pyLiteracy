@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>pyLiteracy 中文檢查器</title>
+     <header class="col-md-12" style="background-image:url('static/media/background.png');background-position:center;background-repeat:no-repeat;background-size:cover">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+
+    <!-- Bootstrap JS -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <!-- First column -->
+                <div class="row">
+                    <div class="col-md-12">
+                        <!-- First layer -->
+                        <h1>PyLiteracy！中文文法檢查器 (開發中…)</h1>
+                        <div class="form-group">
+                            <label for="dropdownList">載入測試文本</label>
+                            <select class="form-control" id="dropdownList">
+                                <option>Option 1</option>
+                                <option>Option 2</option>
+                                <option>Option 3</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <!-- Second layer -->
+                        <h4>檢查文本：</h4>
+                        <textarea id="inputSTR" class="col-md-5" style="height:300px;"></textarea>
+                        <textarea id="inputSTR" class="col-md-5" style="height:300px;"></textarea>
+                    </div>
+                </div>
+                <input id="submit" class="col-auto" type="submit" value="Check">
+                <div class="row">
+                    <div class="col-md-12">
+                        <!-- Third layer -->
+                        <h1></h1>
+                        <div id="thinking" style="display:none;"><img src="{{url_for('static', filename='media/person-man.gif')}}"></div>
+                        <div>
+                            <p id="result" class="inline-block" style="width:70%;height:300px;" name="outputSTR"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="{{url_for('static', filename='js/main.js')}}"></script>
+</body>
+</html>
