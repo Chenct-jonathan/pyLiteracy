@@ -4,8 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>pyLiteracy 中文檢查器</title>
-     <header class="col-md-12" style="background-image:url('static/media/background.png');background-position:center;background-repeat:no-repeat;background-size:cover">
-
+    <header class="col-md-12" style="background-image:url('static/media/background.png');background-position:center;background-repeat:no-repeat;background-size:cover">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{url_for('static', filename='media/apple-touch-icon.png')}}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{url_for('static', filename='media/favicon-32x32.png')}}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{url_for('static', filename='media/favicon-16x16.png')}}">
+    <link rel="manifest" href="{{url_for('static', filename='media/site.webmanifest')}}">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 
@@ -21,7 +24,7 @@
             <div class="col-md-12">
                 <!-- First column -->
                 <div class="row">
-                    <div class="col-md-12">
+                    <div class="col-md-12 mt-5">
                         <!-- First layer -->
                         <h1>PyLiteracy！中文文法檢查器 (開發中…)</h1>
                         <div class="form-group">
@@ -39,11 +42,19 @@
                     <div class="col-md-12">
                         <!-- Second layer -->
                         <h4>檢查文本：</h4>
-                        <textarea id="inputSTR" class="col-md-5" style="height:300px;"></textarea>
-                        <textarea id="inputSTR" class="col-md-5" style="height:300px;"></textarea>
+                        <div class="row">
+                            <div class="col-md-6" >
+                                <h6>pyLiteracy</h6>
+                                <textarea id="inputSTR" class="w-100" style="min-height:300px;"></textarea>
+                            </div>
+                            <div class="col-md-6" >
+                                <h6>ChatGPT</h6>
+                                <textarea id="inputSTR" class="w-100" style="min-height:300px;"></textarea>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <input id="submit" class="col-auto" type="submit" value="Check">
+                <input id="submit" class="col-auto btn btn-warning float-right" type="submit" value="Check">
                 <div class="row">
                     <div class="col-md-12">
                         <!-- Third layer -->
