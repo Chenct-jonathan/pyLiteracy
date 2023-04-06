@@ -106,3 +106,5 @@ Joe Huang：[joehuangx@gmail.com](mailto:joehuangx@gmail.com)
 PeterWolf：[peter.w@droidtown.co](mailto:peter.w@droidtown.co)
 
 Lisi Yang：[lisi16810@gmail.com](mailto:lisi16810@gmail.com)
+
+Spec : https://docs.google.com/document/d/1QGHcbVy7gJJZVTW6DK2HHFGLnOvNRLaBPIwmPiWWSv4/edit?usp=sharing
