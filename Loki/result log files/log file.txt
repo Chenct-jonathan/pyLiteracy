@@ -1,3 +1,23 @@
+2023/3/11
+? syntactical patterns：
+[301:1300] test utterances ===> ? missings
+
+2023/3/23
+? syntactical patterns：
+[1301:2300] test utterances ===> 86 missings
+
+2023/3/11
+? syntactical patterns：
+[2301:3300] test utterances ===> 45 missings
+
+2023/3/31
+? syntactical patterns：
+[0:5000] test utterances ===> 153 missings
+
 2023/3/20
 133 syntactical patterns：
-5000 test utterances ===> 123 missings
+[0:5000] test utterances ===> 123 missings
+
+2023/4/6
+135 syntactical patterns：
+[5001:] test utterances ===> 141 missings
