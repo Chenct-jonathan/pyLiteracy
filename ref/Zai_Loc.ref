@@ -79,7 +79,17 @@
             "太武山",
             "住宿書院",
             "湯峰溫泉",
-            "金潤益食品工業有限公司"
+            "金潤益食品工業有限公司",
+            "億載",
+            "十八羅漢山",
+            "不二門",
+            "部落格",
+            "卓樂",
+            "甲建",
+            "馬崗厝",
+            "都會地區",
+            "全美",
+            "金玉堂"
         ],
         "_asVerb": [
             "上廁所",
@@ -12772,6 +12782,14 @@
             "lexy": [],
             "pattern": "<FUNC_inner>在</FUNC_inner><LOCATION>[^<]*?</LOCATION>"
         },
+        "在各站": {
+            "id": "23b4cead-4638-4ea8-a68f-9041c1225725",
+            "pos": "<FUNC_inner>在</FUNC_inner><QUANTIFIER>各</QUANTIFIER><ACTION_verb>站</ACTION_verb>",
+            "lexy": [
+                "(?<!</FUNC_negation>)<(ACTION_verb|VerbP)>(站|站間|站側|站亦|站共|站到|站出|原站|站約|站口|總站)</(ACTION_verb|VerbP)>"
+            ],
+            "pattern": "<FUNC_inner>在</FUNC_inner><QUANTIFIER>[^<]*?</QUANTIFIER><(ACTION_verb|VerbP)>[^<]*?</(ACTION_verb|VerbP)>"
+        },
         "在哪裡": {
             "id": "5a6f6d79-b421-4a31-af6a-a1763797f91c",
             "pos": "<FUNC_inner>在</FUNC_inner><CLAUSE_WhereQ>哪裡</CLAUSE_WhereQ>",
@@ -12828,11 +12846,23 @@
             "lexy": [],
             "pattern": "<FUNC_inner>在</FUNC_inner>(MODIFIER)?<(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>[^<]+?[系所廳房]</(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>"
         },
+        "在他那裡": {
+            "id": "0e46911c-1857-4904-946e-f2eee092703d",
+            "pos": "<FUNC_inner>在</FUNC_inner><ENTITY_pronoun>他</ENTITY_pronoun><LOCATION>那裡</LOCATION>",
+            "lexy": [],
+            "pattern": "<FUNC_inner>在</FUNC_inner>(<ENTITY_pronoun>[^<]*?</ENTITY_pronoun>)?<LOCATION>[^<]*?</LOCATION>"
+        },
         "在最下方": {
             "id": "5fbb83cb-8c29-4add-905f-b87fd9f1a378",
             "pos": "<FUNC_inner>在</FUNC_inner><FUNC_degreeHead>最</FUNC_degreeHead><RANGE_locality>下方</RANGE_locality>",
             "lexy": [],
             "pattern": "<FUNC_inner>在</FUNC_inner><FUNC_degreeHead>[^<]*?</FUNC_degreeHead><RANGE_(locality|period)>[^<]*?</RANGE_(locality|period)>"
+        },
+        "在他的住處": {
+            "id": "291418b2-8b7b-4af7-a3ed-4a3bd261a3b4",
+            "pos": "<FUNC_inner>在</FUNC_inner><ENTITY_pronoun>他</ENTITY_pronoun><FUNC_inner>的</FUNC_inner><ENTITY_nouny>住處</ENTITY_nouny>",
+            "lexy": [],
+            "pattern": "<FUNC_inner>在</FUNC_inner>?(<ENTITY_pronoun>[^<]*?</ENTITY_pronoun>)?(<FUNC_in(ner|ter)>[^<]*?</FUNC_in(ner|ter)>)?<(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>[^<]*?</(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>"
         },
         "在兩個校區": {
             "id": "4a961f72-9d1b-46d0-b259-8e1eb4c4f641",
@@ -12918,6 +12948,26 @@
             "lexy": [],
             "pattern": "<FUNC_inner>在</FUNC_inner><UserDefined>[^<]*?</UserDefined>"
         },
+        "在所學的主題": {
+            "id": "56b4400a-f061-4143-9203-96e90aacc180",
+            "pos": "<FUNC_inner>在</FUNC_inner><FUNC_inner>所</FUNC_inner><ACTION_verb>學</ACTION_verb><FUNC_inner>的</FUNC_inner><ENTITY_nouny>主題</ENTITY_nouny>",
+            "lexy": [
+                "(?<!</FUNC_negation>)<(ACTION_verb|VerbP)>(學|學當|學教|學校|學等|學站|託兒|學伴)</(ACTION_verb|VerbP)>"
+            ],
+            "pattern": "<FUNC_inner>在</FUNC_inner>(<FUNC_in(ner|ter)>[^<]*?</FUNC_in(ner|ter)>)?<(ACTION_verb|VerbP)>[^<]*?</(ACTION_verb|VerbP)>(<FUNC_in(ner|ter)>[^<]*?</FUNC_in(ner|ter)>)?<(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>[^<]*?</(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>"
+        },
+        "在每一個樓層": {
+            "id": "11d55ce6-a6ec-44ca-bf66-db300fdd43ff",
+            "pos": "<FUNC_inner>在</FUNC_inner><QUANTIFIER>每</QUANTIFIER><ENTITY_classifier>一個</ENTITY_classifier><ENTITY_noun>樓層</ENTITY_noun>",
+            "lexy": [],
+            "pattern": "<FUNC_inner>在</FUNC_inner><QUANTIFIER>[^<]*?</QUANTIFIER><ENTITY_classifier>[^<]*?</ENTITY_classifier><(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>[^<]*?</(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>"
+        },
+        "在王正棠臉書": {
+            "id": "3b65934c-9117-41a5-8335-d1530315e51e",
+            "pos": "<FUNC_inner>在</FUNC_inner><ENTITY_person>王正棠</ENTITY_person><ENTITY_nouny>臉書</ENTITY_nouny>",
+            "lexy": [],
+            "pattern": "<FUNC_inner>在</FUNC_inner>(<ENTITY_person>[^<]*?</ENTITY_person>)?<(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>[^<]*?</(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>"
+        },
         "在綠樹中掩映": {
             "id": "c1b0b274-18b6-4cf1-a48e-0e9d239ecb69",
             "pos": "<FUNC_inner>在</FUNC_inner><MODIFIER_color>綠</MODIFIER_color><UserDefined>樹中</UserDefined><VerbP>掩映</VerbP>",
@@ -12996,6 +13046,20 @@
             "lexy": [],
             "pattern": "<FUNC_inner>在</FUNC_inner>(<(MODIFIER|ModifierP)>[^<]*?</(MODIFIER|ModifierP)>)?(<FUNC_in(ner|ter)>[^<]*?</FUNC_in(ner|ter)>)?<(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>[^<]*?</(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>"
         },
+        "在各重要生產據點": {
+            "id": "dd03ada0-19e5-4660-b42c-8678f6f7b258",
+            "pos": "<FUNC_inner>在</FUNC_inner><QUANTIFIER>各</QUANTIFIER><MODIFIER>重要</MODIFIER><ACTION_verb>生產</ACTION_verb><ENTITY_nouny>據點</ENTITY_nouny>",
+            "lexy": [
+                "(?<!</FUNC_negation>)<(ACTION_verb|VerbP)>(生產|出產|生出|生成|生育|產出|產生|創作|創造|孕育|攝製)</(ACTION_verb|VerbP)>"
+            ],
+            "pattern": "<FUNC_inner>在</FUNC_inner><QUANTIFIER>[^<]*?</QUANTIFIER>(<(MODIFIER|ModifierP)>[^<]*?</(MODIFIER|ModifierP)>)?<(ACTION_verb|VerbP)>[^<]*?</(ACTION_verb|VerbP)><(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>[^<]*?</(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>"
+        },
+        "在您與孩子的身邊": {
+            "id": "109869b9-3dce-45ec-8662-a6dec88444da",
+            "pos": "<FUNC_inner>在</FUNC_inner><ENTITY_pronoun>您</ENTITY_pronoun><FUNC_conjunction>與</FUNC_conjunction><ENTITY_noun>孩子</ENTITY_noun><FUNC_inner>的</FUNC_inner><ENTITY_nouny>身邊</ENTITY_nouny>",
+            "lexy": [],
+            "pattern": "<FUNC_inner>在</FUNC_inner>(<ENTITY_pronoun>[^<]*?</ENTITY_pronoun>)?<FUNC_conjunction>[^<]*?</FUNC_conjunction><(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>[^<]*?</(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>(<FUNC_in(ner|ter)>[^<]*?</FUNC_in(ner|ter)>)?<(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>[^<]*?</(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>"
+        },
         "在數公尺高的喬木": {
             "id": "3e252990-5253-4229-855f-278d9cf3629d",
             "pos": "<FUNC_inner>在</FUNC_inner><ENTITY_measurement>數公尺</ENTITY_measurement><MODIFIER>高</MODIFIER><FUNC_inner>的</FUNC_inner><ENTITY_person>喬</ENTITY_person><ENTITY_nouny>木</ENTITY_nouny>",
@@ -13007,6 +13071,14 @@
             "pos": "<FUNC_inner>在</FUNC_inner><DegreeP>最不起眼</DegreeP><FUNC_inner>的</FUNC_inner><ENTITY_noun>地方</ENTITY_noun>",
             "lexy": [],
             "pattern": "<FUNC_inner>在</FUNC_inner><DegreeP>[^<]*?</DegreeP>(<FUNC_in(ner|ter)>[^<]*?</FUNC_in(ner|ter)>)?<(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>[^<]*?</(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>"
+        },
+        "在您自己的加盟網站": {
+            "id": "633b707d-ce9a-4056-851b-56a8e2578484",
+            "pos": "<FUNC_inner>在</FUNC_inner><ENTITY_pronoun>您自己</ENTITY_pronoun><FUNC_inner>的</FUNC_inner><ACTION_verb>加盟</ACTION_verb><ENTITY_noun>網站</ENTITY_noun>",
+            "lexy": [
+                "(?<!</FUNC_negation>)<(ACTION_verb|VerbP)>(加盟|加上|加入|參加|添加|併吞|依附|侵吞|兼併|匯合|合併)</(ACTION_verb|VerbP)>"
+            ],
+            "pattern": "<FUNC_inner>在</FUNC_inner>(<ENTITY_pronoun>[^<]*?</ENTITY_pronoun>)?(<FUNC_in(ner|ter)>[^<]*?</FUNC_in(ner|ter)>)?<(ACTION_verb|VerbP)>[^<]*?</(ACTION_verb|VerbP)><(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>[^<]*?</(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>"
         },
         "在金融和投資等方面": {
             "id": "060df509-edcb-4a84-85cb-d7eca54ccda2",
