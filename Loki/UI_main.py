@@ -54,9 +54,9 @@ def zaiChecker():
                 else:
                     print(i)
                     if "<FUNC_inner>在</FUNC_inner>" in i:
-                        i = re.sub(pat, "", i.replace("<FUNC_inner>在</FUNC_inner>", "[btn]<FUNC_inner>在</FUNC_inner>[/btn]".format(i))).replace("[btn]", "<button type='button' class='btn btn-secondary' data-bs-toggle='tooltip' data-bs-placement='top' title='「再」啦！'>").replace("[/btn]", "</button>")
+                        i = re.sub(pat, "", i.replace("<FUNC_inner>在</FUNC_inner>", "[btn]<FUNC_inner>在</FUNC_inner>[/btn]".format(i))).replace("[btn]", "<button type='button' class='btn btn-danger' data-bs-toggle='tooltip' data-bs-placement='top' title='「再」啦！'>").replace("[/btn]", "</button>")
                     else: #"<ASPECT>在</ASPECT>"
-                        i = re.sub(pat, "", i.replace("<ASPECT>在</ASPECT>" , "[btn]<ASPECT>在</ASPECT>[/btn]".format(i))).replace("[btn]", "<button type='button' class='btn btn-secondary' data-bs-toggle='tooltip' data-bs-placement='top' title='「再」啦！'>").replace("[/btn]", "</button>")
+                        i = re.sub(pat, "", i.replace("<ASPECT>在</ASPECT>" , "[btn]<ASPECT>在</ASPECT>[/btn]".format(i))).replace("[btn]", "<button type='button' class='btn btn-danger' data-bs-toggle='tooltip' data-bs-placement='top' title='「再」啦！'>").replace("[/btn]", "</button>")
                     sentenceLIST.append(i)
                     app.logger.info("變成{}".format("".join(sentenceLIST)))
             else:
