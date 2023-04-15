@@ -52,15 +52,16 @@ def zaiChecker():
                 if checkResultDICT["Zai"] != []:
                     sentenceLIST.append(re.sub(pat, "", i))
                 else:
+                    print(i)
                     if "<FUNC_inner>在</FUNC_inner>" in i:
-                        i = re.sub(pat, "", i.replace("<FUNC_inner>在</FUNC_inner>", "<FUNC_inner>在</FUNC_inner>[sub][再]啦！[/sub]".format(i))).replace("[sub]", "<sub>").replace("[/sub]", "</sub>")
+                        i = re.sub(pat, "", i.replace("<FUNC_inner>在</FUNC_inner>", "[btn]<FUNC_inner>在</FUNC_inner>[/btn]".format(i))).replace("[btn]", "<button type='button' class='btn btn-secondary' data-bs-toggle='tooltip' data-bs-placement='top' title='「再」啦！'>").replace("[/btn]", "</button>")
                     else: #"<ASPECT>在</ASPECT>"
-                        i = re.sub(pat, "", i.replace("<ASPECT>在</ASPECT>" , "<ASPECT>在</ASPECT>[sub][再]啦！[/sub]".format(i))).replace("[sub]", "<sub>").replace("[/sub]", "</sub>")
+                        i = re.sub(pat, "", i.replace("<ASPECT>在</ASPECT>" , "[btn]<ASPECT>在</ASPECT>[/btn]".format(i))).replace("[btn]", "<button type='button' class='btn btn-secondary' data-bs-toggle='tooltip' data-bs-placement='top' title='「再」啦！'>").replace("[/btn]", "</button>")
                     sentenceLIST.append(i)
                     app.logger.info("變成{}".format("".join(sentenceLIST)))
             else:
                 sentenceLIST.append(re.sub(pat, "", i))
-        response = jsonify({"checkResult":"<br>".join(sentenceLIST)})    #將最終結果以 jsonify() 包裝後回傳到前端 .js
+        response = jsonify({"checkResult":"".join(sentenceLIST)})    #將最終結果以 jsonify() 包裝後回傳到前端 .js
         return response
 
 if __name__ == "__main__":

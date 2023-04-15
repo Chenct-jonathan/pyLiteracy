@@ -11,7 +11,7 @@
     <link rel="manifest" href="{{url_for('static', filename='media/site.webmanifest')}}">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-
+    <link href="/static/css/main.css?v=2" rel="stylesheet">
     <!-- jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 
@@ -45,11 +45,12 @@
                         <div class="row">
                             <div class="col-md-6" >
                                 <h6>pyLiteracy</h6>
-                                <textarea id="inputSTR" class="w-100" style="min-height:300px;"></textarea>
+                                <!--<textarea id="inputSTR" class="w-100" style="min-height:300px;"></textarea>-->
+                                <div id="inputSTR" class="textarea w-100" style="font-size: 18px" contenteditable="true"></div>
                             </div>
                             <div class="col-md-6" >
                                 <h6>ChatGPT</h6>
-                                <textarea id="inputSTR" class="w-100" style="min-height:300px;"></textarea>
+                                <div id="outputSTR" class="textarea w-100" contenteditable="true"></div>
                             </div>
                         </div>
                     </div>
@@ -59,7 +60,7 @@
                     <div class="col-md-12">
                         <!-- Third layer -->
                         <h1></h1>
-                        <div id="thinking" style="display:none;"><img src="{{url_for('static', filename='media/person-man.gif')}}"></div>
+                        <div id="thinking" class="mask" style="display:none;"><img src="{{url_for('static', filename='media/person-man.gif')}}"></div>
                         <div>
                             <p id="result" class="inline-block" style="width:70%;height:300px;" name="outputSTR"></p>
                         </div>
