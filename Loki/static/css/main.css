@@ -1,0 +1,59 @@
+#thinking {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1045;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+#thinking img {
+    position: fixed;
+    top: calc(50% - 204px);
+    left: calc(50% - 204px);
+}
+
+textarea {
+    height: 28px;
+    width: 400px;
+}
+
+.textarea {
+    -moz-appearance: textfield-multiline;
+    -webkit-appearance: textarea;
+    border: 1px solid gray;
+    background-color: white;
+    font: medium -moz-fixed;
+    font: -webkit-small-control;
+    /*height: 28px;*/
+    min-height:300px;
+    overflow: auto;
+    padding: 2px;
+    resize: both;
+}
+/*.tooltip {*/
+    /*color:red;*/
+    /*position: relative;*/
+    /*display: inline-block;*/
+    /*border-bottom: 1px dotted black;*/
+/*}*/
+
+/*.tooltip .tooltiptext {*/
+    /*visibility: hidden;*/
+    /*width: 120px;*/
+    /*background-color: black;*/
+    /*color:red;*/
+    /*text-align: center;*/
+    /*border-radius: 6px;*/
+    /*padding: 5px 0;*/
+
+  /*/* Position the tooltip */*/
+    /*position: absolute;*/
+    /*z-index: 1;*/
+/*}*/
+
+/*.tooltip:hover .tooltiptext {*/
+    /*visibility: visible;*/
+/**/}
