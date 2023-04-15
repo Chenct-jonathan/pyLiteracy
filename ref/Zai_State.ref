@@ -12778,6 +12778,14 @@
             "lexy": [],
             "pattern": "<(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>[^<]*?[率壓溫]</(UserDefined|ENTITY_(nounHead|nouny|noun|oov))><FUNC_inner>在</FUNC_inner>(<ENTITY_measurement>[^<]*?</ENTITY_measurement>|<ENTITY_num>[^<]*?</ENTITY_num>|<KNOWLEDGE_currency>[^<]*?</KNOWLEDGE_currency>)"
         },
+        "買在80幾": {
+            "id": "20fe21f3-da42-488e-9647-eaa57811c1a7",
+            "pos": "<ACTION_verb>買</ACTION_verb><FUNC_inner>在</FUNC_inner><ENTITY_num>80</ENTITY_num><CLAUSE_HowQ>幾</CLAUSE_HowQ>",
+            "lexy": [
+                "(?<!</FUNC_negation>)<(ACTION_verb|VerbP)>(買|採買|收買|買進|購買|採辦|購得|賣|買來|想買|買不起)</(ACTION_verb|VerbP)>"
+            ],
+            "pattern": "(?<!</FUNC_negation>)<(ACTION_verb|VerbP)>[^<]*?</(ACTION_verb|VerbP)><FUNC_inner>在</FUNC_inner>(<ENTITY_num>[^<]*?</ENTITY_num>|<ENTITY_measurement>[^<]*?</ENTITY_measurement>)"
+        },
         "在800年前": {
             "id": "7fc6c8fd-ffef-41f0-b62d-6fb918c3d2b1",
             "pos": "<FUNC_inner>在</FUNC_inner><TIME_year>800年</TIME_year><RANGE_period>前</RANGE_period>",
@@ -12834,13 +12842,19 @@
             "lexy": [
                 "(?<!</FUNC_negation>)<(ACTION_verb|VerbP)>(到|到了|到約|到受|到離|到包|到經過|到回|到隨|到死|到愛)</(ACTION_verb|VerbP)>"
             ],
-            "pattern": "<FUNC_inner>在</FUNC_inner><ENTITY_num>[^<]*?</ENTITY_num><(ACTION_verb|VerbP)>到</(ACTION_verb|VerbP)><ENTITY_measurement>[^<]*?</ENTITY_measurement>(<FUNC_inner>之</FUNC_inner>)?<ENTITY_nouny>間</ENTITY_nouny>"
+            "pattern": "<FUNC_inner>在</FUNC_inner>(<ENTITY_num>[^<]*?</ENTITY_num>|<ENTITY_measurement>[^<]*?</ENTITY_measurement>)<(ACTION_verb|VerbP)>到</(ACTION_verb|VerbP)>(<ENTITY_num>[^<]*?</ENTITY_num>|<ENTITY_measurement>[^<]*?</ENTITY_measurement>)(<FUNC_inner>之</FUNC_inner>)?<ENTITY_nouny>間</ENTITY_nouny>"
         },
         "在七期新光三越": {
             "id": "21ecfcdc-5f71-42da-918c-5c283410727d",
             "pos": "<FUNC_inner>在</FUNC_inner><ACTION_eventQuantifier>七期</ACTION_eventQuantifier><UserDefined>新光三越</UserDefined>",
             "lexy": [],
             "pattern": "<FUNC_inner>在</FUNC_inner><ACTION_eventQuantifier>[^<]*?</ACTION_eventQuantifier>"
+        },
+        "在不景氣的年代": {
+            "id": "c8821a8b-bd45-46b9-a430-bb30673d3ec5",
+            "pos": "<FUNC_inner>在</FUNC_inner><FUNC_negation>不</FUNC_negation><MODIFIER>景氣</MODIFIER><FUNC_inner>的</FUNC_inner><TIME_decade>年代</TIME_decade>",
+            "lexy": [],
+            "pattern": "<FUNC_inner>在</FUNC_inner>(.+)?<FUNC_inner>的</FUNC_inner>(<TIME_(holiday|justtime|day|week|month|season|year|decade)>[^<]*?</TIME_(holiday|justtime|day|week|month|season|year|decade)>){1,10}"
         },
         "上半年是在4或5月": {
             "id": "c6430fe3-36b5-4633-bcdb-7c46287e33b8",
@@ -12854,7 +12868,13 @@
             "lexy": [
                 "(?<!</FUNC_negation>)<(ACTION_verb|VerbP)>(確定|定出|定奪|指定|敲定|斷定|確保|確立|確認|肯定|認定)</(ACTION_verb|VerbP)>"
             ],
-            "pattern": "<FUNC_inner>在</FUNC_inner>(<QUANTIFIER>[^<]*?</QUANTIFIER>)?(<ENTITY_DetPhrase>[^<]*?</ENTITY_DetPhrase>)?(<FUNC_negation>[^<]*?</FUNC_negation>)?(<ACTION_lightVerb>被</ACTION_lightVerb>)?(.+)?(<FUNC_inner>之</FUNC_inner>)?(<RANGE_(locality|period)>[^<]*?</RANGE_(locality|period)>|<(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>内</(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>)"
+            "pattern": "<FUNC_inner>在</FUNC_inner>(<QUANTIFIER>[^<]*?</QUANTIFIER>)?(<ENTITY_DetPhrase>[^<]*?</ENTITY_DetPhrase>)?(<FUNC_negation>[^<]*?</FUNC_negation>)?(<ACTION_lightVerb>被</ACTION_lightVerb>)?(.+)?(<FUNC_inner>之</FUNC_inner>)?(<RANGE_(locality|period)>[^<]*?</RANGE_(locality|period)>|<(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>内</(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>|<ACTION_verb>下</ACTION_verb>)"
+        },
+        "租金價約在4000-8000": {
+            "id": "b569211c-3e85-4edf-a3ca-fcd0b99be498",
+            "pos": "<ENTITY_oov>租金價</ENTITY_oov><MODIFIER>約</MODIFIER><FUNC_inner>在</FUNC_inner><ENTITY_num>4000</ENTITY_num><ENTITY_num>8000</ENTITY_num>",
+            "lexy": [],
+            "pattern": "<FUNC_inner>在</FUNC_inner><ENTITY_num>[^<]*?</ENTITY_num><ENTITY_num>[^<]*?</ENTITY_num>"
         },
         "在新台幣五千元以內": {
             "id": "ffed5e1a-14dc-42db-9376-5e9765c17144",
@@ -12898,6 +12918,12 @@
                 "(?<!</FUNC_negation>)<(ACTION_verb|VerbP)>(任意|給定|仿射|常量|值域|開集|取值|閉包)</(ACTION_verb|VerbP)>"
             ],
             "pattern": "<FUNC_inner>在</FUNC_inner><ENTITY_num>[^<]*?</ENTITY_num><RANGE_(locality|period)>[^<]*?</RANGE_(locality|period)>"
+        },
+        "生活中最舒適濕度是在40": {
+            "id": "6339280a-6783-40d6-a263-934a66b0c514",
+            "pos": "<ENTITY_noun>生活</ENTITY_noun><RANGE_locality>中</RANGE_locality><DegreeP>最舒適</DegreeP><ENTITY_nouny>濕度</ENTITY_nouny><AUX>是</AUX><FUNC_inner>在</FUNC_inner><ENTITY_num>40</ENTITY_num>",
+            "lexy": [],
+            "pattern": "<(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>[^<]*?[度量數價]</(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>(<MODIFIER>約</MODIFIER>)?(<AUX>[^<]*?</AUX>)?(<ACTION_verb>[^<]*?</ACTION_verb>)?<FUNC_inner>在</FUNC_inner>(<ENTITY_num>[^<]*?</ENTITY_num>|<ENTITY_measurement>[^<]*?</ENTITY_measurement>)"
         },
         "土地及房屋均已登記在我名下": {
             "id": "285b0038-c150-4d9f-b383-994cd6333567",

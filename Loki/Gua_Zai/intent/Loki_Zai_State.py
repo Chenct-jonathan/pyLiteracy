@@ -66,6 +66,9 @@ def getResult(inputSTR, utterance, args, resultDICT):
     if utterance == "在七期新光三越":
         resultDICT["Zai"].append("State")
 
+    if utterance == "在不景氣的年代":
+        resultDICT["Zai"].append("State")
+
     if utterance == "在不確定的世界裡":
         resultDICT["Zai"].append("State")
 
@@ -108,13 +111,19 @@ def getResult(inputSTR, utterance, args, resultDICT):
     if utterance == "收錄在被行銷者之手機":
         resultDICT["Zai"].append("State")
 
-    if utterance == "水溫要控制在20度買哪種冷卻機好":
+    if utterance == "生活中最舒適濕度是在40":
         resultDICT["Zai"].append("State")
 
     if utterance == "目前在第1頁":
         resultDICT["Zai"].append("State")
 
     if utterance == "目前情趣內衣多在數千元之譜":
+        resultDICT["Zai"].append("State")
+
+    if utterance == "租金價約在4000-8000":
+        resultDICT["Zai"].append("State")
+
+    if utterance == "買在80幾":
         resultDICT["Zai"].append("State")
 
     if utterance == "遺囑人在不違反關於特留分規定之範圍內":
