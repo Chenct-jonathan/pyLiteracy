@@ -44,6 +44,7 @@ def zaiChecker():
         if inputSTR.strip() == "":                #檢查一下，如果送空白字串上來，就回覆空字串。
             return jsonify({"returnData":""})
 
+        #<Loki 的計算區塊>
         articutDICT = articut.parse(inputSTR)     #如果不是空字串，就把字串送給 Articut 處理以便斷句。
         if articutDICT["status"] == True:         #若斷句結果正常結束，就繼續往下走。否則就回覆 jsonify() 後的結果。
             pass
@@ -58,7 +59,6 @@ def zaiChecker():
                 if checkResultDICT["Zai"] != []:
                     sentenceLIST.append(re.sub(pat, "", i))
                 else:
-                    print(i)
                     if "<FUNC_inner>在</FUNC_inner>" in i:
                         i = re.sub(pat, "", i.replace("<FUNC_inner>在</FUNC_inner>", "[btn]<FUNC_inner>在</FUNC_inner>[/btn]".format(i))).replace("[btn]", "<button type='button' class='btn btn-danger danger-border' data-bs-toggle='tooltip' data-bs-placement='top' title='「再」啦！'>").replace("[/btn]", "</button>")
                     else: #"<ASPECT>在</ASPECT>"
@@ -67,7 +67,8 @@ def zaiChecker():
                     app.logger.info("變成{}".format("".join(sentenceLIST)))
             else:
                 sentenceLIST.append(re.sub(pat, "", i))
-
+        #</Loki 的計算區塊>
+        #<ChatGPT 的計算區塊>
         if openai.api_key == "":
             chatGPTResultSTR = "沒有設定可用的 token..."
         else:
@@ -80,7 +81,7 @@ def zaiChecker():
                                                                      ],
                                                            )
             chatGPTResultSTR = ChatGPTResponse.choices[0].message.content
-
+        #</ChatGPT 的計算區塊>
         response = jsonify({"checkResult":"".join(sentenceLIST), "chatgptResult":"ChatGPT 回覆>><br>{}".format(chatGPTResultSTR)})    #將最終結果以 jsonify() 包裝後回傳到前端 .js
         return response
 
