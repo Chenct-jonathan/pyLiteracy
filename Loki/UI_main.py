@@ -7,6 +7,7 @@ from flask import jsonify
 from flask import render_template
 from flask import request
 import json
+import openai
 import os
 import re
 
@@ -22,6 +23,11 @@ except:
     accountDICT = {"username":"", "apikey":""}
 pat = re.compile("</?\w+?_?\w*?>")
 articut = Articut(username=accountDICT["username"], apikey=accountDICT["apikey"])
+try:
+    openai.api_key = accountDICT["openaikey"]
+except:
+    openai.api_key = ""
+
 app = Flask(__name__)
 
 @app.route("/")
@@ -61,7 +67,21 @@ def zaiChecker():
                     app.logger.info("變成{}".format("".join(sentenceLIST)))
             else:
                 sentenceLIST.append(re.sub(pat, "", i))
-        response = jsonify({"checkResult":"".join(sentenceLIST)})    #將最終結果以 jsonify() 包裝後回傳到前端 .js
+
+        if openai.api_key == "":
+            chatGPTResultSTR = "沒有設定可用的 token..."
+        else:
+            ChatGPTResponse = openai.ChatCompletion.create(model    ="gpt-3.5-turbo",
+                                                           max_tokens=128,
+                                                           temperature=0.5,
+                                                           messages =[{"role": "system", "content": "你是個中文文法專家"},
+                                                                      {"role": "assistant", "content": "請讀這篇文章：「{}」".format(inputSTR)},
+                                                                      {"role": "user", "content": "檢查這篇文章裡是否有錯別字。"}
+                                                                     ],
+                                                           )
+            chatGPTResultSTR = ChatGPTResponse.choices[0].message.content
+
+        response = jsonify({"checkResult":"".join(sentenceLIST), "chatgptResult":"ChatGPT 回覆>><br>{}".format(chatGPTResultSTR)})    #將最終結果以 jsonify() 包裝後回傳到前端 .js
         return response
 
 if __name__ == "__main__":

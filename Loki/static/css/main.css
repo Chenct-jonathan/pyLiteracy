@@ -27,6 +27,7 @@ textarea {
     background-color: white;
     font: medium -moz-fixed;
     font: -webkit-small-control;
+    font-size: 18px;
     /*height: 28px;*/
     min-height:300px;
     overflow: auto;

@@ -17,8 +17,9 @@ $(document).ready(function() {
                 contentType: "application/json;charset=utf-8",
                 timeout: 20000,
             success: function(returnData){                       //若成功處理，則將 id 為 result 的區塊填入 returnData 的 checkResult 值。
-                //$("#result").html(returnData.checkResult);
+                console.log(returnData.chatgptResult);
                 $("#inputSTR").html(returnData.checkResult);
+                $("#ChatGPToutputSTR").html(returnData.chatgptResult);
                 $("#thinking").hide(200);                        //隱藏處理動畫
             },
             error: function(xhr, ajaxOptions, thrownError){     //若處理失敗，跳出錯誤原因資訊。
