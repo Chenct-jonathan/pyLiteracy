@@ -81,8 +81,9 @@ def zaiChecker():
                                                                      ],
                                                            )
             chatGPTResultSTR = ChatGPTResponse.choices[0].message.content
+            tokenCount = ChatGPTResponse.usage.total_tokens
         #</ChatGPT 的計算區塊>
-        response = jsonify({"checkResult":"".join(sentenceLIST), "chatgptResult":"ChatGPT 回覆>><br>{}".format(chatGPTResultSTR)})    #將最終結果以 jsonify() 包裝後回傳到前端 .js
+        response = jsonify({"checkResult":"".join(sentenceLIST), "chatgptResult":"ChatGPT 回覆>>用了 {} token 計算後得出…<br>{}<br><br>估計費用為{}元".format(tokenCount, chatGPTResultSTR, float(tokenCount)*0.002)})    #將最終結果以 jsonify() 包裝後回傳到前端 .js
         return response
 
 if __name__ == "__main__":
