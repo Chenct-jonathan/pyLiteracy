@@ -33,27 +33,11 @@ textarea {
     padding: 2px;
     resize: both;
 }
-/*.tooltip {*/
-    /*color:red;*/
-    /*position: relative;*/
-    /*display: inline-block;*/
-    /*border-bottom: 1px dotted black;*/
-/*}*/
-
-/*.tooltip .tooltiptext {*/
-    /*visibility: hidden;*/
-    /*width: 120px;*/
-    /*background-color: black;*/
-    /*color:red;*/
-    /*text-align: center;*/
-    /*border-radius: 6px;*/
-    /*padding: 5px 0;*/
-
-  /*/* Position the tooltip */*/
-    /*position: absolute;*/
-    /*z-index: 1;*/
-/*}*/
-
-/*.tooltip:hover .tooltiptext {*/
-    /*visibility: visible;*/
-/**/}
+.danger-border {
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
+    border-top-width: -0px;
+    border-bottom-width: 0px;
+}
