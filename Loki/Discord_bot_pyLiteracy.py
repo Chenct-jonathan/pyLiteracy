@@ -8,10 +8,9 @@ import re
 from datetime import datetime
 from pprint import pprint
 
-#from <your_loki_main_program> import runLoki
+from Gua_Zai.Gua_Zai import runLoki
 
 logging.basicConfig(level=logging.DEBUG)
-
 
 punctuationPat = re.compile("[,\.\?:;，。？、：；\n]+")
 def getLokiResult(inputSTR):
@@ -47,9 +46,6 @@ class BotClient(discord.Client):
         # 如果訊息來自 bot 自己，就不要處理，直接回覆 None。不然會 Bot 會自問自答個不停。
         if message.author == self.user:
             return None
-        elif message.content.lower().replace(" ", "") in ("bot點名"):
-            await message.reply("有！")
-
         logging.debug("收到來自 {} 的訊息".format(message.author))
         logging.debug("訊息內容是 {}。".format(message.content))
         if self.user.mentioned_in(message):
@@ -82,14 +78,15 @@ class BotClient(discord.Client):
 # ##########非初次對話：這裡用 Loki 計算語意
             else: #開始處理正式對話
                 #從這裡開始接上 NLU 模型
-                resulDICT = getLokiResult(msgSTR)
+                resultDICT = getLokiResult(msgSTR)
                 logging.debug("######\nLoki 處理結果如下：")
-                logging.debug(resulDICT)
+                logging.debug(resultDICT)
+                replySTR = resultDICT
         await message.reply(replySTR)
 
 
 if __name__ == "__main__":
-    with open("account.info", encoding="utf-8") as f: #讀取account.info
+    with open("../account.info", encoding="utf-8") as f: #讀取account.info
         accountDICT = json.loads(f.read())
-    client = BotClient()
+    client = BotClient(intents=discord.Intents.default())
     client.run(accountDICT["discord_token"])
