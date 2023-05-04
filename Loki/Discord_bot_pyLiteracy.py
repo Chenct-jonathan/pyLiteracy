@@ -8,7 +8,11 @@ import re
 from datetime import datetime
 from pprint import pprint
 
-from Gua_Zai.Gua_Zai import runLoki
+from Gua_Zai.Gua_Zai import runLoki, execLoki
+from ArticutAPI import Articut
+
+accountDICT = json.load(open("../account.info",encoding="utf-8"))
+articut = Articut(username=accountDICT["username"],apikey=accountDICT["apikey"])
 
 logging.basicConfig(level=logging.DEBUG)
 
@@ -78,10 +82,37 @@ class BotClient(discord.Client):
 # ##########非初次對話：這裡用 Loki 計算語意
             else: #開始處理正式對話
                 #從這裡開始接上 NLU 模型
-                resultDICT = getLokiResult(msgSTR)
-                logging.debug("######\nLoki 處理結果如下：")
-                logging.debug(resultDICT)
-                replySTR = resultDICT
+                sentenceLIST = []
+                pat = re.compile("</?\w+?_?\w*?>")
+                if msgSTR.strip() == "":                #檢查一下，如果送空白字串上來，就回覆空字串。
+                    replySTR = ""
+                else:
+                    articutDICT = articut.parse(msgSTR)
+                    if articutDICT["status"] == True:
+                        pass
+                    else:
+                        replySTR = "somethine wrong with your message！"
+                    for i in articutDICT["result_pos"]:       #將 Articut 處理後的每一句，送入 Loki 模型中處理。
+                        if len(i) <= 1:
+                            sentenceLIST.append(i)
+                        elif "<FUNC_inner>在</FUNC_inner>" in i or "<ASPECT>在</ASPECT>" in i:
+                            checkResultDICT = execLoki(msgSTR)
+                            if checkResultDICT["Zai"] != []:
+                                sentenceLIST.append(re.sub(pat, "", i))
+                            else:
+                                if "<FUNC_inner>在</FUNC_inner>" in i:
+                                    i = re.sub(pat, "", i).replace("在", "在 `「再」啦！`\t")
+                                    replySTR = i
+                                else: #"<ASPECT>在</ASPECT>"
+                                    i = re.sub(pat, "", i).replace("在", "在 `「再」啦！`\t")
+                                    replySTR = i
+                                sentenceLIST.append(i)
+                        else:
+                            sentenceLIST.append(re.sub(pat, "", i))
+                    #resultDICT = getLokiResult(msgSTR)
+                    #logging.debug("######\nLoki 處理結果如下：")
+                    #logging.debug(resultDICT)
+                    #replySTR = resultDICT
         await message.reply(replySTR)
 
 
