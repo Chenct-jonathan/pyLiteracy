@@ -10,7 +10,7 @@ import json
 import openai
 import os
 import re
-
+from naive_typo import typoChecker
 from ArticutAPI import Articut
 from Gua_Zai.Gua_Zai import execLoki
 
@@ -43,6 +43,8 @@ def zaiChecker():
         inputSTR = inputDICT["inputSTR"]          #此行對應 .js 中的：payload["inputSTR"] = $("#inputSTR").val(); //將輸入區內的字串值載入 payload 中，給定 key 為 "inputSTR"
         if inputSTR.strip() == "":                #檢查一下，如果送空白字串上來，就回覆空字串。
             return jsonify({"returnData":""})
+
+        typoLIST = typoChecker(inputSTR)
 
         #<Loki 的計算區塊>
         articutDICT = articut.parse(inputSTR)     #如果不是空字串，就把字串送給 Articut 處理以便斷句。
