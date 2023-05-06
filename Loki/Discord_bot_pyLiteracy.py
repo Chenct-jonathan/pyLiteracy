@@ -77,42 +77,47 @@ class BotClient(discord.Client):
                 #沒有講過話(給他一個新的template)
                 else:
                     self.mscDICT[message.author.id] = self.resetMSCwith(message.author.id)
-                    replySTR = msgSTR.title()
+                    replySTR = "{}！我是 pyLiteracy！讓我來撿查你的句子吧！".format(msgSTR.title())
 
 # ##########非初次對話：這裡用 Loki 計算語意
             else: #開始處理正式對話
                 #從這裡開始接上 NLU 模型
                 sentenceLIST = []
+                #rmPat = re.compile("[^<a-zA-Z/_>]")
                 pat = re.compile("</?\w+?_?\w*?>")
-                if msgSTR.strip() == "":                #檢查一下，如果送空白字串上來，就回覆空字串。
-                    replySTR = ""
+                if msgSTR.strip() == "<@1096713732983357510>": #檢查一下，如果送空白字串上來，就回覆空字串。
+                    replySTR = "How can I help you?"
                 else:
+                    print("msgSTR：{}".format(msgSTR))
                     articutDICT = articut.parse(msgSTR)
                     if articutDICT["status"] == True:
-                        pass
-                    else:
-                        replySTR = "somethine wrong with your message！"
-                    for i in articutDICT["result_pos"]:       #將 Articut 處理後的每一句，送入 Loki 模型中處理。
-                        if len(i) <= 1:
-                            sentenceLIST.append(i)
-                        elif "<FUNC_inner>在</FUNC_inner>" in i or "<ASPECT>在</ASPECT>" in i:
-                            checkResultDICT = execLoki(msgSTR)
-                            if checkResultDICT["Zai"] != []:
-                                sentenceLIST.append(re.sub(pat, "", i))
-                            else:
-                                if "<FUNC_inner>在</FUNC_inner>" in i:
-                                    i = re.sub(pat, "", i).replace("在", "在 `「再」啦！`\t")
-                                    replySTR = i
-                                else: #"<ASPECT>在</ASPECT>"
-                                    i = re.sub(pat, "", i).replace("在", "在 `「再」啦！`\t")
-                                    replySTR = i
+                        print(" Articut 處理結果：{}".format(articutDICT["result_pos"]))
+                        for i in articutDICT["result_pos"]: #將 Articut 處理後的每一句，送入 Loki 模型中處理。
+                            print("正在檢查下列文字：「{}」。".format(i))
+                            if len(i) <= 1:
                                 sentenceLIST.append(i)
-                        else:
-                            sentenceLIST.append(re.sub(pat, "", i))
-                    #resultDICT = getLokiResult(msgSTR)
-                    #logging.debug("######\nLoki 處理結果如下：")
-                    #logging.debug(resultDICT)
-                    #replySTR = resultDICT
+                                print("{} 不是句子。".format(i))
+                            elif "<FUNC_inner>在</FUNC_inner>" in i or "<ASPECT>在</ASPECT>" in i:
+                                checkSTR =  ''.join(re.sub(pat, "", i))
+                                print("「{}」裡面有「在」。".format(checkSTR))
+                                checkResultDICT = execLoki(checkSTR)
+                                if checkResultDICT["Zai"] != []:
+                                    print("這句沒有錯誤。")
+                                    sentenceLIST.append(checkSTR)
+                                else:
+                                    if "<FUNC_inner>在</FUNC_inner>" in i:
+                                        checkSTR = checkSTR.replace("在", " `在>再` ")
+                                        print("修正為：「{}」。".format(checkSTR))
+                                    else: #"<ASPECT>在</ASPECT>"
+                                        checkSTR = checkSTR.replace("在", " `在>再` ")
+                                        print("修正為：「{}」。".format(checkSTR))
+                                    sentenceLIST.append(checkSTR)
+                            else:
+                                sentenceLIST.append(checkSTR)                        
+                        replySTR = "檢查結果如下：「{}」".format(''.join(sentenceLIST))        
+                    
+                    else:
+                        replySTR = "Somethine must be wrong with your message！"
         await message.reply(replySTR)
 
 
