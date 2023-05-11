@@ -12764,7 +12764,7 @@
             "lexy": [
                 "(?<!</FUNC_negation>)<(ACTION_verb|VerbP)>(跑步|亂跑|奔跑|快跑|慢跑|跑走|奔走|輕推|輕撞|輕碰|散步)</(ACTION_verb|VerbP)>"
             ],
-            "pattern": "(?<!別</FUNC_negation>)<ASPECT>在</ASPECT><(ACTION_verb|VerbP)>[^<見來]*?</(ACTION_verb|VerbP)>(?!<ENTITY_pronoun>[^<]</ENTITY_pronoun><ACTION_eventQuantifier>)(?!<ACTION_eventQuantifier>)(?!<ENTITY_classifier>)"
+            "pattern": "(?<!<MODIFIER>先</MODIFIER><VerbP>[^<]{2}</VerbP>)(?<!<MODIFIER>先</MODIFIER><VerbP>[^<]</VerbP>)(?<!<ACTION_verb>[回待].</ACTION_verb>)(?<![別不]</FUNC_negation>)<ASPECT>在</ASPECT><(ACTION_verb|VerbP)>[^<見來]*?</(ACTION_verb|VerbP)>(?!<ENTITY_pronoun>[^<]</ENTITY_pronoun><ACTION_eventQuantifier>)(?!<ACTION_eventQuantifier>)(?!<ENTITY_classifier>)"
         },
         "都在幹嘛": {
             "id": "c1a59888-b5ef-42df-b666-6f0969205211",
