@@ -77,7 +77,7 @@ class BotClient(discord.Client):
                 #沒有講過話(給他一個新的template)
                 else:
                     self.mscDICT[message.author.id] = self.resetMSCwith(message.author.id)
-                    replySTR = "{}！我是 pyLiteracy！讓我來撿查你的句子吧！".format(msgSTR.title())
+                    replySTR = "{}！我是 pyLiteracy！讓我來檢查你的中文吧！".format(msgSTR.title())
 
 # ##########非初次對話：這裡用 Loki 計算語意
             else: #開始處理正式對話
@@ -113,7 +113,7 @@ class BotClient(discord.Client):
                                         print("修正為：「{}」。".format(checkSTR))
                                     sentenceLIST.append(checkSTR)
                             else:
-                                sentenceLIST.append(checkSTR)                        
+                                sentenceLIST.append(''.join(re.sub(pat, "", i)))                        
                         replySTR = "檢查結果如下：「{}」".format(''.join(sentenceLIST))        
                     
                     else:
