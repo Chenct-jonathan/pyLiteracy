@@ -113,7 +113,8 @@ class BotClient(discord.Client):
                                         print("修正為：「{}」。".format(checkSTR))
                                     sentenceLIST.append(checkSTR)
                             else:
-                                sentenceLIST.append(''.join(re.sub(pat, "", i)))                        
+                                checkSTR =  ''.join(re.sub(pat, "", i))
+                                sentenceLIST.append(checkSTR)                        
                         replySTR = "檢查結果如下：「{}」".format(''.join(sentenceLIST))        
                     
                     else:
