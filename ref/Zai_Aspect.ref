@@ -35,18 +35,25 @@
             "七星山",
             "七號倉庫",
             "三崁店莊北",
+            "不二門",
             "中山堂",
             "五大都會區",
             "伺服器",
+            "住宿書院",
+            "億載",
+            "全美",
             "兩壁",
             "兩輪",
             "八位元環境",
             "六都",
             "前提",
+            "十八羅漢山",
+            "卓樂",
             "南方影展",
             "叉路口",
             "四等考試",
             "坡度",
+            "太武山",
             "太祖媽廟",
             "太興社區",
             "學習時空",
@@ -54,11 +61,16 @@
             "已開發國家",
             "師生",
             "新光三越",
+            "方向",
             "時機點",
             "林蔭",
+            "林邊佳冬",
             "活動",
+            "湯峰溫泉",
             "特留分",
+            "甲建",
             "申報戶",
+            "白沙島",
             "白玉",
             "老湖口",
             "舊檢查哨",
@@ -67,10 +79,15 @@
             "親等",
             "資金",
             "過季廣場",
+            "部落格",
+            "都會地區",
+            "金潤益食品工業有限公司",
+            "金玉堂",
             "鐵砧山",
             "限度",
             "非開放空間",
             "飛比價格",
+            "馬崗厝",
             "（",
             "）"
         ],
@@ -12747,7 +12764,7 @@
             "lexy": [
                 "(?<!</FUNC_negation>)<(ACTION_verb|VerbP)>(跑步|亂跑|奔跑|快跑|慢跑|跑走|奔走|輕推|輕撞|輕碰|散步)</(ACTION_verb|VerbP)>"
             ],
-            "pattern": "<ASPECT>在</ASPECT><(ACTION_verb|VerbP)>[^<]*?</(ACTION_verb|VerbP)>(?!<ENTITY_pronoun>[^<]</ENTITY_pronoun><ACTION_eventQuantifier>)(?!<ACTION_eventQuantifier>)(?!<ENTITY_classifier>)"
+            "pattern": "(?<!<MODIFIER>先</MODIFIER><VerbP>[^<]{2}</VerbP>)(?<!<MODIFIER>先</MODIFIER><VerbP>[^<]</VerbP>)(?<!<ACTION_verb>[回待].</ACTION_verb>)(?<![別不]</FUNC_negation>)<ASPECT>在</ASPECT><(ACTION_verb|VerbP)>[^<見來]*?</(ACTION_verb|VerbP)>(?!<ENTITY_pronoun>[^<]</ENTITY_pronoun><ACTION_eventQuantifier>)(?!<ACTION_eventQuantifier>)(?!<ENTITY_classifier>)(?!<TIME)"
         },
         "都在幹嘛": {
             "id": "c1a59888-b5ef-42df-b666-6f0969205211",
@@ -12769,5 +12786,8 @@
             "lexy": [],
             "pattern": "(<FUNC_in(ner|ter)>[^<]*?</FUNC_in(ner|ter)>)?(<(MODIFIER|ModifierP)>[^<]*?</(MODIFIER|ModifierP)>)?(<FUNC_inner>[的地底]</FUNC_inner>)?<(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>燒</(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>"
         }
-    }
+    },
+    "alias": {},
+    "prompt": {},
+    "document": []
 }

@@ -8,10 +8,13 @@ import re
 from datetime import datetime
 from pprint import pprint
 
-#from <your_loki_main_program> import runLoki
+from Gua_Zai.Gua_Zai import runLoki, execLoki
+from ArticutAPI import Articut
+
+accountDICT = json.load(open("../account.info",encoding="utf-8"))
+articut = Articut(username=accountDICT["username"],apikey=accountDICT["apikey"])
 
 logging.basicConfig(level=logging.DEBUG)
-
 
 punctuationPat = re.compile("[,\.\?:;，。？、：；\n]+")
 def getLokiResult(inputSTR):
@@ -47,9 +50,6 @@ class BotClient(discord.Client):
         # 如果訊息來自 bot 自己，就不要處理，直接回覆 None。不然會 Bot 會自問自答個不停。
         if message.author == self.user:
             return None
-        elif message.content.lower().replace(" ", "") in ("bot點名"):
-            await message.reply("有！")
-
         logging.debug("收到來自 {} 的訊息".format(message.author))
         logging.debug("訊息內容是 {}。".format(message.content))
         if self.user.mentioned_in(message):
@@ -77,19 +77,53 @@ class BotClient(discord.Client):
                 #沒有講過話(給他一個新的template)
                 else:
                     self.mscDICT[message.author.id] = self.resetMSCwith(message.author.id)
-                    replySTR = msgSTR.title()
+                    replySTR = "{}！我是 pyLiteracy！讓我來檢查你的中文吧！".format(msgSTR.title())
 
 # ##########非初次對話：這裡用 Loki 計算語意
             else: #開始處理正式對話
                 #從這裡開始接上 NLU 模型
-                resulDICT = getLokiResult(msgSTR)
-                logging.debug("######\nLoki 處理結果如下：")
-                logging.debug(resulDICT)
+                sentenceLIST = []
+                #rmPat = re.compile("[^<a-zA-Z/_>]")
+                pat = re.compile("</?\w+?_?\w*?>")
+                if msgSTR.strip() == "<@1096713732983357510>": #檢查一下，如果送空白字串上來，就回覆空字串。
+                    replySTR = "How can I help you?"
+                else:
+                    print("msgSTR：{}".format(msgSTR))
+                    articutDICT = articut.parse(msgSTR)
+                    if articutDICT["status"] == True:
+                        print(" Articut 處理結果：{}".format(articutDICT["result_pos"]))
+                        for i in articutDICT["result_pos"]: #將 Articut 處理後的每一句，送入 Loki 模型中處理。
+                            print("正在檢查下列文字：「{}」。".format(i))
+                            if len(i) <= 1:
+                                sentenceLIST.append(i)
+                                print("{} 不是句子。".format(i))
+                            elif "<FUNC_inner>在</FUNC_inner>" in i or "<ASPECT>在</ASPECT>" in i:
+                                checkSTR =  ''.join(re.sub(pat, "", i))
+                                print("「{}」裡面有「在」。".format(checkSTR))
+                                checkResultDICT = execLoki(checkSTR)
+                                if checkResultDICT["Zai"] != []:
+                                    print("這句沒有錯誤。")
+                                    sentenceLIST.append(checkSTR)
+                                else:
+                                    if "<FUNC_inner>在</FUNC_inner>" in i:
+                                        checkSTR = checkSTR.replace("在", " `在>再` ")
+                                        print("修正為：「{}」。".format(checkSTR))
+                                    else: #"<ASPECT>在</ASPECT>"
+                                        checkSTR = checkSTR.replace("在", " `在>再` ")
+                                        print("修正為：「{}」。".format(checkSTR))
+                                    sentenceLIST.append(checkSTR)
+                            else:
+                                checkSTR =  ''.join(re.sub(pat, "", i))
+                                sentenceLIST.append(checkSTR)                        
+                        replySTR = "檢查結果如下：「{}」".format(''.join(sentenceLIST))        
+                    
+                    else:
+                        replySTR = "Somethine must be wrong with your message！"
         await message.reply(replySTR)
 
 
 if __name__ == "__main__":
-    with open("account.info", encoding="utf-8") as f: #讀取account.info
+    with open("../account.info", encoding="utf-8") as f: #讀取account.info
         accountDICT = json.loads(f.read())
-    client = BotClient()
+    client = BotClient(intents=discord.Intents.default())
     client.run(accountDICT["discord_token"])
