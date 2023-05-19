@@ -72,22 +72,26 @@ def zaiChecker():
                 sentenceLIST.append(re.sub(pat, "", i))
         #</Loki 的計算區塊>
         #<ChatGPT 的計算區塊>
-        if openai.api_key == "":
-            chatGPTResultSTR = "沒有設定可用的 token..."
-            tokenCount = 0
+        if inputDICT["runLLM"] == True:
+            if openai.api_key == "":
+                chatGPTResultSTR = "沒有設定可用的 token..."
+                tokenCount = 0
+            else:
+                ChatGPTResponse = openai.ChatCompletion.create(model    ="gpt-3.5-turbo",
+                                                               max_tokens=128,
+                                                               temperature=0.5,
+                                                               messages =[{"role": "system", "content": "你是個中文文法專家"},
+                                                                          {"role": "assistant", "content": "請讀這篇文章：「{}」".format(inputSTR)},
+                                                                          {"role": "user", "content": "檢查這篇文章裡是否有錯別字。"}
+                                                                         ],
+                                                               )
+                chatGPTResultSTR = ChatGPTResponse.choices[0].message.content
+                tokenCount = ChatGPTResponse.usage.total_tokens
+            #</ChatGPT 的計算區塊>
+            response = jsonify({"checkResult":"".join(sentenceLIST), "chatgptResult":"ChatGPT 回覆>>用了 {} token 計算後得出…<br>{}<br><br>估計費用為{}元".format(tokenCount, chatGPTResultSTR, float(tokenCount)*0.002/1000)})    #將最終結果以 jsonify() 包裝後回傳到前端 .js
         else:
-            ChatGPTResponse = openai.ChatCompletion.create(model    ="gpt-3.5-turbo",
-                                                           max_tokens=128,
-                                                           temperature=0.5,
-                                                           messages =[{"role": "system", "content": "你是個中文文法專家"},
-                                                                      {"role": "assistant", "content": "請讀這篇文章：「{}」".format(inputSTR)},
-                                                                      {"role": "user", "content": "檢查這篇文章裡是否有錯別字。"}
-                                                                     ],
-                                                           )
-            chatGPTResultSTR = ChatGPTResponse.choices[0].message.content
-            tokenCount = ChatGPTResponse.usage.total_tokens
-        #</ChatGPT 的計算區塊>
-        response = jsonify({"checkResult":"".join(sentenceLIST), "chatgptResult":"ChatGPT 回覆>>用了 {} token 計算後得出…<br>{}<br><br>估計費用為{}元".format(tokenCount, chatGPTResultSTR, float(tokenCount)*0.002/1000)})    #將最終結果以 jsonify() 包裝後回傳到前端 .js
+            response = jsonify({"checkResult":"".join(sentenceLIST)})    #將最終結果以 jsonify() 包裝後回傳到前端 .js
+
         return response
 
 if __name__ == "__main__":
