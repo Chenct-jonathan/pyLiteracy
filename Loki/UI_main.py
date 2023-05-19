@@ -57,15 +57,16 @@ def zaiChecker():
             if len(i) <= 1:
                 sentenceLIST.append(i)
             elif "<FUNC_inner>在</FUNC_inner>" in i or "<ASPECT>在</ASPECT>" in i:
-                checkResultDICT = execLoki(inputSTR)
+                checkSTR = re.sub(pat, "", i)
+                checkResultDICT = execLoki(checkSTR)
                 if checkResultDICT["Zai"] != []:
-                    sentenceLIST.append(re.sub(pat, "", i))
+                    sentenceLIST.append(checkSTR)
                 else:
                     if "<FUNC_inner>在</FUNC_inner>" in i:
-                        i = re.sub(pat, "", i.replace("<FUNC_inner>在</FUNC_inner>", "[btn]<FUNC_inner>在</FUNC_inner>[/btn]".format(i))).replace("[btn]", "<button type='button' class='btn btn-danger danger-border' data-bs-toggle='tooltip' data-bs-placement='top' title='「再」啦！'>").replace("[/btn]", "</button>")
+                        checkSTR = checkSTR.replace("在", "[btn]在[/btn]").replace("[btn]", "<button type='button' class='btn btn-danger danger-border' data-bs-toggle='tooltip' data-bs-placement='top' title='「再」啦！'>").replace("[/btn]", "</button>")#re.sub(pat, "", i.replace("<FUNC_inner>在</FUNC_inner>", "[btn]<FUNC_inner>在</FUNC_inner>[/btn]".format(i))).replace("[btn]", "<button type='button' class='btn btn-danger danger-border' data-bs-toggle='tooltip' data-bs-placement='top' title='「再」啦！'>").replace("[/btn]", "</button>")
                     else: #"<ASPECT>在</ASPECT>"
-                        i = re.sub(pat, "", i.replace("<ASPECT>在</ASPECT>" , "[btn]<ASPECT>在</ASPECT>[/btn]".format(i))).replace("[btn]", "<button type='button' class='btn btn-danger danger-border' data-bs-toggle='tooltip' data-bs-placement='top' title='「再」啦！'>").replace("[/btn]", "</button>")
-                    sentenceLIST.append(i)
+                        checkSTR = checkSTR.replace("在", "[btn]在[/btn]").replace("[btn]", "<button type='button' class='btn btn-danger danger-border' data-bs-toggle='tooltip' data-bs-placement='top' title='「再」啦！'>").replace("[/btn]", "</button>")
+                    sentenceLIST.append(checkSTR)
                     app.logger.info("變成{}".format("".join(sentenceLIST)))
             else:
                 sentenceLIST.append(re.sub(pat, "", i))

@@ -88,29 +88,29 @@ class BotClient(discord.Client):
                 if msgSTR.strip() == "<@1096713732983357510>": #檢查一下，如果送空白字串上來，就回覆空字串。
                     replySTR = "How can I help you?"
                 else:
-                    print("msgSTR：{}".format(msgSTR))
+                    #print("msgSTR：{}".format(msgSTR))
                     articutDICT = articut.parse(msgSTR)
                     if articutDICT["status"] == True:
-                        print(" Articut 處理結果：{}".format(articutDICT["result_pos"]))
+                        #print(" Articut 處理結果：{}".format(articutDICT["result_pos"]))
                         for i in articutDICT["result_pos"]: #將 Articut 處理後的每一句，送入 Loki 模型中處理。
-                            print("正在檢查下列文字：「{}」。".format(i))
+                            #print("正在檢查下列文字：「{}」。".format(i))
                             if len(i) <= 1:
                                 sentenceLIST.append(i)
-                                print("{} 不是句子。".format(i))
+                                #print("{} 不是句子。".format(i))
                             elif "<FUNC_inner>在</FUNC_inner>" in i or "<ASPECT>在</ASPECT>" in i:
-                                checkSTR =  ''.join(re.sub(pat, "", i))
-                                print("「{}」裡面有「在」。".format(checkSTR))
+                                checkSTR = re.sub(pat, "", i)
+                                #print("「{}」裡面有「在」。".format(checkSTR))
                                 checkResultDICT = execLoki(checkSTR)
                                 if checkResultDICT["Zai"] != []:
-                                    print("這句沒有錯誤。")
+                                    #print("這句沒有錯誤。")
                                     sentenceLIST.append(checkSTR)
                                 else:
                                     if "<FUNC_inner>在</FUNC_inner>" in i:
                                         checkSTR = checkSTR.replace("在", " `在>再` ")
-                                        print("修正為：「{}」。".format(checkSTR))
+                                        #print("修正為：「{}」。".format(checkSTR))
                                     else: #"<ASPECT>在</ASPECT>"
                                         checkSTR = checkSTR.replace("在", " `在>再` ")
-                                        print("修正為：「{}」。".format(checkSTR))
+                                        #print("修正為：「{}」。".format(checkSTR))
                                     sentenceLIST.append(checkSTR)
                             else:
                                 checkSTR =  ''.join(re.sub(pat, "", i))
