@@ -3,6 +3,18 @@ $(document).ready(function() {
     $("#submit").click(function(){
         submit();
     });
+    var selectMenu = document.getElementById("dropdownList");
+    selectMenu.addEventListener("change", function() {
+        select();
+    });
+    //定義 select() 的內容如下
+    function select(){
+        var selectMenu = document.getElementById("dropdownList");
+        var selectedOption = selectMenu.value;
+        var inputSTR = document.getElementById("inputSTR");
+        var inputSTR = selectedOption
+        $("#inputSTR").html(inputSTR);
+    };
     //定義 submit() 的內容如下
     function submit(){
         //console.log($("#runLLM").is(':checked'));
