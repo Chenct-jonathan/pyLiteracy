@@ -6,6 +6,7 @@ $(document).ready(function() {
     var selectMenu = document.getElementById("dropdownList");
     selectMenu.addEventListener("change", function() {
         select();
+        submit();
     });
     //定義 select() 的內容如下
     function select(){
