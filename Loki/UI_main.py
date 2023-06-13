@@ -48,6 +48,7 @@ def zaiChecker():
 
         #<Loki 的計算區塊>
         articutDICT = articut.parse(inputSTR)     #如果不是空字串，就把字串送給 Articut 處理以便斷句。
+        #zaiCount = 0
         if articutDICT["status"] == True:         #若斷句結果正常結束，就繼續往下走。否則就回覆 jsonify() 後的結果。
             pass
         else:
@@ -57,6 +58,11 @@ def zaiChecker():
             if len(i) <= 1:
                 sentenceLIST.append(i)
             elif "<FUNC_inner>在</FUNC_inner>" in i or "<ASPECT>在</ASPECT>" in i:
+                #for j in i:
+                    #if j == "<FUNC_inner>在</FUNC_inner>" or j == "<ASPECT>在</ASPECT>":
+                        #zaiCount += 1
+                #if zaiCount > 1:
+                    #i =  re.sub(r"<FUNC_inner>在</FUNC_inner><[^<]*?>[^<]*?</[^<]*?>", "", i)
                 checkSTR = re.sub(pat, "", i)
                 checkResultDICT = execLoki(checkSTR)
                 if checkResultDICT["Zai"] != []:

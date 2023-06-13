@@ -1,15 +1,23 @@
 $(document).ready(function() {
+    var runLLM = document.getElementById("runLLM");
+    var selectMenu = document.getElementById("dropdownList");
     //id 為 submit 的元素被按下 (click) 時，執行 submit() 這支程式
     $("#submit").click(function(){
         submit();
     });
-    var selectMenu = document.getElementById("dropdownList");
     selectMenu.addEventListener("change", function() {
-        select();
+        selectOption();
         submit();
     });
-    //定義 select() 的內容如下
-    function select(){
+    runLLM.addEventListener("change", function() {
+        enableLLM();
+    });
+    function enableLLM(){
+        var runLLM = document.getElementById("runLLM");
+        
+    };
+    //定義 selectOption() 的內容如下
+    function selectOption(){
         var selectMenu = document.getElementById("dropdownList");
         var selectedOption = selectMenu.value;
         var inputSTR = document.getElementById("inputSTR");
@@ -24,6 +32,8 @@ $(document).ready(function() {
         payload["inputSTR"] = $("#inputSTR").text();              //將輸入區內的字串值載入 payload 中，給定 key 為 "inputSTR"
         payload["runLLM"] = $("#runLLM").is(':checked');
         $("#result").val("");                                   //將 id 為 result 的結果呈現區清空
+        $("#ChatGPToutputSTR").val("");
+        $("#ChatGPToutputSTR").html("");
         //console.log("準備要上傳："+payload["inputSTR"]);
         $.ajax({url: "/gua",                                     //使用 $.ajas() 功能將內容送出
                 data: JSON.stringify(payload),
