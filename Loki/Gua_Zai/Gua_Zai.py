@@ -321,7 +321,12 @@ if __name__ == "__main__":
     #resultDICT = execLoki("今天天氣如何？後天氣象如何？", filterLIST, splitLIST) # output => ["今天天氣", "後天氣象"]
     #resultDICT = execLoki(["今天天氣如何？", "後天氣象如何？"], filterLIST)      # output => ["今天天氣", "後天氣象"]
 
-    inputSTR = "你在做一次試看看，你在幹嘛? 你在做什麼? 你在100人裡面"
+    inputSTR = input("請輸入欲檢查之文句：")
+    if len(inputSTR) <= 1:
+        inputSTR = "Ex. 你在做一次試看看，你在幹嘛? 你在做什麼? 你在100人裡面"
+    else:
+        pass
+    
     splitLIST = ["！", "，", "。", "？", "!", ",", "", "；", "　", ";", "?"]
     #inputSTR = "你在哪裡"
     #inputSTR = input("請輸入要檢查的句子：")
@@ -333,5 +338,32 @@ if __name__ == "__main__":
     else:
         pass
     """
+    articutDICT = articut.parse(inputSTR)
+    if articutDICT["status"] == True:
+        #print(" Articut 處理結果：{}".format(articutDICT["result_pos"]))
+        for i in articutDICT["result_pos"]: #將 Articut 處理後的每一句，送入 Loki 模型中處理。
+            #print("正在檢查下列文字：「{}」。".format(i))
+            if len(i) <= 1:
+                sentenceLIST.append(i)
+                #print("{} 不是句子。".format(i))
+            elif "<FUNC_inner>在</FUNC_inner>" in i or "<ASPECT>在</ASPECT>" in i:
+                checkSTR = re.sub(pat, "", i)
+                #print("「{}」裡面有「在」。".format(checkSTR))
+                checkResultDICT = execLoki(checkSTR)
+                if checkResultDICT["Zai"] != []:
+                    #print("這句沒有錯誤。")
+                    sentenceLIST.append(checkSTR)
+                else:
+                    if "<FUNC_inner>在</FUNC_inner>" in i:
+                        checkSTR = checkSTR.replace("在", " `在>再` ")
+                        #print("修正為：「{}」。".format(checkSTR))
+                    else: #"<ASPECT>在</ASPECT>"
+                        checkSTR = checkSTR.replace("在", " `在>再` ")
+                        #print("修正為：「{}」。".format(checkSTR))
+                    sentenceLIST.append(checkSTR)
+            else:
+                checkSTR =  ''.join(re.sub(pat, "", i))
+                sentenceLIST.append(checkSTR)                        
+        replySTR = "檢查結果如下：「{}」".format(''.join(sentenceLIST))    
 
     print(resultDICT)
