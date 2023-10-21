@@ -1,0 +1,22 @@
+README.md
+pyproject.toml
+src/pyLiteracy/__init__.py
+src/pyLiteracy/pyLiteracy.py
+src/pyLiteracy.egg-info/PKG-INFO
+src/pyLiteracy.egg-info/SOURCES.txt
+src/pyLiteracy.egg-info/dependency_links.txt
+src/pyLiteracy.egg-info/top_level.txt
+src/pyLiteracy/discord bot/pyLiteracy_discord.py
+src/pyLiteracy/loki models/Gua_Zai/Gua_Zai.py
+src/pyLiteracy/loki models/Gua_Zai/utteranceChecker.py
+src/pyLiteracy/loki models/Gua_Zai/intent/Loki_Zai_Aspect.py
+src/pyLiteracy/loki models/Gua_Zai/intent/Loki_Zai_Loc.py
+src/pyLiteracy/loki models/Gua_Zai/intent/Loki_Zai_QMarker.py
+src/pyLiteracy/loki models/Gua_Zai/intent/Loki_Zai_Range.py
+src/pyLiteracy/loki models/Gua_Zai/intent/Loki_Zai_State.py
+src/pyLiteracy/loki models/Gua_Zai/intent/Loki_Zai_idiom.py
+src/pyLiteracy/loki models/Gua_Zai/intent/Loki_Zai_verbP.py
+src/pyLiteracy/loki models/Gua_Zai/intent/Updater.py
+src/pyLiteracy/loki models/Gua_Zai/intent/__init__.py
+src/pyLiteracy/webpage/UI/UI_main.py
+src/pyLiteracy/webpage/UI/naive_typo.py
