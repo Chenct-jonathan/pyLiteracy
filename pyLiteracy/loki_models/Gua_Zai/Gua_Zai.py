@@ -68,7 +68,7 @@ except:
 import os
 BASEPATH = os.path.dirname(os.path.abspath(__file__))
 
-with open("{}/../../../../account.info".format(BASEPATH), encoding="utf-8") as f:
+with open("{}/account.info".format(BASEPATH), encoding="utf-8") as f:
     accountDICT = json.load(f)
 
 LOKI_URL = "https://api.droidtown.co/Loki/BulkAPI/"
@@ -328,7 +328,7 @@ if __name__ == "__main__":
         inputSTR = "Ex. 你在做一次試看看，你在幹嘛? 你在做什麼? 你在100人裡面"
     else:
         pass
-    
+
     splitLIST = ["！", "，", "。", "？", "!", ",", "", "；", "　", ";", "?"]
     #inputSTR = "你在哪裡"
     #inputSTR = input("請輸入要檢查的句子：")
@@ -365,7 +365,7 @@ if __name__ == "__main__":
                     #sentenceLIST.append(checkSTR)
             #else:
                 #checkSTR =  ''.join(re.sub(pat, "", i))
-                #sentenceLIST.append(checkSTR)                        
-        #replySTR = "檢查結果如下：「{}」".format(''.join(sentenceLIST))    
+                #sentenceLIST.append(checkSTR)
+        #replySTR = "檢查結果如下：「{}」".format(''.join(sentenceLIST))
 
     #print(resultDICT)
