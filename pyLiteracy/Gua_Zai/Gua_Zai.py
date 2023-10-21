@@ -42,6 +42,7 @@
         }
 """
 
+from ArticutAPI import Articut
 import json
 from requests import post
 from requests import codes
@@ -72,7 +73,8 @@ with open("{}/../../account.info".format(BASEPATH), encoding="utf-8") as f:
 
 LOKI_URL = "https://api.droidtown.co/Loki/BulkAPI/"
 USERNAME = accountDICT["username"]
-LOKI_KEY = accountDICT["loki-key"]
+LOKI_KEY = accountDICT["lokiDICT"]["Gua_zai"]
+articut = Articut(username=accountDICT["username"],apikey=accountDICT["apikey"])
 # 意圖過濾器說明
 # INTENT_FILTER = []        => 比對全部的意圖 (預設)
 # INTENT_FILTER = [intentN] => 僅比對 INTENT_FILTER 內的意圖
@@ -338,32 +340,32 @@ if __name__ == "__main__":
     else:
         pass
     """
-    articutDICT = articut.parse(inputSTR)
-    if articutDICT["status"] == True:
-        #print(" Articut 處理結果：{}".format(articutDICT["result_pos"]))
-        for i in articutDICT["result_pos"]: #將 Articut 處理後的每一句，送入 Loki 模型中處理。
-            #print("正在檢查下列文字：「{}」。".format(i))
-            if len(i) <= 1:
-                sentenceLIST.append(i)
-                #print("{} 不是句子。".format(i))
-            elif "<FUNC_inner>在</FUNC_inner>" in i or "<ASPECT>在</ASPECT>" in i:
-                checkSTR = re.sub(pat, "", i)
-                #print("「{}」裡面有「在」。".format(checkSTR))
-                checkResultDICT = execLoki(checkSTR)
-                if checkResultDICT["Zai"] != []:
-                    #print("這句沒有錯誤。")
-                    sentenceLIST.append(checkSTR)
-                else:
-                    if "<FUNC_inner>在</FUNC_inner>" in i:
-                        checkSTR = checkSTR.replace("在", " `在>再` ")
-                        #print("修正為：「{}」。".format(checkSTR))
-                    else: #"<ASPECT>在</ASPECT>"
-                        checkSTR = checkSTR.replace("在", " `在>再` ")
-                        #print("修正為：「{}」。".format(checkSTR))
-                    sentenceLIST.append(checkSTR)
-            else:
-                checkSTR =  ''.join(re.sub(pat, "", i))
-                sentenceLIST.append(checkSTR)                        
-        replySTR = "檢查結果如下：「{}」".format(''.join(sentenceLIST))    
+    #articutDICT = articut.parse(inputSTR)
+    #if articutDICT["status"] == True:
+        ##print(" Articut 處理結果：{}".format(articutDICT["result_pos"]))
+        #for i in articutDICT["result_pos"]: #將 Articut 處理後的每一句，送入 Loki 模型中處理。
+            ##print("正在檢查下列文字：「{}」。".format(i))
+            #if len(i) <= 1:
+                #sentenceLIST.append(i)
+                ##print("{} 不是句子。".format(i))
+            #elif "<FUNC_inner>在</FUNC_inner>" in i or "<ASPECT>在</ASPECT>" in i:
+                #checkSTR = re.sub(pat, "", i)
+                ##print("「{}」裡面有「在」。".format(checkSTR))
+                #checkResultDICT = execLoki(checkSTR)
+                #if checkResultDICT["Zai"] != []:
+                    ##print("這句沒有錯誤。")
+                    #sentenceLIST.append(checkSTR)
+                #else:
+                    #if "<FUNC_inner>在</FUNC_inner>" in i:
+                        #checkSTR = checkSTR.replace("在", " `在>再` ")
+                        ##print("修正為：「{}」。".format(checkSTR))
+                    #else: #"<ASPECT>在</ASPECT>"
+                        #checkSTR = checkSTR.replace("在", " `在>再` ")
+                        ##print("修正為：「{}」。".format(checkSTR))
+                    #sentenceLIST.append(checkSTR)
+            #else:
+                #checkSTR =  ''.join(re.sub(pat, "", i))
+                #sentenceLIST.append(checkSTR)                        
+        #replySTR = "檢查結果如下：「{}」".format(''.join(sentenceLIST))    
 
-    print(resultDICT)
+    #print(resultDICT)
