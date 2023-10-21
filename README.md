@@ -1,7 +1,6 @@
-# [pyLiteracy: Mandarin Grammar Checker](https://github.com/Chenct-jonathan/pyLiteracy)
+# [PyLiteracy: A Linguistics-Based Mandarin Grammar Checker](https://github.com/Chenct-jonathan/pyLiteracy)
 
-Repetitive-zai (再) and LocativePeriodic-zai (在) share the same pronunciation in Mandarin. This has led to many typos due to lack of language-decency self-awareness in modern texts. This project aims to make a Loki model that can examine whether the zai is used correctly or not.
-
+無論是否為母語者，在繁體中文的使用上，諸如近義詞、錯別字的錯誤使用是常見的，此問題也間接導致訓練資料多來自網路的大型語言模型 (LLM)無法在中文文法檢查任務上扮演可靠的角色。然而從語言學的角度來看，僅針對正確及錯誤句的對照進行模型訓練並非最有效的方式，其實此類型錯誤與詞類和句型結構有著直接關係，若將正確的詞類及句型結構規則分析化簡之後以程式碼撰寫成模型，此類以語言學規則為本的模型即能以和人類兒童依類似方式掌握語言的使用，實現以少量語料完成高效率中文文法檢查的任務。
 
 檔案總覽
 -------------
