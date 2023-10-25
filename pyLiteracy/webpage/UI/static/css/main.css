@@ -1,0 +1,44 @@
+#thinking {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1045;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+#thinking img {
+    position: fixed;
+    top: calc(50% - 204px);
+    left: calc(50% - 204px);
+}
+
+textarea {
+    height: 28px;
+    width: 400px;
+}
+
+.textarea {
+    -moz-appearance: textfield-multiline;
+    -webkit-appearance: textarea;
+    border: 1px solid gray;
+    background-color: white;
+    font: medium -moz-fixed;
+    font: -webkit-small-control;
+    font-size: 18px;
+    /*height: 28px;*/
+    min-height:300px;
+    overflow: auto;
+    padding: 2px;
+    resize: both;
+}
+.danger-border {
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
+    border-top-width: -0px;
+    border-bottom-width: 0px;
+}

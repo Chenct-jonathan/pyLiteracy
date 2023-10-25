@@ -21,3 +21,7 @@
 2023/4/6
 135 syntactical patterns：
 [5001:] test utterances ===> 141 missings
+
+2023/6
+158 syntactical patterns：
+[:] test utterances ===> 91%
