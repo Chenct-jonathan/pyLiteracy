@@ -1,0 +1,34 @@
+{
+    "language": "zh-tw",
+    "type": "advance",
+    "version": {
+        "atk": "v267",
+        "intent": "1.0"
+    },
+    "user_defined": {},
+    "utterance": {
+        "併肩": {
+            "id": "888f305e-746d-4f99-ab16-db3db440953a",
+            "pos": "<VerbP>併肩</VerbP>",
+            "lexy": [
+                "(?<!</FUNC_negation>)<(ACTION_verb|VerbP)>(併肩|入緬|領攻|拼死|壞滅)</(ACTION_verb|VerbP)>"
+            ],
+            "pattern": "(?<!</FUNC_negation>)<(ACTION_verb|VerbP)>(併)肩</(ACTION_verb|VerbP)>"
+        },
+        "並肩子": {
+            "id": "6a8d77e6-391a-4d58-b0e4-0c89914278be",
+            "pos": "<FUNC_inner>並</FUNC_inner><ENTITY_noun>肩子</ENTITY_noun>",
+            "lexy": [],
+            "pattern": "<FUNC_in(ner|ter)>(並)</FUNC_in(ner|ter)><(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>肩子</(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>"
+        },
+        "肩並肩": {
+            "id": "a18fd744-cc92-4930-9357-9da71a143fce",
+            "pos": "<ENTITY_oov>肩</ENTITY_oov><FUNC_inner>並</FUNC_inner><ENTITY_nouny>肩</ENTITY_nouny>",
+            "lexy": [],
+            "pattern": "<(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>肩</(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>(<FUNC_in(ner|ter)>(並)</FUNC_in(ner|ter)>)<(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>肩</(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>"
+        }
+    },
+    "alias": {},
+    "prompt": {},
+    "document": []
+}
