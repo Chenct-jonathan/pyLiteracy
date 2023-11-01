@@ -1,0 +1,50 @@
+{
+    "language": "zh-tw",
+    "type": "advance",
+    "version": {
+        "atk": "v267",
+        "intent": "1.0"
+    },
+    "user_defined": {},
+    "utterance": {
+        "管他的": {
+            "id": "ca818811-f0ac-4f59-be64-eb8163cfbed8",
+            "pos": "<ENTITY_oov>管</ENTITY_oov><ENTITY_pronoun>他</ENTITY_pronoun><FUNC_inner>的</FUNC_inner>",
+            "lexy": [],
+            "pattern": "<(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>管</(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>(<ENTITY_pronoun>[^!(它)]</ENTITY_pronoun>)(<FUNC_in(ner|ter)>的</FUNC_in(ner|ter)>)"
+        },
+        "他管它的": {
+            "id": "3696ce84-cced-40e7-b328-f4be338c9b9b",
+            "pos": "<ENTITY_pronoun>他</ENTITY_pronoun><ACTION_verb>管</ACTION_verb><ENTITY_pronoun>它</ENTITY_pronoun><FUNC_inner>的</FUNC_inner>",
+            "lexy": [
+                "(?<!</FUNC_negation>)<(ACTION_verb|VerbP)>(管|曉得|知道|用來了|知火|知身|管了|料竟|在乎|懂|愛管)</(ACTION_verb|VerbP)>"
+            ],
+            "pattern": "(?<=)(<ENTITY_pronoun>[^<]+</ENTITY_pronoun>)<(ACTION_verb|VerbP)>管</(ACTION_verb|VerbP)>(<ENTITY_pronoun>(它)</ENTITY_pronoun>)(<FUNC_in(ner|ter)>[^<]+</FUNC_in(ner|ter)>)"
+        },
+        "管它的事": {
+            "id": "3e44187d-0b82-4261-8f1f-4032e8fdb7de",
+            "pos": "<ENTITY_oov>管</ENTITY_oov><ENTITY_pronoun>它</ENTITY_pronoun><FUNC_inner>的</FUNC_inner><ENTITY_nouny>事</ENTITY_nouny>",
+            "lexy": [],
+            "pattern": "<(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>管</(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>(<ENTITY_pronoun>(它)</ENTITY_pronoun>)(<FUNC_in(ner|ter)>的</FUNC_in(ner|ter)>)(?=)<(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>[^<]+</(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>"
+        },
+        "不管它的事": {
+            "id": "80462686-88eb-456a-b63c-fc7ae7e8602e",
+            "pos": "<FUNC_negation>不</FUNC_negation><ACTION_verb>管</ACTION_verb><ENTITY_pronoun>它</ENTITY_pronoun><FUNC_inner>的</FUNC_inner><ENTITY_nouny>事</ENTITY_nouny>",
+            "lexy": [
+                "(?<!</FUNC_negation>)<(ACTION_verb|VerbP)>(管|曉得|知道|用來了|知火|知身|管了|料竟|在乎|懂|愛管)</(ACTION_verb|VerbP)>"
+            ],
+            "pattern": "<FUNC_negation>[^<]+</FUNC_negation><(ACTION_verb|VerbP)>管</(ACTION_verb|VerbP)>(<ENTITY_pronoun>(它)</ENTITY_pronoun>)(<FUNC_in(ner|ter)>的</FUNC_in(ner|ter)>)<(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>[^<]+</(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>"
+        },
+        "想管它的事": {
+            "id": "048a79e2-23c8-48dd-8901-5c07ce5c7316",
+            "pos": "<VerbP>想管</VerbP><ENTITY_pronoun>它</ENTITY_pronoun><FUNC_inner>的</FUNC_inner><ENTITY_nouny>事</ENTITY_nouny>",
+            "lexy": [
+                "(?<!</FUNC_negation>)<(ACTION_verb|VerbP)>(想管|敢管|想活了|管了|用來了|記得了|想理|算貴|怕苦|怕風|想幹了)</(ACTION_verb|VerbP)>"
+            ],
+            "pattern": "(?<!</FUNC_negation>)?<(ACTION_verb|VerbP)>想管</(ACTION_verb|VerbP)>(<ENTITY_pronoun>(它)</ENTITY_pronoun>)(<FUNC_in(ner|ter)>的</FUNC_in(ner|ter)>)<(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>[^<]+</(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>"
+        }
+    },
+    "alias": {},
+    "prompt": {},
+    "document": []
+}
