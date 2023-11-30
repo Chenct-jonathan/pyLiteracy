@@ -9,14 +9,16 @@ from flask import request
 import json
 import openai
 import os
+import sys
 import re
 from naive_typo import typoChecker
 from ArticutAPI import Articut
+sys.path.append('../../loki_models/Gua_Zai')
 from Gua_Zai import execLoki
 
 BASEPATH = os.path.dirname(os.path.abspath(__file__))
 try:
-    with open("./account.info", encoding="utf-8") as f:
+    with open("{}/account.info".format(BASEPATH), encoding="utf-8") as f:
         accountDICT = json.load(f)
 except:
     print("提示！！目前使用 Articut 每小時公用字數中！！")
@@ -24,7 +26,7 @@ except:
 pat = re.compile("</?\w+?_?\w*?>")
 articut = Articut(username=accountDICT["username"], apikey=accountDICT["apikey"])
 try:
-    openai.api_key = accountDICT["openaikey"]
+    openai.api_key = accountDICT["gaikey"]
 except:
     openai.api_key = ""
 
