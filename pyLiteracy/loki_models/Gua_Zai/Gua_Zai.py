@@ -82,7 +82,7 @@ except:
 
 LOKI_URL = "https://api.droidtown.co/Loki/BulkAPI/"
 USERNAME = accountDICT["username"]
-LOKI_KEY = accountDICT["lokiDICT"]["Gua_zai"]
+LOKI_KEY = accountDICT["lokiDICT"]["Gua_Zai"]
 articut = Articut(username=accountDICT["username"],apikey=accountDICT["apikey"])
 # 意圖過濾器說明
 # INTENT_FILTER = []        => 比對全部的意圖 (預設)
