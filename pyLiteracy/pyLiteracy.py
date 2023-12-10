@@ -86,7 +86,7 @@ class PyLiteracy:
         resultDICT = {
             "status": True,
             "msg": "",
-            "check": {"error_word":["error_sentence"]},
+            "check": {"error_word":["{}".format(inputSTR)]},
             "proofread": "",
             "result": resultSTR
         }

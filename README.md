@@ -5,63 +5,184 @@
 檔案總覽
 -------------
 ```
-.
-│  .gitignore
-│  account.info
+│  pyLiteracy.py
+│  pyproject.toml
 │  README.md
-│
-├─corpus  # 測試語料
-│      KNOWLEDGE_schoolTW.json
-│      LokiUserList.txt
-│      sketch engine 再.txt
-│      sketch engine 在.txt
-│
-├─purged corpus  # 清洗後語料
-│      loc_zai_purged.json
-│      loc_zai_purged.txt
-│
-├─Loki 
-│  │  UI_main.py
+│  
+├─dist
+│      pyLiteracy-0.0.1-py3-none-any.whl
+│      pyLiteracy-0.0.1.tar.gz
+│      
+├─pyLiteracy
+│  │  pyLiteracy.py
+│  │  __init__.py
 │  │  
-│  ├─Gua_Zai
-│  │  │  Gua_Zai.py
-│  │  │  missing_zai_1301-2300_revised.json
-│  │  │  missing_zai_301-1300_revised.json
-│  │  │  utteranceChecker.py
+│  ├─discord_bot
+│  │      pyLiteracy_discord.py
+│  │      
+│  ├─loki_models
 │  │  │  __init__.py
-│  │  │
-│  │  └─intent # 負責處理「在」的使用意圖
-│  │     Loki_Zai_Aspect.py
-│  │     Loki_Zai_idiom.py
-│  │     Loki_Zai_Loc.py
-│  │     Loki_Zai_Range.py
-│  │     Loki_Zai_State.py
-│  │     Loki_Zai_verbP.py
-│  │     Updater.py
-│  │     USER_DEFINED.json
-│  │     __init__.py
+│  │  │  
+│  │  ├─bing_jian_zhi
+│  │  │  │  bing_jian_zhi.py
+│  │  │  │  
+│  │  │  └─intent
+│  │  │          Loki_human_bing.py
+│  │  │          Updater.py
+│  │  │          USER_DEFINED.json
+│  │  │          
+│  │  ├─Gua_Zai
+│  │  │  │  Gua_Zai.py
+│  │  │  │  utteranceChecker.py
+│  │  │  │  __init__.py
+│  │  │  │  
+│  │  │  ├─intent
+│  │  │  │  │  Loki_Zai_Aspect.py
+│  │  │  │  │  Loki_Zai_idiom.py
+│  │  │  │  │  Loki_Zai_Loc.py
+│  │  │  │  │  Loki_Zai_QMarker.py
+│  │  │  │  │  Loki_Zai_Range.py
+│  │  │  │  │  Loki_Zai_State.py
+│  │  │  │  │  Loki_Zai_verbP.py
+│  │  │  │  │  Updater.py
+│  │  │  │  │  USER_DEFINED.json
+│  │  │  │  │  __init__.py
+│  │  │  │  │  
+│  │  │  │  └─__pycache__
+│  │  │             Loki_Zai_Aspect.cpython-310.pyc
+│  │  │             Loki_Zai_idiom.cpython-310.pyc
+│  │  │             Loki_Zai_Loc.cpython-310.pyc
+│  │  │             Loki_Zai_QMarker.cpython-310.pyc
+│  │  │             Loki_Zai_Range.cpython-310.pyc
+│  │  │             Loki_Zai_State.cpython-310.pyc
+│  │  │             Loki_Zai_verbP.cpython-310.pyc
+│  │  │             __init__.cpython-310.pyc
+│  │  │          
+│  │  ├─gwan_ta_de
+│  │  │  │  gwan_ta_de.py
+│  │  │  │  
+│  │  │  └─intent
+│  │  │          Loki_gwan_ta_de.py
+│  │  │          Updater.py
+│  │  │          USER_DEFINED.json
+│  │  
 │  │          
-│  ├─static
-│  │      person-man.gif
-│  │
-│  └─templates
-│         homepage.html
-│
-├─ref  # 啟用 Loki 服務時，需要將裡面所有的檔案匯入 Loki project 中
-│      Zai_Aspect.ref
-│      Zai_idiom.ref
-│      Zai_Loc.ref
-│      Zai_Range.ref
-│      Zai_State.ref
-│      Zai_verbP.ref
-│
-└─toolbox  # 小工具放在這
-       corpus_pos.py
-       LokiTool.md
-       LokiTool.py
-       text_tool.py
-       USER_DEFINED.json
-     
+│  └─webpage
+│      ├─static
+│      │  ├─css
+│      │  │      main.css
+│      │  │      
+│      │  ├─js
+│      │  │      main.js
+│      │  │      
+│      │  └─media
+│      │          android-chrome-192x192.png
+│      │          android-chrome-512x512.png
+│      │          apple-touch-icon.png
+│      │          background.png
+│      │          favicon-16x16.png
+│      │          favicon-32x32.png
+│      │          favicon.ico
+│      │          person-man.gif
+│      │          site.webmanifest
+│      │          
+│      ├─templates
+│      │      homepage.html
+│      │      pyLiteracy.html
+│      │      
+│      └─UI
+│          │  naive_typo.py
+│          │  UI_main.py
+│          │  
+│          ├─static
+│          │  ├─css
+│          │  │      main.css
+│          │  │      
+│          │  ├─js
+│          │  │      main.js
+│          │  │      
+│          │  └─media
+│          │          android-chrome-192x192.png
+│          │          android-chrome-512x512.png
+│          │          apple-touch-icon.png
+│          │          background.png
+│          │          favicon-16x16.png
+│          │          favicon-32x32.png
+│          │          favicon.ico
+│          │          person-man.gif
+│          │          site.webmanifest
+│          │          
+│          └─templates
+│                 homepage.html
+│                 pyLiteracy.html
+│                                   
+├─raw_data
+│  └─Corpus
+│      ├─purged
+│      │      loc_zai_purged.json
+│      │      loc_zai_purged.txt
+│      │      
+│      └─raw
+│              sketch engine 再.txt
+│              sketch engine 在.txt
+│              
+├─src
+│  ├─pyLiteracy
+│  │  │  
+│  │  └─loki models
+│  │      └─Gua_Zai
+│  │          ├─intent
+│  │             └─__pycache__
+│  │                     Loki_Zai_Aspect.cpython-310.pyc
+│  │                     Loki_Zai_idiom.cpython-310.pyc
+│  │                     Loki_Zai_Loc.cpython-310.pyc
+│  │                     Loki_Zai_QMarker.cpython-310.pyc
+│  │                     Loki_Zai_Range.cpython-310.pyc
+│  │                     Loki_Zai_State.cpython-310.pyc
+│  │                     Loki_Zai_verbP.cpython-310.pyc
+│  │                     __init__.cpython-310.pyc
+│  │          
+│  │                  
+│  └─pyLiteracy.egg-info
+│          dependency_links.txt
+│          PKG-INFO
+│          SOURCES.txt
+│          top_level.txt
+│          
+├─tool
+│          
+└─workspace
+    ├─log
+    │      log file.txt
+    │      missing_zai_0-5000.json
+    │      missing_zai_1301-2300_revised.json
+    │      missing_zai_2301-3301_revised.json
+    │      missing_zai_301-1300_revised.json
+    │      missing_zai_3301-4301.json
+    │      missing_zai_5001-.json
+    │      
+    ├─ref_files
+    │  ├─bing_jian_zhi_ref
+    │  │      human_bing.ref
+    │  │      
+    │  ├─gwan_ta_de_ref
+    │  │      gwan_ta_de.ref
+    │  │      
+    │  └─zai_ref
+    │          Zai_Aspect.ref
+    │          Zai_idiom.ref
+    │          Zai_Loc.ref
+    │          Zai_QMarker.ref
+    │          Zai_Range.ref
+    │          Zai_State.ref
+    │          Zai_verbP.ref
+    │          
+    └─tool
+            corpus_pos.py
+            LokiTool.md
+            LokiTool.py
+            text_tool.py
+            USER_DEFINED.json
 ```
 
 設置環境
