@@ -31,32 +31,23 @@
 │  │  │          Updater.py
 │  │  │          USER_DEFINED.json
 │  │  │          
-│  │  ├─Gua_Zai
+│  │  ├─Gua_Zai # The Loki Model for 在
 │  │  │  │  Gua_Zai.py
 │  │  │  │  utteranceChecker.py
 │  │  │  │  __init__.py
 │  │  │  │  
-│  │  │  ├─intent
-│  │  │  │  │  Loki_Zai_Aspect.py
-│  │  │  │  │  Loki_Zai_idiom.py
-│  │  │  │  │  Loki_Zai_Loc.py
-│  │  │  │  │  Loki_Zai_QMarker.py
-│  │  │  │  │  Loki_Zai_Range.py
-│  │  │  │  │  Loki_Zai_State.py
-│  │  │  │  │  Loki_Zai_verbP.py
-│  │  │  │  │  Updater.py
-│  │  │  │  │  USER_DEFINED.json
-│  │  │  │  │  __init__.py
-│  │  │  │  │  
-│  │  │  │  └─__pycache__
-│  │  │             Loki_Zai_Aspect.cpython-310.pyc
-│  │  │             Loki_Zai_idiom.cpython-310.pyc
-│  │  │             Loki_Zai_Loc.cpython-310.pyc
-│  │  │             Loki_Zai_QMarker.cpython-310.pyc
-│  │  │             Loki_Zai_Range.cpython-310.pyc
-│  │  │             Loki_Zai_State.cpython-310.pyc
-│  │  │             Loki_Zai_verbP.cpython-310.pyc
-│  │  │             __init__.cpython-310.pyc
+│  │  │  └─intent
+│  │  │        Loki_Zai_Aspect.py
+│  │  │        Loki_Zai_idiom.py
+│  │  │        Loki_Zai_Loc.py
+│  │  │        Loki_Zai_QMarker.py
+│  │  │        Loki_Zai_Range.py
+│  │  │        Loki_Zai_State.py
+│  │  │        Loki_Zai_verbP.py
+│  │  │        Updater.py
+│  │  │        USER_DEFINED.json
+│  │  │        __init__.py
+│  │  │     
 │  │  │          
 │  │  ├─gwan_ta_de
 │  │  │  │  gwan_ta_de.py
@@ -92,7 +83,7 @@
 │      │      
 │      └─UI
 │          │  naive_typo.py
-│          │  UI_main.py
+│          │  UI_main.py # A web-based testing tool
 │          │  
 │          ├─static
 │          │  ├─css
@@ -131,17 +122,7 @@
 │  │  │  
 │  │  └─loki models
 │  │      └─Gua_Zai
-│  │          ├─intent
-│  │             └─__pycache__
-│  │                     Loki_Zai_Aspect.cpython-310.pyc
-│  │                     Loki_Zai_idiom.cpython-310.pyc
-│  │                     Loki_Zai_Loc.cpython-310.pyc
-│  │                     Loki_Zai_QMarker.cpython-310.pyc
-│  │                     Loki_Zai_Range.cpython-310.pyc
-│  │                     Loki_Zai_State.cpython-310.pyc
-│  │                     Loki_Zai_verbP.cpython-310.pyc
-│  │                     __init__.cpython-310.pyc
-│  │          
+│  │          └─intent
 │  │                  
 │  └─pyLiteracy.egg-info
 │          dependency_links.txt
