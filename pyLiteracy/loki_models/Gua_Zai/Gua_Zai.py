@@ -76,9 +76,9 @@ except:
         "username":"chenjonathan901210@gmail.com",
         "apikey" : "l#QmFaassWUs&p@vP#9RS^sfGQ*!qlW",
         "lokiDICT" : {
-            "Gua_zai":"&Srr55Ulq4BuEixXgcqyjpv6-ryrufN"
+            "Gua_Zai":"&Srr55Ulq4BuEixXgcqyjpv6-ryrufN"
         }
-    }        
+    }
 
 LOKI_URL = "https://api.droidtown.co/Loki/BulkAPI/"
 USERNAME = accountDICT["username"]
