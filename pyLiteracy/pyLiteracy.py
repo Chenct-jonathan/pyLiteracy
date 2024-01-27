@@ -100,5 +100,5 @@ class PyLiteracy:
 
 if __name__ == '__main__':
     pyLite =  PyLiteracy()
-    resultDICT = pyLite.check(inputSTR="你在做一次試看看。你要在做一次試看看嗎?你在玩一次試看看。")
+    resultDICT = pyLite.check(inputSTR="你在做一次試看看。你在幹嘛?")
     pprint(resultDICT)
