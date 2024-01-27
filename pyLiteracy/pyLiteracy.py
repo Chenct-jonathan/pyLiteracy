@@ -60,6 +60,7 @@ class PyLiteracy:
         articut = Articut(self.username, self.apikey)
         articutDICT = articut.parse(inputSTR)
         sentenceLIST = []
+        errorLIST = []
         pat = re.compile("</?\w+?_?\w*?>")
         if articutDICT["status"] == True:
             for i in articutDICT["result_pos"]:
@@ -71,6 +72,7 @@ class PyLiteracy:
                     if checkResultDICT["Zai"] != []:
                         sentenceLIST.append(checkSTR)
                     else:
+                        errorLIST.append(checkSTR)
                         if "<FUNC_inner>在</FUNC_inner>" in i:
                             checkSTR = checkSTR.replace("在", "[在>再]")
                         else:
@@ -86,7 +88,7 @@ class PyLiteracy:
         resultDICT = {
             "status": True,
             "msg": "",
-            "check": {"error_sentence":["{}".format(inputSTR)]},
+            "check": {"error_sentence":errorLIST},
             "proofread": "",
             "result": resultSTR
         }
@@ -98,5 +100,5 @@ class PyLiteracy:
 
 if __name__ == '__main__':
     pyLite =  PyLiteracy()
-    resultDICT = pyLite.check(inputSTR="你在做一次試看看，你在幹嘛? 你在做什麼? 你在100人裡面")
+    resultDICT = pyLite.check(inputSTR="你在做一次試看看。你要在做一次試看看嗎?你在玩一次試看看。")
     pprint(resultDICT)
