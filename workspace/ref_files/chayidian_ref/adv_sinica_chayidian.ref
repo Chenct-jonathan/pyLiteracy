@@ -1,0 +1,199 @@
+{
+    "language": "zh-tw",
+    "type": "advance",
+    "version": {
+        "atk": "v258",
+        "intent": "1.0"
+    },
+    "user_defined": {
+        "_asNoun": [
+            "卡子",
+            "婦女支援組織",
+            "意念",
+            "艾柏格",
+            "身心",
+            "隨從"
+        ],
+        "_asVerb": [
+            "打轉",
+            "抽腳筋",
+            "見上面",
+            "車畚斗",
+            "陰溝裡翻船"
+        ],
+        "_tmpToken": [
+            "畢業生",
+            "盛況",
+            "質素"
+        ],
+        "_extractFromPunc": [
+            "仇人席",
+            "保守",
+            "大智若愚",
+            "平分秋色",
+            "拉一把",
+            "晚晴協會",
+            "活古蹟",
+            "眼淚歌后",
+            "選秀狀元",
+            "鄉土"
+        ]
+    },
+    "utterance": {
+        "差一點昏倒": {
+            "id": "69f9416d-edc2-499c-8e38-a8a5c78c88a7",
+            "pos": "<MODIFIER>差一點</MODIFIER><ACTION_verb>昏倒</ACTION_verb>",
+            "lexy": [
+                "(?<!</FUNC_negation>)<(ACTION_verb|VerbP)>(昏倒|嚇昏|昏厥|暈倒|摔倒|滑倒|病倒|吐血|癱軟|暈厥|摔車)</(ACTION_verb|VerbP)>"
+            ],
+            "pattern": "<MODIFIER>差一點</MODIFIER>(<FUNC_inner>(就)</FUNC_inner>|<MODAL>(便)</MODAL>)?(<ACTION_verb>([^<不遭]*?[上下入倒斃出爆死亡完光掉好到成走出來]+)</ACTION_verb>|<VerbP>([^不<]*?[了昏]+)</VerbP>)(<ASPECT>(了)</ASPECT>)?"
+        },
+        "差一點就沒命了": {
+            "id": "2db1f26f-6461-45a1-8a8f-eecb31f38548",
+            "pos": "<MODIFIER>差一點</MODIFIER><FUNC_inner>就</FUNC_inner><MODIFIER>沒命</MODIFIER><ASPECT>了</ASPECT>",
+            "lexy": [],
+            "pattern": "<MODIFIER>差一點</MODIFIER>(<FUNC_inner>(就)</FUNC_inner>|<MODAL>(便)</MODAL>)?<(MODIFIER|ModifierP)>([^<]*?)</(MODIFIER|ModifierP)><ASPECT>([^<]*?)</ASPECT>"
+        },
+        "差一點遭到截肢": {
+            "id": "b54d17cb-d3b1-4562-9e85-83837f7c7635",
+            "pos": "<MODIFIER>差一點</MODIFIER><ACTION_verb>遭到</ACTION_verb><ENTITY_nouny>截肢</ENTITY_nouny>",
+            "lexy": [
+                "(?<!</FUNC_negation>)<(ACTION_verb|VerbP)>(遭到|遭到了|遭受|受到|受到了|招致|遭致|遭遇|遭受了|受盡|遭遇了)</(ACTION_verb|VerbP)>"
+            ],
+            "pattern": "<MODIFIER>差一點</MODIFIER>(<FUNC_inner>(就)</FUNC_inner>|<MODAL>(便)</MODAL>)?<(ACTION_verb|VerbP)>([遭撞碰遇]{1,2}到)</(ACTION_verb|VerbP)>"
+        },
+        "差一點沒到九十分": {
+            "id": "b7213fd9-3caf-45e0-961e-611469e10ed4",
+            "pos": "<MODIFIER>差一點</MODIFIER><FUNC_negation>沒</FUNC_negation><ACTION_verb>到</ACTION_verb><TIME_justtime>九十分</TIME_justtime>",
+            "lexy": [
+                "(?<!</FUNC_negation>)<(ACTION_verb|VerbP)>(到|到了|到約|到受|到離|到包|到經過|到回|到隨|到死|到愛)</(ACTION_verb|VerbP)>"
+            ],
+            "pattern": "<MODIFIER>差一點</MODIFIER>(<FUNC_negation>[^<]*?</FUNC_negation>)?<(ACTION_verb|VerbP)>(到)</(ACTION_verb|VerbP)>(<TIME_(holiday|justtime|day|week|month|season|year|decade)>([^<]*?)</TIME_(holiday|justtime|day|week|month|season|year|decade)>){1,10}"
+        },
+        "差一點陰溝裡翻船": {
+            "id": "c3fb29ae-e751-4ed1-b919-9dc4207bc6d8",
+            "pos": "<MODIFIER>差一點</MODIFIER><UserDefined>陰溝裡翻船</UserDefined>",
+            "lexy": [],
+            "pattern": "<MODIFIER>差一點</MODIFIER>(<FUNC_inner>(就)</FUNC_inner>|<MODAL>(便)</MODAL>)?(<(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>([^<]*?)</(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>|<IDIOM>[^<]*?</IDIOM>)"
+        },
+        "我差一點認不出她來": {
+            "id": "6893ad9e-ab32-4359-b87c-b5f0c8d44e09",
+            "pos": "<ENTITY_pronoun>我</ENTITY_pronoun><MODIFIER>差一點</MODIFIER><ACTION_verb>認</ACTION_verb><FUNC_negation>不</FUNC_negation><ENTITY_nouny>出</ENTITY_nouny><ENTITY_pronoun>她</ENTITY_pronoun><ACTION_verb>來</ACTION_verb>",
+            "lexy": [
+                "(?<!</FUNC_negation>)<(ACTION_verb|VerbP)>(認|認出|認得|認識|辨認出|了解|懂得|掌握|明知|曉得|深知)</(ACTION_verb|VerbP)>",
+                "(?<!</FUNC_negation>)<(ACTION_verb|VerbP)>(來|上來|下來|來到|前來|回來|進來|學來|性來|出來|來第)</(ACTION_verb|VerbP)>"
+            ],
+            "pattern": "<MODIFIER>差一點</MODIFIER><(ACTION_verb|VerbP)>(認)</(ACTION_verb|VerbP)><FUNC_negation>([^<]*?)</FUNC_negation><(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>(出)</(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>(<ENTITY_pronoun>[^<]*?</ENTITY_pronoun>)?<(ACTION_verb|VerbP)>來</(ACTION_verb|VerbP)>"
+        },
+        "否則差一點看不到新中國": {
+            "id": "f44295bb-35f2-4444-9464-a7679ebb1b7e",
+            "pos": "<FUNC_inter>否則</FUNC_inter><MODIFIER>差一點</MODIFIER><ACTION_verb>看不到</ACTION_verb><MODIFIER>新</MODIFIER><LOCATION>中國</LOCATION>",
+            "lexy": [
+                "(?<!</FUNC_negation>)<(ACTION_verb|VerbP)>(看不到|看不見|看不清|看不出|見不到|聽不到|找不到|看得到|看得見)</(ACTION_verb|VerbP)>"
+            ],
+            "pattern": "<MODIFIER>差一點</MODIFIER>(<FUNC_inner>(就)</FUNC_inner>|<MODAL>(便)</MODAL>)?<(ACTION_verb|VerbP)>([^<]*?不[^<]*?)</(ACTION_verb|VerbP)>"
+        },
+        "雖然差一點而沒挑戰成功": {
+            "id": "2aae0598-06cb-4bac-bc64-149608089138",
+            "pos": "<FUNC_inter>雖然</FUNC_inter><MODIFIER>差一點</MODIFIER><FUNC_inner>而</FUNC_inner><FUNC_negation>沒</FUNC_negation><ACTION_verb>挑戰</ACTION_verb><MODIFIER>成功</MODIFIER>",
+            "lexy": [
+                "(?<!</FUNC_negation>)<(ACTION_verb|VerbP)>(挑戰|考驗|叩關|突破|問鼎|對決|攀登|衛冕|討教|爭霸|探索)</(ACTION_verb|VerbP)>"
+            ],
+            "pattern": "<MODIFIER>差一點</MODIFIER>(<FUNC_inner>(就)</FUNC_inner>|<MODAL>(便)</MODAL>)?(?:(?!<ACTION_lightVerb>[把被讓使]</ACTION_lightVerb>|<VerbP>|<ACTION_verb>).)*?<(ACTION_verb|VerbP)>([^落溺]*?[^上下出入了昏倒到出走來去爆死亡完光掉好成棄]+?)</(ACTION_verb|VerbP)><MODIFIER>([^<]*?)</MODIFIER>"
+        },
+        "差一點沒把手指頭當菜切了": {
+            "id": "10d26085-11e4-4b0a-bcb5-48918e1656ae",
+            "pos": "<MODIFIER>差一點</MODIFIER><MODIFIER>沒把</MODIFIER><ENTITY_nouny>手指頭</ENTITY_nouny><ACTION_verb>當</ACTION_verb><ENTITY_noun>菜</ENTITY_noun><VerbP>切了</VerbP>",
+            "lexy": [
+                "(?<!</FUNC_negation>)<(ACTION_verb|VerbP)>(當|據當|供當|指當|令當|收酒|幫當|當水|佔當)</(ACTION_verb|VerbP)>",
+                "(?<!</FUNC_negation>)<(ACTION_verb|VerbP)>(切了|捲成|夾著|切成|佩戴著|鑲嵌了|放置著|插了|捏成|鑲著|擺了)</(ACTION_verb|VerbP)>"
+            ],
+            "pattern": "<MODIFIER>差一點</MODIFIER>(<FUNC_inner>(就)</FUNC_inner>|<MODAL>(便)</MODAL>)?<(MODIFIER|ModifierP)>沒(把)</(MODIFIER|ModifierP)>.+?(?!(?:<ACTION_verb>).)*?(<(ACTION_verb|VerbP)>(給)</(ACTION_verb|VerbP)>)?(<ACTION_lightVerb>[^給被]/ACTION_lightVerb>)?<(ACTION_verb|VerbP)>([^<]*?[上下出入了昏倒斃出來去爆死亡完光掉好到成走]+)</(ACTION_verb|VerbP)>"
+        },
+        "她差一點栽在印度芭娜姬的手中": {
+            "id": "10aef23e-4dae-4f5a-bebe-9f2226b32130",
+            "pos": "<ENTITY_pronoun>她</ENTITY_pronoun><MODIFIER>差一點</MODIFIER><ACTION_verb>栽</ACTION_verb><FUNC_inner>在</FUNC_inner><LOCATION>印度</LOCATION><ENTITY_person>芭娜姬</ENTITY_person><FUNC_inner>的</FUNC_inner><ENTITY_nouny>手</ENTITY_nouny><RANGE_locality>中</RANGE_locality>",
+            "lexy": [
+                "(?<!</FUNC_negation>)<(ACTION_verb|VerbP)>(栽|種了|種滿|長滿了|種植了|長滿|生長著|栽種|採摘|栽植|築巢)</(ACTION_verb|VerbP)>"
+            ],
+            "pattern": "<MODIFIER>差一點</MODIFIER>(<FUNC_inner>(就)</FUNC_inner>|<MODAL>(便)</MODAL>)?<(ACTION_verb|VerbP)>([^<]+?)</(ACTION_verb|VerbP)>(<FUNC_inner>[在於]</FUNC_inner>)(.+)?(<(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>([^<]*?)</(UserDefined|ENTITY_(nounHead|nouny|noun|oov))><RANGE_locality>[^<]+?</RANGE_locality>|<LOCATION>[^<]+?</LOCATION>)"
+        },
+        "差一點提前引爆華隆跳票的引信": {
+            "id": "19e28443-9c70-4e10-a10c-4cabd7415271",
+            "pos": "<MODIFIER>差一點</MODIFIER><ACTION_verb>提</ACTION_verb><RANGE_period>前</RANGE_period><ACTION_verb>引爆</ACTION_verb><ENTITY_nouny>華隆</ENTITY_nouny><ACTION_verb>跳票</ACTION_verb><FUNC_inner>的</FUNC_inner><ENTITY_nouny>引信</ENTITY_nouny>",
+            "lexy": [
+                "(?<!</FUNC_negation>)<(ACTION_verb|VerbP)>(提|提到|提起|佩帶|夾帶|帶病|帶走|承接|抬舉|挾帶|掀動)</(ACTION_verb|VerbP)>",
+                "(?<!</FUNC_negation>)<(ACTION_verb|VerbP)>(引爆|引火|引燃|引發|引起|爆炸|爆燃|使得|孕育|害得|導出)</(ACTION_verb|VerbP)>",
+                "(?<!</FUNC_negation>)<(ACTION_verb|VerbP)>(跳票|流標|兌現|凍漲|落空|喊停|停建|破局|超支|喊卡|破功)</(ACTION_verb|VerbP)>"
+            ],
+            "pattern": "<MODIFIER>差一點</MODIFIER>(<FUNC_inner>(就)</FUNC_inner>|<MODAL>(便)</MODAL>)?<(ACTION_verb|VerbP)>([^<]*?)</(ACTION_verb|VerbP)><RANGE_(locality|period)>([^<]*?)</RANGE_(locality|period)>"
+        },
+        "三個年輕人差一點就要去大鬧天宮": {
+            "id": "51239cee-a860-4af6-b4a6-6116b585dba7",
+            "pos": "<ENTITY_classifier>三個</ENTITY_classifier><ENTITY_noun>年輕人</ENTITY_noun><MODIFIER>差一點</MODIFIER><FUNC_inner>就</FUNC_inner><ACTION_verb>要去</ACTION_verb><ACTION_verb>大鬧</ACTION_verb><ENTITY_noun>天宮</ENTITY_noun>",
+            "lexy": [
+                "(?<!</FUNC_negation>)<(ACTION_verb|VerbP)>(要去|想去|跑去|去|去了|跑來|想來|回去|得去|硬要|忙著)</(ACTION_verb|VerbP)>",
+                "(?<!</FUNC_negation>)<(ACTION_verb|VerbP)>(大鬧|巧遇|誤闖|搗亂|衝進|碰見|潛入了|誤入|鬧|閒逛|溜進)</(ACTION_verb|VerbP)>"
+            ],
+            "pattern": "<MODIFIER>差一點</MODIFIER>(<FUNC_inner>(就)</FUNC_inner>|<MODAL>(便)</MODAL>)?(<FUNC_negation>沒</FUNC_negation>)?<(ACTION_verb|VerbP)>([^<不起出]*?[來去始行])</(ACTION_verb|VerbP)>"
+        },
+        "差一點就讓這種傳統工藝走不回來": {
+            "id": "d98937f1-956b-4cb6-a67f-ce28967e07be",
+            "pos": "<MODIFIER>差一點</MODIFIER><FUNC_inner>就</FUNC_inner><ACTION_verb>讓</ACTION_verb><ENTITY_DetPhrase>這種</ENTITY_DetPhrase><ENTITY_nouny>傳統工藝</ENTITY_nouny><ACTION_verb>走不回來</ACTION_verb>",
+            "lexy": [
+                "(?<!</FUNC_negation>)<(ACTION_verb|VerbP)>(讓|禮讓|讓位|讓步|避讓|任聽|任隨|屈服|拋開|放出|放過)</(ACTION_verb|VerbP)>",
+                "(?<!</FUNC_negation>)<(ACTION_verb|VerbP)>(走不回來|)</(ACTION_verb|VerbP)>"
+            ],
+            "pattern": "<MODIFIER>差一點</MODIFIER>(<FUNC_inner>就</FUNC_inner>|<MODAL>便</MODAL>)?(<FUNC_negation>沒</FUNC_negation>)?<(ACTION_verb|VerbP)>讓</(ACTION_verb|VerbP)>.+?(?!(?:<ACTION_verb>).)*?(<ACTION_lightVerb>[給被]/ACTION_lightVerb>)?<ACTION_verb>([^<]*?)</ACTION_verb>"
+        },
+        "差一點把爸爸心愛的上等酒給打翻了": {
+            "id": "64075a6e-5b8d-4ba5-8cb8-775d45eff3c1",
+            "pos": "<MODIFIER>差一點</MODIFIER><ACTION_lightVerb>把</ACTION_lightVerb><ENTITY_pronoun>爸爸</ENTITY_pronoun><MODIFIER>心愛</MODIFIER><FUNC_inner>的</FUNC_inner><ENTITY_nouny>上等酒</ENTITY_nouny><ACTION_verb>給</ACTION_verb><ACTION_lightVerb>打</ACTION_lightVerb><VerbP>翻了</VerbP>",
+            "lexy": [
+                "(?<!</FUNC_negation>)<(ACTION_verb|VerbP)>(給|供給|帶給|提供|發放|資助|給對|予|給阿|留給|給老)</(ACTION_verb|VerbP)>",
+                "(?<!</FUNC_negation>)<(ACTION_verb|VerbP)>(翻了|成長了|翻漲|跌了|漲了|瘦了|上升了|增長了|上漲了|掉了|下降了)</(ACTION_verb|VerbP)>"
+            ],
+            "pattern": "<MODIFIER>差一點</MODIFIER>(<FUNC_inner>就</FUNC_inner>|<MODAL>便</MODAL>)?<ACTION_lightVerb>把</ACTION_lightVerb>.+?(?!(?:<ACTION_verb>).)*?(<(ACTION_verb|VerbP)>給</(ACTION_verb|VerbP)>)?(<ACTION_lightVerb>[^給被]/ACTION_lightVerb>)?<(ACTION_verb|VerbP)>([^<]*?[上下出入了昏倒斃出來去爆死亡完光掉好到成走]+)</(ACTION_verb|VerbP)>"
+        },
+        "只差一點沒和那漂亮女人做成一回好事": {
+            "id": "d3d1ada6-4627-4d95-8548-1ca0a92596b4",
+            "pos": "<MODIFIER>只</MODIFIER><MODIFIER>差一點</MODIFIER><FUNC_negation>沒</FUNC_negation><FUNC_conjunction>和</FUNC_conjunction><FUNC_determiner>那</FUNC_determiner><MODIFIER>漂亮</MODIFIER><ENTITY_noun>女人</ENTITY_noun><ACTION_verb>做成</ACTION_verb><ACTION_eventQuantifier>一回</ACTION_eventQuantifier><ENTITY_nouny>好事</ENTITY_nouny>",
+            "lexy": [
+                "(?<!</FUNC_negation>)<(ACTION_verb|VerbP)>(做成|製成|作成|做出來|拼成|製做|切成|編織成|磨成|捲成|包住)</(ACTION_verb|VerbP)>"
+            ],
+            "pattern": "<MODIFIER>差一點</MODIFIER>(<FUNC_inner>(就)</FUNC_inner>|<MODAL>(便)</MODAL>)?(?:(?!<ACTION_lightVerb>[把被讓使]</ACTION_lightVerb>|<VerbP>|<ACTION_verb>).)*?<(ACTION_verb|VerbP)>([^<不]*?[上下出入了昏倒斃出來去爆死亡完光掉好成走]+)</(ACTION_verb|VerbP)>(?!<ASPECT>)"
+        },
+        "差一點他那神父爸爸便不能認這個孩子": {
+            "id": "2d5b2d2e-7d5d-4c9d-af43-ff530355ee90",
+            "pos": "<MODIFIER>差一點</MODIFIER><ENTITY_pronoun>他</ENTITY_pronoun><FUNC_determiner>那</FUNC_determiner><ENTITY_nouny>神父</ENTITY_nouny><ENTITY_pronoun>爸爸</ENTITY_pronoun><MODAL>便</MODAL><FUNC_negation>不</FUNC_negation><MODAL>能</MODAL><ACTION_verb>認</ACTION_verb><ENTITY_DetPhrase>這個</ENTITY_DetPhrase><ENTITY_noun>孩子</ENTITY_noun>",
+            "lexy": [
+                "(?<!</FUNC_negation>)<(ACTION_verb|VerbP)>(認|認出|認得|認識|辨認出|了解|懂得|掌握|明知|曉得|深知)</(ACTION_verb|VerbP)>"
+            ],
+            "pattern": "<MODIFIER>差一點</MODIFIER>(<ENTITY_pronoun>([^<]+?)</ENTITY_pronoun>|<(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>([^<]+?)</(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>)(<FUNC_inner>(就)</FUNC_inner>|<MODAL>(便)</MODAL>)?.+?(?!(?:<(ACTION_verb|VerbP)>).)*?((<FUNC_negation>(不)</FUNC_negation>)|(<MODAL>(能)</MODAL>)){1,2}<(ACTION_verb|VerbP)>([^落溺]*[^上下出入了昏倒到出走來去爆死亡完光掉好成棄]+)</(ACTION_verb|VerbP)>"
+        },
+        "最後還差一點就當選高雄區的立法委員": {
+            "id": "49df0a73-bc19-4cb9-8a8c-8b7e8ad96a92",
+            "pos": "<FUNC_degreeHead>最</FUNC_degreeHead><ACTION_verb>後還</ACTION_verb><MODIFIER>差一點</MODIFIER><FUNC_inner>就</FUNC_inner><ACTION_verb>當選</ACTION_verb><ENTITY_nouny>高雄區</ENTITY_nouny><FUNC_inner>的</FUNC_inner><ENTITY_nouny>立法委員</ENTITY_nouny>",
+            "lexy": [
+                "(?<!</FUNC_negation>)<(ACTION_verb|VerbP)>(後還|)</(ACTION_verb|VerbP)>",
+                "(?<!</FUNC_negation>)<(ACTION_verb|VerbP)>(當選|連任|當選了|勝選|落選|獲選|參選|就任|獲任|增選|續任)</(ACTION_verb|VerbP)>"
+            ],
+            "pattern": "<MODIFIER>差一點</MODIFIER>(<FUNC_inner>(就)</FUNC_inner>|<MODAL>(便)</MODAL>)?<(ACTION_verb|VerbP)>([^<溺落不]*?[^<不上溺落下出入了昏倒到出來去爆死亡完光掉好成]+)</(ACTION_verb|VerbP)>(?!<MODIFIER>不|<ENTITY_measurement>)"
+        },
+        "爭三連霸的瑞典名將艾柏格則差一點落馬": {
+            "id": "2c576347-ebe1-4394-ac03-1d6f980cc854",
+            "pos": "<ACTION_verb>爭</ACTION_verb><ENTITY_num>三</ENTITY_num><FUNC_inner>連</FUNC_inner><ENTITY_nouny>霸</ENTITY_nouny><FUNC_inner>的</FUNC_inner><LOCATION>瑞典</LOCATION><ENTITY_oov>名將</ENTITY_oov><UserDefined>艾柏格</UserDefined><FUNC_inter>則</FUNC_inter><MODIFIER>差一點</MODIFIER><ACTION_verb>落馬</ACTION_verb>",
+            "lexy": [
+                "(?<!</FUNC_negation>)<(ACTION_verb|VerbP)>(爭|相爭|爭鬥|爭奪|爭等|內鬥|爭開|鬥爭|爭權|爭戰|傾軋)</(ACTION_verb|VerbP)>",
+                "(?<!</FUNC_negation>)<(ACTION_verb|VerbP)>(落馬|下馬|墮馬|經滿)</(ACTION_verb|VerbP)>"
+            ],
+            "pattern": "<MODIFIER>差一點</MODIFIER>(<FUNC_inner>(就)</FUNC_inner>|<MODAL>(便)</MODAL>)?<(ACTION_verb|VerbP)>([溺落]+[^<]*?)</(ACTION_verb|VerbP)>"
+        },
+        "謝長亨差一點就是中華職棒第一個「選秀狀元」": {
+            "id": "afc172f0-5c99-4eee-a89d-e3b7ea4675fa",
+            "pos": "<ENTITY_person>謝長亨</ENTITY_person><MODIFIER>差一點</MODIFIER><AUX>就是</AUX><ENTITY_noun>中華</ENTITY_noun><ENTITY_nounHead>職棒</ENTITY_nounHead><ENTITY_DetPhrase>第一個</ENTITY_DetPhrase><UserDefined>選秀狀元</UserDefined>",
+            "lexy": [],
+            "pattern": "<MODIFIER>差一點</MODIFIER><AUX>([^<]*?是)</AUX>"
+        }
+    }
+}

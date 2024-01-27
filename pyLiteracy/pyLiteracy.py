@@ -2,9 +2,14 @@
 # -*- coding:utf-8 -*-
 
 try:
-    from loki_models.Gua_Zai.Gua_Zai import execLoki
+    from loki_models.Gua_Zai import Gua_Zai
 except:
-    from .loki_models.Gua_Zai.Gua_Zai import execLoki
+    from .loki_models.Gua_Zai import Gua_Zai    
+try:
+    from loki_models.Gua_Zai import Gua_Zai
+except:
+    from .loki_models.Gua_Zai import Gua_Zai
+
 from ArticutAPI import Articut
 from pprint import pprint
 import re
@@ -68,7 +73,7 @@ class PyLiteracy:
                     sentenceLIST.append(i)
                 elif "<FUNC_inner>在</FUNC_inner>" in i or "<ASPECT>在</ASPECT>" in i:
                     checkSTR = re.sub(pat, "", i)
-                    checkResultDICT = execLoki(checkSTR)
+                    checkResultDICT = Gua_Zai.execLoki(checkSTR)
                     if checkResultDICT["Zai"] != []:
                         sentenceLIST.append(checkSTR)
                     else:

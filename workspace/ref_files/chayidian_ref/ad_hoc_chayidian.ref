@@ -1,0 +1,83 @@
+{
+    "language": "zh-tw",
+    "type": "advance",
+    "version": {
+        "atk": "v258",
+        "intent": "1.0"
+    },
+    "user_defined": {
+        "_asNoun": [
+            "卡子",
+            "婦女支援組織",
+            "意念",
+            "艾柏格",
+            "身心",
+            "隨從"
+        ],
+        "_asVerb": [
+            "打轉",
+            "抽腳筋",
+            "見上面",
+            "車畚斗",
+            "陰溝裡翻船"
+        ],
+        "_tmpToken": [
+            "畢業生",
+            "盛況",
+            "質素"
+        ],
+        "_extractFromPunc": [
+            "仇人席",
+            "保守",
+            "大智若愚",
+            "平分秋色",
+            "拉一把",
+            "晚晴協會",
+            "活古蹟",
+            "眼淚歌后",
+            "選秀狀元",
+            "鄉土"
+        ]
+    },
+    "utterance": {
+        "即使差一點": {
+            "id": "0d851f6a-fa76-4a52-a4e1-e9394cfe7f46",
+            "pos": "<FUNC_inter>即使</FUNC_inter><MODIFIER>差一點</MODIFIER>",
+            "lexy": [],
+            "pattern": "<FUNC_in(ner|ter)>[^<]*?</FUNC_in(ner|ter)><MODIFIER>差一點</MODIFIER>$"
+        },
+        "若是評估質素差一點的": {
+            "id": "6313434a-86b9-4365-84e2-cbfa8e7ea912",
+            "pos": "<FUNC_inter>若</FUNC_inter><AUX>是</AUX><ACTION_verb>評估</ACTION_verb><UserDefined>質素</UserDefined><MODIFIER>差一點</MODIFIER><FUNC_inner>的</FUNC_inner>",
+            "lexy": [
+                "(?<!</FUNC_negation>)<(ACTION_verb|VerbP)>(評估|估量|品評|評價|評定|審視|審查|檢視|檢討|檢核|考量)</(ACTION_verb|VerbP)>"
+            ],
+            "pattern": "<(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>[^<]*?</(UserDefined|ENTITY_(nounHead|nouny|noun|oov))><MODIFIER>差一點</MODIFIER><FUNC_in(ner|ter)>[^<]*?</FUNC_in(ner|ter)>$"
+        },
+        "還差一點旅行社才開門辦公": {
+            "id": "1947206e-c69c-42c7-8fe4-b80367567087",
+            "pos": "<FUNC_inner>還</FUNC_inner><MODIFIER>差一點</MODIFIER><ENTITY_nouny>旅行社</ENTITY_nouny><MODAL>才</MODAL><ACTION_verb>開門</ACTION_verb><ACTION_verb>辦公</ACTION_verb>",
+            "lexy": [
+                "(?<!</FUNC_negation>)<(ACTION_verb|VerbP)>(開門|進門|就寢|開窗|進屋|關上|坐下|緊閉|開燈|收工|上車)</(ACTION_verb|VerbP)>",
+                "(?<!</FUNC_negation>)<(ACTION_verb|VerbP)>(辦公|辦事|辦案|勞動|工作|賣笑|運轉|郵電|候機|煩王|唱經)</(ACTION_verb|VerbP)>"
+            ],
+            "pattern": "<FUNC_in(ner|ter)>還</FUNC_in(ner|ter)><MODIFIER>差一點</MODIFIER>.+?(?!(?:<ACTION_verb>).)*?<MODAL>才</MODAL><(ACTION_verb|VerbP)>[^<]*?</(ACTION_verb|VerbP)>"
+        },
+        "照片內容也和原先想的大概差一點": {
+            "id": "4ca785b2-fbe0-480f-99cf-324b386512c2",
+            "pos": "<ENTITY_oov>照片內容</ENTITY_oov><MODIFIER>也</MODIFIER><FUNC_conjunction>和</FUNC_conjunction><MODIFIER>原先</MODIFIER><ACTION_verb>想</ACTION_verb><FUNC_inner>的</FUNC_inner><MODIFIER>大概</MODIFIER><MODIFIER>差一點</MODIFIER>",
+            "lexy": [
+                "(?<!</FUNC_negation>)<(ACTION_verb|VerbP)>(想|假想|冥想|回想|想像|想出|想到|想念|想拿|想望|想要)</(ACTION_verb|VerbP)>"
+            ],
+            "pattern": "<(MODIFIER|ModifierP)>[^<]*?</(MODIFIER|ModifierP)><MODIFIER>差一點</MODIFIER>$"
+        },
+        "這些胎生的小苗萬一在第一次落下運氣差一點": {
+            "id": "4f2d6061-3aab-4865-90f0-2e428de1315a",
+            "pos": "<ENTITY_DetPhrase>這些</ENTITY_DetPhrase><ENTITY_nouny>胎生</ENTITY_nouny><FUNC_inner>的</FUNC_inner><ENTITY_nouny>小苗</ENTITY_nouny><MODIFIER>萬一</MODIFIER><FUNC_inner>在</FUNC_inner><ENTITY_DetPhrase>第一次</ENTITY_DetPhrase><ACTION_verb>落下</ACTION_verb><ENTITY_oov>運氣</ENTITY_oov><MODIFIER>差一點</MODIFIER>",
+            "lexy": [
+                "(?<!</FUNC_negation>)<(ACTION_verb|VerbP)>(落下|下落|墜落|掉落|落地|跌落|降落|陷落|下墜|下挫|下跌)</(ACTION_verb|VerbP)>"
+            ],
+            "pattern": "<(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>[^<]*?</(UserDefined|ENTITY_(nounHead|nouny|noun|oov))><MODIFIER>差一點</MODIFIER>$"
+        }
+    }
+}
