@@ -79,24 +79,17 @@ class PyLiteracy:
                 else:
                     checkSTR =  ''.join(re.sub(pat, "", i))
                     sentenceLIST.append(checkSTR)
-            resultSTR = "檢查結果：「{}」".format(''.join(sentenceLIST))
+            resultSTR = "「{}」".format(''.join(sentenceLIST))
         else:
             resultSTR = "error"
 
         resultDICT = {
             "status": True,
             "msg": "",
-            "check": {"error_word":["{}".format(inputSTR)]},
+            "check": {"error_sentence":["{}".format(inputSTR)]},
             "proofread": "",
             "result": resultSTR
         }
-        #try:
-            #resultDICT["resultSTR"] = check(inputSTR, username, apikey, lokikey)
-            #resultDICT["msg"] = "Fuiyoh!"
-        #except Exception as e:
-            #resultDICT["status"] = False
-            #resultDICT["msg"] = "Haiya! An error occurred : {}.".format(type(e).__name__)
-            #print(r"Haiya! An error occurred : {}.".format(type(e).__name__))
 
         return resultDICT
 
@@ -105,5 +98,5 @@ class PyLiteracy:
 
 if __name__ == '__main__':
     pyLite =  PyLiteracy()
-    resultDICT = pyLite.check(inputSTR="你在做一次試看看。")
+    resultDICT = pyLite.check(inputSTR="你在做一次試看看，你在幹嘛? 你在做什麼? 你在100人裡面")
     pprint(resultDICT)

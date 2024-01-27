@@ -46,6 +46,7 @@ from ArticutAPI import Articut
 import json
 from requests import post
 from requests import codes
+from pprint import pprint
 import math
 import re
 try:
@@ -71,7 +72,11 @@ BASEPATH = os.path.dirname(os.path.abspath(__file__))
 try:
     with open("{}/account.info".format(BASEPATH), encoding="utf-8") as f:
         accountDICT = json.load(f)
+    print("now using: user account")
+    pprint(accountDICT)
+    print("==============================================================================================================================================================")
 except:
+    print("now using: default account")
     accountDICT =  {
         "username":"chenjonathan901210@gmail.com",
         "apikey" : "l#QmFaassWUs&p@vP#9RS^sfGQ*!qlW",
@@ -341,6 +346,7 @@ if __name__ == "__main__":
     splitLIST = ["！", "，", "。", "？", "!", ",", "", "；", "　", ";", "?"]
     #inputSTR = "你在哪裡"
     #inputSTR = input("請輸入要檢查的句子：")
+    print("inputSTR: {}".format(inputSTR))
     resultDICT = execLoki(inputSTR, splitLIST=splitLIST)
 
     """
@@ -377,4 +383,4 @@ if __name__ == "__main__":
                 #sentenceLIST.append(checkSTR)
         #replySTR = "檢查結果如下：「{}」".format(''.join(sentenceLIST))
 
-    #print(resultDICT)
+    print(resultDICT)

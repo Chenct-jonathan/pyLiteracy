@@ -70,7 +70,7 @@ def zaiChecker():
                     sentenceLIST.append(checkSTR)
                 else:
                     if "<FUNC_inner>在</FUNC_inner>" in i:
-                        checkSTR = checkSTR.replace("在", "[btn]在[/btn]").replace("[btn]", "<button type='button' class='btn btn-danger danger-border' data-bs-toggle='tooltip' data-bs-placement='top' title='「再」啦！'>").replace("[/btn]", "</button>")#re.sub(pat, "", i.replace("<FUNC_inner>在</FUNC_inner>", "[btn]<FUNC_inner>在</FUNC_inner>[/btn]".format(i))).replace("[btn]", "<button type='button' class='btn btn-danger danger-border' data-bs-toggle='tooltip' data-bs-placement='top' title='「再」啦！'>").replace("[/btn]", "</button>")
+                        checkSTR = checkSTR.replace("在", "[btn]在[/btn]").replace("[btn]", "<button type='button' class='btn btn-danger danger-border' data-bs-toggle='tooltip' data-bs-placement='top' title='「再」啦！'>").replace("[/btn]", "</button>")
                     else: #"<ASPECT>在</ASPECT>"
                         checkSTR = checkSTR.replace("在", "[btn]在[/btn]").replace("[btn]", "<button type='button' class='btn btn-danger danger-border' data-bs-toggle='tooltip' data-bs-placement='top' title='「再」啦！'>").replace("[/btn]", "</button>")
                     sentenceLIST.append(checkSTR)
