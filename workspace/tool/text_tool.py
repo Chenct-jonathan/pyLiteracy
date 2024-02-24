@@ -34,4 +34,3 @@ def json2List(file):
     outputSTR = str(userLIST).replace("[","").replace("]","").replace("'","")
     with open("../corpusLokiUserList.txt", "w",encoding='UTF-8' ) as g:
         g.write(outputSTR)
-        
