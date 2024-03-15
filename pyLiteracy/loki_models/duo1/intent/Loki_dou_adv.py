@@ -51,6 +51,16 @@ def getResponse(utterance, args):
 
 def getResult(inputSTR, utterance, args, resultDICT, refDICT, pattern=""):
     debugInfo(inputSTR, utterance)
+    if utterance == "哥哥和姐姐都":
+        if CHATBOT_MODE:
+            resultDICT["response"] = getResponse(utterance, args)
+        else:
+            resultDICT = {"status": True,
+                          "msg": "",
+                          "check": {"都":[inputSTR]},
+                          "proofread": ""
+                         }
+
     if utterance == "都多了兩公分":
         if CHATBOT_MODE:
             resultDICT["response"] = getResponse(utterance, args)
@@ -62,6 +72,16 @@ def getResult(inputSTR, utterance, args, resultDICT, refDICT, pattern=""):
                          }
 
     if utterance == "都多了兩歲":
+        if CHATBOT_MODE:
+            resultDICT["response"] = getResponse(utterance, args)
+        else:
+            resultDICT = {"status": True,
+                          "msg": "",
+                          "check": {"都":[inputSTR]},
+                          "proofread": ""
+                         }
+
+    if utterance == "都沒有":
         if CHATBOT_MODE:
             resultDICT["response"] = getResponse(utterance, args)
         else:
@@ -92,16 +112,6 @@ def getResult(inputSTR, utterance, args, resultDICT, refDICT, pattern=""):
                          }
 
     if utterance == "都花了一千多塊":
-        if CHATBOT_MODE:
-            resultDICT["response"] = getResponse(utterance, args)
-        else:
-            resultDICT = {"status": True,
-                          "msg": "",
-                          "check": {"都":[inputSTR]},
-                          "proofread": ""
-                         }
-
-    if utterance == "都沒有":
         if CHATBOT_MODE:
             resultDICT["response"] = getResponse(utterance, args)
         else:
