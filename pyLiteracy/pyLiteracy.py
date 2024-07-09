@@ -5,10 +5,10 @@ try:
     from loki_models.Gua_Zai import Gua_Zai
 except:
     from .loki_models.Gua_Zai import Gua_Zai    
-try:
-    from loki_models.Gua_Zai import Gua_Zai
-except:
-    from .loki_models.Gua_Zai import Gua_Zai
+#try:
+    #from loki_models.Gua_Zai import Gua_Zai
+#except:
+    #from .loki_models.Gua_Zai import Gua_Zai
 
 from ArticutAPI import Articut
 from pprint import pprint

@@ -4,11 +4,23 @@
 import logging
 import discord
 import json
+import sys
+import os
 import re
 from datetime import datetime
 from pprint import pprint
 
-from Gua_Zai.Gua_Zai import runLoki, execLoki
+parent_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '../'))
+sys.path.append(parent_dir)
+
+os.chdir(parent_dir)
+current_working_directory = os.getcwd()
+print(f"Current working directory: {current_working_directory}")
+
+try:
+    from loki_models.Gua_Zai.Gua_Zai import execLoki
+except:
+    from .loki_models.Gua_Zai.Gua_Zai import execLoki
 from ArticutAPI import Articut
 
 accountDICT = json.load(open("../account.info",encoding="utf-8"))
@@ -123,7 +135,7 @@ class BotClient(discord.Client):
 
 
 if __name__ == "__main__":
-    with open("../account.info", encoding="utf-8") as f: #讀取account.info
+    with open("account.info", encoding="utf-8") as f: #讀取account.info
         accountDICT = json.loads(f.read())
     client = BotClient(intents=discord.Intents.default())
     client.run(accountDICT["discord_token"])
