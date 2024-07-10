@@ -281,14 +281,19 @@ if __name__ == "__main__":
     #inputSTR = "不再空洞無味"
     #resultDICT = execLoki(inputSTR, refDICT=refDICT)
     #print(resultDICT)
+    hit = 0
     
     with open ('rep_zai_purged.txt','r',encoding='utf-8') as f:
         inputLIST = f.readlines()
         
-        for i, p in enumerate(inputLIST[5001:8001], start=1):
+        for i, p in enumerate(inputLIST[:], start=1):
             refDICT = {"rep": []}
             resultDICT = execLoki(p, refDICT=refDICT)
             if resultDICT["rep"] != []:
                 print(i, ". ", "rep_zai")
+                hit += 1
             else:
                 print(i, ". ", p)
+                
+    
+    print("accuracy: {}".format(hit/8859))

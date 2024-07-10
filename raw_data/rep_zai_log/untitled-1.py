@@ -1,63 +1,26 @@
-#!/usr/bin/env python3
-# -*- coding:utf-8 -*-
-
-"""
-    Loki module for zai_vrep
-
-    Input:
-        inputSTR      str,
-        utterance     str,
-        args          str[],
-        resultDICT    dict,
-        refDICT       dict,
-        pattern       str
-
-    Output:
-        resultDICT    dict
-"""
-
-from random import sample
 import json
-import os
+import re
+from pprint import pprint
 
-DEBUG = True
-CHATBOT_MODE = False
+with open("rep_zai.json", "r", encoding="utf-8") as f:
+    uDICT = json.load(f)
+    
+#pprint(uDICT)
+keyLIST = list(uDICT["utterance"].keys()) 
 
-userDefinedDICT = {}
-try:
-    userDefinedDICT = json.load(open(os.path.join(os.path.dirname(__file__), "USER_DEFINED.json"), encoding="utf-8"))
-except Exception as e:
-    print("[ERROR] userDefinedDICT => {}".format(str(e)))
+pprint(keyLIST)
+pprint(len(keyLIST))
 
-responseDICT = {}
-if CHATBOT_MODE:
-    try:
-        responseDICT = json.load(open(os.path.join(os.path.dirname(os.path.dirname(__file__)), "reply/reply_zai_vrep.json"), encoding="utf-8"))
-    except Exception as e:
-        print("[ERROR] responseDICT => {}".format(str(e)))
 
-# 將符合句型的參數列表印出。這是 debug 或是開發用的。
-def debugInfo(inputSTR, utterance):
-    if DEBUG:
-        print("[zai_vrep] {} ===> {}".format(inputSTR, utterance))
-        #pass
-
-def getResponse(utterance, args):
-    resultSTR = ""
-    if utterance in responseDICT:
-        if len(responseDICT[utterance]):
-            resultSTR = sample(responseDICT[utterance], 1)[0].format(*args)
-
-    return resultSTR
-
+inputSTR = '''
 def getResult(inputSTR, utterance, args, resultDICT, refDICT, pattern=""):
     debugInfo(inputSTR, utterance)
     if utterance == "1983年再向虎山行飾紀青雲":
         if CHATBOT_MODE:
             resultDICT["response"] = getResponse(utterance, args)
         else:
-            if "<UserDefined>" in args[7]:
-                if args[8] in userDefinedDICT["as_Verb"]:
+            if "<UserDefined>" in args[8]:
+                if args[9] in userDefinedDICT["as_Verb"]:
                     resultDICT["rep"].append("rep")
                 else:
                     pass
@@ -106,6 +69,12 @@ def getResult(inputSTR, utterance, args, resultDICT, refDICT, pattern=""):
         else:
             resultDICT["rep"].append("rep")
 
+    if utterance == "再將同學行李擺放至寢室內":
+        if CHATBOT_MODE:
+            resultDICT["response"] = getResponse(utterance, args)
+        else:
+            resultDICT["rep"].append("rep")
+
     if utterance == "再強悍的防毒軟體也會有失靈的一天":
         if CHATBOT_MODE:
             resultDICT["response"] = getResponse(utterance, args)
@@ -148,6 +117,12 @@ def getResult(inputSTR, utterance, args, resultDICT, refDICT, pattern=""):
         else:
             resultDICT["rep"].append("rep")
 
+    if utterance == "再行長期出租予企業客戶使用":
+        if CHATBOT_MODE:
+            resultDICT["response"] = getResponse(utterance, args)
+        else:
+            resultDICT["rep"].append("rep")
+
     if utterance == "再見":
         if CHATBOT_MODE:
             resultDICT["response"] = getResponse(utterance, args)
@@ -167,6 +142,12 @@ def getResult(inputSTR, utterance, args, resultDICT, refDICT, pattern=""):
             resultDICT["rep"].append("rep")
 
     if utterance == "又再一次的超越自己了":
+        if CHATBOT_MODE:
+            resultDICT["response"] = getResponse(utterance, args)
+        else:
+            resultDICT["rep"].append("rep")
+
+    if utterance == "可享住宿再優惠9折2來店泡湯贈送養生茶乙壺":
         if CHATBOT_MODE:
             resultDICT["response"] = getResponse(utterance, args)
         else:
@@ -229,6 +210,18 @@ def getResult(inputSTR, utterance, args, resultDICT, refDICT, pattern=""):
         else:
             resultDICT["rep"].append("rep")
             
+    if utterance == "恕不再一一徵求同意":
+        if CHATBOT_MODE:
+            resultDICT["response"] = getResponse(utterance, args)
+        else:
+            resultDICT["rep"].append("rep")
+            
+    if utterance == "再因急降雨造成聚落淹水":
+        if CHATBOT_MODE:
+            resultDICT["response"] = getResponse(utterance, args)
+        else:
+            resultDICT["rep"].append("rep")
+            
     if utterance == "結帳再84折":
         if CHATBOT_MODE:
             resultDICT["response"] = getResponse(utterance, args)
@@ -245,6 +238,25 @@ def getResult(inputSTR, utterance, args, resultDICT, refDICT, pattern=""):
         if CHATBOT_MODE:
             resultDICT["response"] = getResponse(utterance, args)
         else:
-            resultDICT["rep"].append("rep")        
+            resultDICT["rep"].append("rep")    
+'''
 
-    return resultDICT
+pat = re.compile(r'if utterance == "([\u4E00-\u9FFF 0-9a-zA-Z]+)":')
+utterenceLIST = re.findall(pat, inputSTR)
+pprint(utterenceLIST)
+pprint(len(utterenceLIST))
+
+
+unique_to_list1 = [item for item in keyLIST if item not in utterenceLIST]
+
+# 找到 list2 中有但 list1 中沒有的元素
+unique_to_list2 = [item for item in utterenceLIST if item not in keyLIST]
+
+# 找到兩個列表中不同的元素
+different_elements = unique_to_list1 + unique_to_list2
+
+print("List1 中獨有的元素:", unique_to_list1)
+print("List2 中獨有的元素:", unique_to_list2)
+print("兩個列表中不同的元素:", different_elements)
+
+pprint(utterenceLIST == keyLIST)
