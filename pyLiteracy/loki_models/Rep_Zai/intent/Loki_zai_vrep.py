@@ -56,8 +56,14 @@ def getResult(inputSTR, utterance, args, resultDICT, refDICT, pattern=""):
         if CHATBOT_MODE:
             resultDICT["response"] = getResponse(utterance, args)
         else:
-            resultDICT["rep"].append("rep")
-
+            if "<UserDefined>" in args[8]:
+                if args[9] in userDefinedDICT["as_Verb"]:
+                    resultDICT["rep"].append("rep")
+                else:
+                    pass
+            else:
+                resultDICT["rep"].append("rep")
+                
     if utterance == "2013再戰明天飾懲教人員":
         if CHATBOT_MODE:
             resultDICT["response"] = getResponse(utterance, args)
@@ -242,6 +248,24 @@ def getResult(inputSTR, utterance, args, resultDICT, refDICT, pattern=""):
             resultDICT["rep"].append("rep")
             
     if utterance == "北門遊客中心再一新作":
+        if CHATBOT_MODE:
+            resultDICT["response"] = getResponse(utterance, args)
+        else:
+            resultDICT["rep"].append("rep")
+            
+    if utterance == "恕不再一一徵求同意":
+        if CHATBOT_MODE:
+            resultDICT["response"] = getResponse(utterance, args)
+        else:
+            resultDICT["rep"].append("rep")
+            
+    if utterance == "再因急降雨造成聚落淹水":
+        if CHATBOT_MODE:
+            resultDICT["response"] = getResponse(utterance, args)
+        else:
+            resultDICT["rep"].append("rep")
+            
+    if utterance == "結帳再84折":
         if CHATBOT_MODE:
             resultDICT["response"] = getResponse(utterance, args)
         else:

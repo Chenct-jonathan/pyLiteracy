@@ -285,7 +285,7 @@ if __name__ == "__main__":
     with open ('rep_zai_purged.txt','r',encoding='utf-8') as f:
         inputLIST = f.readlines()
         
-        for i, p in enumerate(inputLIST[3001:5000], start=1):
+        for i, p in enumerate(inputLIST[5001:8001], start=1):
             refDICT = {"rep": []}
             resultDICT = execLoki(p, refDICT=refDICT)
             if resultDICT["rep"] != []:
