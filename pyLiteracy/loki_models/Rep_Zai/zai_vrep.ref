@@ -35,7 +35,17 @@
             "生靈",
             "異議",
             "課本",
-            "運費"
+            "運費",
+            "燈頭",
+            "再興中學",
+            "歌仔戲",
+            "台車",
+            "票",
+            "",
+            "社會成本",
+            "再犯之虞",
+            "中央主管機關",
+            "會議"
         ],
         "as_Verb": [
             "限期",
@@ -43,7 +53,25 @@
             "授權",
             "伺機",
             "分區",
-            "半價"
+            "半價",
+            "mail",
+            "Mail",
+            "MAIL",
+            "補票",
+            "研酌",
+            "檢證",
+            "再版",
+            "填單",
+            "擴及",
+            "擴廠",
+            "麻煩",
+            "徒耗",
+            "面議",
+            "陳請",
+            "跨組",
+            "轉組",
+            "誤觸",
+            "商議"
         ]
     },
     "utterance": {
@@ -53,7 +81,7 @@
             "lexy": [
                 "(?<!</FUNC_negation>)<(ACTION_verb|VerbP)>(再見|再會|再見過|再見了|有見過|說話了|相見|愛了|相守|料想|接吻)</(ACTION_verb|VerbP)>"
             ],
-            "pattern": "(<ACTION_verb>再[見現造嫁婚生會於]</ACTION_verb>|<VerbP>再[見現造嫁婚生會於](了)?</VerbP>)"
+            "pattern": "(<ACTION_verb>再[見現造嫁婚生會於]</ACTION_verb>|<VerbP>再[見現造嫁婚生會於](了)?</VerbP>|<UserDefined>(再[^<]+)</UserDefined>)"
         },
         "再保險": {
             "id": "8bf03e7d-0cd9-4b93-9a86-80f94358cd12",
@@ -77,7 +105,7 @@
             "id": "f1db46a0-f1c3-4e51-9598-9291eb7891fe",
             "pos": "<MODIFIER>不再</MODIFIER><MODIFIER>如此</MODIFIER>",
             "lexy": [],
-            "pattern": "<MODIFIER>不再</MODIFIER>(<MODIFIER>如此</MODIFIER>|<IDIOM>[^<]+</IDIOM>|<ENTITY_oov>[^<]+</ENTITY_oov>|<UserDefined>([^<]+)</UserDefined>)"
+            "pattern": "<MODIFIER>不再</MODIFIER>((<MODIFIER>只</MODIFIER>)?<MODAL>[^<]+</MODAL>|<MODIFIER>如此</MODIFIER>|<IDIOM>[^<]+</IDIOM>|<ENTITY_oov>[^<]+</ENTITY_oov>|<UserDefined>([^<]+)</UserDefined>)"
         },
         "再上一層": {
             "id": "fa10ca92-aec7-4b49-bddd-ab88e061573e",
@@ -90,6 +118,12 @@
             "pos": "<IDIOM>再接再厲</IDIOM>",
             "lexy": [],
             "pattern": "<IDIOM>再[^<]+</IDIOM>"
+        },
+        "再低5-10度": {
+            "id": "506c10f2-e72b-4739-8b48-0bd25e1e3ca6",
+            "pos": "<MODIFIER>再</MODIFIER><MODIFIER>低</MODIFIER><ENTITY_num>5</ENTITY_num><ENTITY_measurement>10度</ENTITY_measurement>",
+            "lexy": [],
+            "pattern": "<MODIFIER>再</MODIFIER><MODIFIER>[^<]+</MODIFIER>((<TIME_(holiday|justtime|day|week|month|season|year|decade)>[^<]+</TIME_(holiday|justtime|day|week|month|season|year|decade)>){1,10}|<ENTITY_num>[^<]+</ENTITY_num>|<ENTITY_measurement>[^<]+</ENTITY_measurement>)+"
         },
         "結帳再84折": {
             "id": "be6e1025-2f99-42f2-8167-24b9df2dc955",
@@ -106,14 +140,6 @@
                 "(?<!</FUNC_negation>)<(ACTION_verb|VerbP)>(帶|佩帶|夾帶|帶病|帶走|挾帶|攜帶|隨帶|佩戴|承接|披掛)</(ACTION_verb|VerbP)>"
             ],
             "pattern": "(<QUANTIFIER>再[多少]</QUANTIFIER>|<MODIFIER>再</MODIFIER><MODIFIER>[多少]</MODIFIER>)"
-        },
-        "會再通知您": {
-            "id": "cccc6a4b-7f1a-44d2-a598-8f456f0638a0",
-            "pos": "<MODAL>會</MODAL><MODIFIER>再</MODIFIER><ACTION_verb>通知</ACTION_verb><ENTITY_pronoun>您</ENTITY_pronoun>",
-            "lexy": [
-                "(?<!</FUNC_negation>)<(ACTION_verb|VerbP)>(通知|告知|通報|傳告|傳呼|報信|報告|敘述|敬告|訴說|責令)</(ACTION_verb|VerbP)>"
-            ],
-            "pattern": "<MODAL>會</MODAL><MODIFIER>再</MODIFIER>"
         },
         "再也不怕忘記": {
             "id": "163e55a3-45e8-44ef-b1a5-be1b2dbda8dd",
@@ -156,6 +182,12 @@
             ],
             "pattern": "<VerbP>再於</VerbP>(.+)?<(ACTION_verb|VerbP)>[^<]+</(ACTION_verb|VerbP)>"
         },
+        "室內不再濕答答": {
+            "id": "8e2c991c-4820-4f00-81f4-d5f653a7a068",
+            "pos": "<LOCATION>室內</LOCATION><MODIFIER>不再</MODIFIER><MODIFIER>濕</MODIFIER><ACTION_quantifiedVerb>答答</ACTION_quantifiedVerb>",
+            "lexy": [],
+            "pattern": "<MODIFIER>不再</MODIFIER><MODIFIER>[^<]{1,1}</MODIFIER><ACTION_quantifiedVerb>[^<]{2,2}</ACTION_quantifiedVerb>"
+        },
         "再一家家比較高低": {
             "id": "35cd852e-e9fd-47f6-bb39-5d3b9c480741",
             "pos": "<MODIFIER>再</MODIFIER><ENTITY_classifier>一家家</ENTITY_classifier><DegreeP>比較高低</DegreeP>",
@@ -174,16 +206,7 @@
             "lexy": [
                 "(?<!</FUNC_negation>)<(ACTION_verb|VerbP)>(簽核|備查|拍板|核備|填妥|簽呈|簽辦|呈交|審閱|催告|簽報)</(ACTION_verb|VerbP)>"
             ],
-            "pattern": "<MODIFIER>再</MODIFIER><FUNC_negation>[^<]+</FUNC_negation>"
-        },
-        "恕不再一一徵求同意": {
-            "id": "ad1044b4-3562-44b2-b6b5-6c344fff46ca",
-            "pos": "<ENTITY_oov>恕</ENTITY_oov><MODIFIER>不再</MODIFIER><ENTITY_num>一一</ENTITY_num><ACTION_verb>徵求</ACTION_verb><ACTION_verb>同意</ACTION_verb>",
-            "lexy": [
-                "(?<!</FUNC_negation>)<(ACTION_verb|VerbP)>(徵求|乞求|哀求|央求|尋求|徵文|徵稿|懇求|探求|搜求|求乞)</(ACTION_verb|VerbP)>",
-                "(?<!</FUNC_negation>)<(ACTION_verb|VerbP)>(同意|認同|讚同|贊同|一致|允准|准予|吻合|批准|承認|接納)</(ACTION_verb|VerbP)>"
-            ],
-            "pattern": "<MODIFIER>不再</MODIFIER>(.+)?(<(ACTION_verb|VerbP)>[^<]+</(ACTION_verb|VerbP)>|<ACTION_quantifiedVerb>[^<]+</ACTION_quantifiedVerb>)"
+            "pattern": "<MODIFIER>再</MODIFIER>(<FUNC_negation>[^<]+</FUNC_negation>|<MODIFIER>不[^<]+</MODIFIER>)"
         },
         "再把這些要素融會整理": {
             "id": "e1434765-09d4-438a-bc88-6ebf7d574b06",
@@ -192,7 +215,7 @@
                 "(?<!</FUNC_negation>)<(ACTION_verb|VerbP)>(融|熔融|融入|融化|融解|併入|勸解|合併|會合|歸併|解凍)</(ACTION_verb|VerbP)>",
                 "(?<!</FUNC_negation>)<(ACTION_verb|VerbP)>(整理|打理|整治|整潔|整肅|清理|理順|調整|分揀|列入|列出)</(ACTION_verb|VerbP)>"
             ],
-            "pattern": "<MODIFIER>再</MODIFIER>(<IDIOM>[^<]+</IDIOM>)?(<ACTION_lightVerb>把</ACTION_lightVerb>|<ENTITY_classifier>把</ENTITY_classifier>)"
+            "pattern": "<MODIFIER>再</MODIFIER>(<IDIOM>[^<]+</IDIOM>)?(<MODAL>將</MODAL>|<ACTION_lightVerb>把</ACTION_lightVerb>|<ENTITY_classifier>把</ENTITY_classifier>)"
         },
         "到國光路後右轉再前行": {
             "id": "438de43c-30bf-4ef8-8916-3150de1a8570",
@@ -236,30 +259,13 @@
             ],
             "pattern": "<(UserDefined|ENTITY_(nouny|oov))>(不)?再[^<]+</(UserDefined|ENTITY_(nouny|oov))>"
         },
-        "再因急降雨造成聚落淹水": {
-            "id": "cae9d355-e5ee-4cec-8517-e534ef93f26e",
-            "pos": "<MODIFIER>再</MODIFIER><FUNC_inter>因</FUNC_inter><UserDefined>急降雨</UserDefined><ACTION_verb>造成</ACTION_verb><ENTITY_nouny>聚落</ENTITY_nouny><ACTION_verb>淹水</ACTION_verb>",
-            "lexy": [
-                "(?<!</FUNC_negation>)<(ACTION_verb|VerbP)>(造成|使得|孕育|害得|導出|導致|帶來|引爆|引發|牽動|生出)</(ACTION_verb|VerbP)>",
-                "(?<!</FUNC_negation>)<(ACTION_verb|VerbP)>(淹水|積水|塞車|坍方|漏水|停水|停電|壅塞|崩坍|揚塵|堵車)</(ACTION_verb|VerbP)>"
-            ],
-            "pattern": "<MODIFIER>再</MODIFIER><FUNC_inter>[^<]+</FUNC_inter>(.+)?<(ACTION_verb|VerbP)>[^<]+</(ACTION_verb|VerbP)>"
-        },
         "1983年再向虎山行飾紀青雲": {
             "id": "596be100-7ef4-4ac7-b4c2-946a03a8acd9",
             "pos": "<TIME_year>1983年</TIME_year><MODIFIER>再</MODIFIER><FUNC_inner>向</FUNC_inner><ENTITY_nouny>虎山</ENTITY_nouny><ACTION_verb>行飾</ACTION_verb><ENTITY_person>紀青雲</ENTITY_person>",
             "lexy": [
                 "(?<!</FUNC_negation>)<(ACTION_verb|VerbP)>(行飾|)</(ACTION_verb|VerbP)>"
             ],
-            "pattern": "<MODIFIER>(不)?再</MODIFIER>((<(MODIFIER|ModifierP)>[^<]+</(MODIFIER|ModifierP)>)?|<QUANTIFIER>[^<]+</QUANTIFIER>|<ACTION_lightVerb>[^<]+</ACTION_lightVerb>|<UserDefined>[^<]+</UserDefined>|<ENTITY_pronoun>彼此</ENTITY_pronoun>|<TIME_justtime>[^<]+</TIME_justtime>|<FUNC_inter>[即則]</FUNC_inter>|(<TIME_(holiday|justtime|day|week|month|season|year|decade)>逐[^<]+</TIME_(holiday|justtime|day|week|month|season|year|decade)>){1,10}|<RANGE_locality>[^上]</RANGE_locality>)?(<FUNC_inner>[^<]+</FUNC_inner>|<ACTION_verb>[^<]+</ACTION_verb>|<VerbP>[^<]+</VerbP>|<AUX>[^<]+</AUX>|<RANGE_locality>上</RANGE_locality>|<UserDefined>([^<]+)</UserDefined>)"
-        },
-        "再將同學行李擺放至寢室內": {
-            "id": "8f046443-d9d3-49e2-9ce6-3d3b5d908d43",
-            "pos": "<MODIFIER>再</MODIFIER><MODAL>將</MODAL><ENTITY_oov>同學</ENTITY_oov><ENTITY_noun>行李</ENTITY_noun><ACTION_verb>擺放</ACTION_verb><FUNC_inner>至</FUNC_inner><ENTITY_noun>寢室</ENTITY_noun><RANGE_locality>內</RANGE_locality>",
-            "lexy": [
-                "(?<!</FUNC_negation>)<(ACTION_verb|VerbP)>(擺放|安放|擺布|擺平|擺盤|擺設|放下|放平|放置|置放|創記錄)</(ACTION_verb|VerbP)>"
-            ],
-            "pattern": "<MODIFIER>再</MODIFIER><MODAL>[^<]+</MODAL>"
+            "pattern": "<MODIFIER>(不)?再</MODIFIER>(<(MODIFIER|ModifierP)>[^<]+</(MODIFIER|ModifierP)>|<QUANTIFIER>[^<]+</QUANTIFIER>|<ACTION_lightVerb>[^<]+</ACTION_lightVerb>|<UserDefined>[^<]+</UserDefined>|<ENTITY_pronoun>彼此</ENTITY_pronoun>|<TIME_justtime>[^<]+</TIME_justtime>|<FUNC_inter>[即則因為]</FUNC_inter>|(<TIME_(holiday|justtime|day|week|month|season|year|decade)>逐[^<]+</TIME_(holiday|justtime|day|week|month|season|year|decade)>){1,10}|<RANGE_locality>[^上]</RANGE_locality>|<ENTITY_num>一一</ENTITY_num>)*?(<FUNC_inner>[^<]+</FUNC_inner>|<ACTION_verb>[^<]+</ACTION_verb>|<VerbP>[^<]+</VerbP>|<AUX>[^<]+</AUX>|<RANGE_locality>上</RANGE_locality>|<UserDefined>([^<]+)</UserDefined>)"
         },
         "再與冷熱進水彎頭連接鎖緊": {
             "id": "0ac18083-0624-4764-b629-c7cbe9bd8795",
@@ -269,16 +275,6 @@
                 "(?<!</FUNC_negation>)<(ACTION_verb|VerbP)>(連接|拼接|接合|搭接|牽連|相接|相連|連動|連繫|銜接|併吞)</(ACTION_verb|VerbP)>"
             ],
             "pattern": "<MODIFIER>再</MODIFIER><FUNC_conjunction>[^<]+</FUNC_conjunction>"
-        },
-        "再行長期出租予企業客戶使用": {
-            "id": "9208fe15-5b85-45af-bc59-125ab9b2576a",
-            "pos": "<MODIFIER>再</MODIFIER><MODIFIER>行</MODIFIER><MODIFIER>長期</MODIFIER><ACTION_verb>出租</ACTION_verb><ACTION_verb>予</ACTION_verb><ENTITY_noun>企業</ENTITY_noun><ENTITY_noun>客戶</ENTITY_noun><ACTION_verb>使用</ACTION_verb>",
-            "lexy": [
-                "(?<!</FUNC_negation>)<(ACTION_verb|VerbP)>(出租|包租|合租|尋租|承租|押租|租佃|租借|租用|租給|租讓)</(ACTION_verb|VerbP)>",
-                "(?<!</FUNC_negation>)<(ACTION_verb|VerbP)>(予|給|予以|獲|給與|給了|交予|給予|給原|售予|轉給)</(ACTION_verb|VerbP)>",
-                "(?<!</FUNC_negation>)<(ACTION_verb|VerbP)>(使用|利用|動用|應用|採用|施用|沿用|活用|運用|假借|憑靠)</(ACTION_verb|VerbP)>"
-            ],
-            "pattern": "<MODIFIER>再</MODIFIER><MODIFIER>行</MODIFIER>"
         },
         "包妥好再一根一根的結合起來": {
             "id": "0dbe30f3-4511-4a0b-b3bb-9fcf689fbf91",
@@ -305,19 +301,6 @@
                 "(?<!</FUNC_negation>)<(ACTION_verb|VerbP)>(失靈|熄火|故障|卡死|超載|過載|失效|爆胎|失控|失速|鬆脫)</(ACTION_verb|VerbP)>"
             ],
             "pattern": "<MODIFIER>再</MODIFIER>((<FUNC_degreeHead>[^<]+</FUNC_degreeHead>|<(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>[^<]+</(UserDefined|ENTITY_(nounHead|nouny|noun|oov))>)<FUNC_inner>的</FUNC_inner>|<(MODIFIER|ModifierP)>[^<]+</(MODIFIER|ModifierP)>|(<TIME_(holiday|justtime|day|week|month|season|year|decade)>[^<]+</TIME_(holiday|justtime|day|week|month|season|year|decade)>){1,10})+?(<(ACTION_verb|VerbP)>[^<]+</(ACTION_verb|VerbP)>|<(UserDefined|ENTITY_(nounHead|nouny|noun|oov|pronoun))>[^<]+</(UserDefined|ENTITY_(nounHead|nouny|noun|oov|pronoun))>)*?(<MODIFIER>也</MODIFIER>|<QUANTIFIER>都</QUANTIFIER>)"
-        },
-        "可享住宿再優惠9折2來店泡湯贈送養生茶乙壺": {
-            "id": "59478dad-3abf-4d4d-9c0f-1581a1f56bad",
-            "pos": "<MODAL>可</MODAL><ACTION_verb>享</ACTION_verb><ACTION_verb>住宿</ACTION_verb><MODIFIER>再</MODIFIER><ENTITY_noun>優惠</ENTITY_noun><ENTITY_num>9</ENTITY_num><ENTITY_oov>折</ENTITY_oov><ENTITY_num>2</ENTITY_num><ACTION_verb>來</ACTION_verb><ENTITY_nounHead>店</ENTITY_nounHead><ACTION_verb>泡湯</ACTION_verb><ACTION_verb>贈送</ACTION_verb><ACTION_verb>養生</ACTION_verb><ENTITY_nouny>茶乙壺</ENTITY_nouny>",
-            "lexy": [
-                "(?<!</FUNC_negation>)<(ACTION_verb|VerbP)>(享|享有|獨享|同享|享折|加贈|折抵|持卡|加購|享用|加送)</(ACTION_verb|VerbP)>",
-                "(?<!</FUNC_negation>)<(ACTION_verb|VerbP)>(住宿|寄宿|投宿|歇宿|留宿|逗留|駐留|休憩|用餐|代訂|入住)</(ACTION_verb|VerbP)>",
-                "(?<!</FUNC_negation>)<(ACTION_verb|VerbP)>(來|上來|下來|來到|前來|回來|進來|來語|端來|出來|值來)</(ACTION_verb|VerbP)>",
-                "(?<!</FUNC_negation>)<(ACTION_verb|VerbP)>(泡湯|告吹|賞月|烤肉|品嘗|賞花|戲水|品嚐|大啖|玩水|消暑)</(ACTION_verb|VerbP)>",
-                "(?<!</FUNC_negation>)<(ACTION_verb|VerbP)>(贈送|敬贈|贈予|交給|授予|敬奉|給予|賜予|賜給|賞賜|賦予)</(ACTION_verb|VerbP)>",
-                "(?<!</FUNC_negation>)<(ACTION_verb|VerbP)>(養生|調理|養身|滋補|舒壓|護膚|推拿|保健|養顏|美容|烹飪)</(ACTION_verb|VerbP)>"
-            ],
-            "pattern": "<MODAL>可(以)?</MODAL>(<(ACTION_verb|VerbP)>[^<]+</(ACTION_verb|VerbP)>)*?<(MODIFIER|ModifierP)>再</(MODIFIER|ModifierP)>"
         },
         "再處其負責人新臺幣十萬元以上五十萬元以下罰鍰": {
             "id": "edc6a9f2-3b7d-4ce9-91e7-298e2fb391cc",
