@@ -52,6 +52,7 @@ def getResponse(utterance, args):
 
 def getResult(inputSTR, utterance, args, resultDICT, refDICT, pattern=""):
     debugInfo(inputSTR, utterance)
+    #print("got the sentence")
     if utterance == "1983年再向虎山行飾紀青雲":
         if CHATBOT_MODE:
             resultDICT["response"] = getResponse(utterance, args)
@@ -152,7 +153,13 @@ def getResult(inputSTR, utterance, args, resultDICT, refDICT, pattern=""):
         if CHATBOT_MODE:
             resultDICT["response"] = getResponse(utterance, args)
         else:
-            resultDICT["rep"].append("rep")
+            if "<UserDefined>" in args[0]:
+                if args[2] in userDefinedDICT["as_Verb"]:  
+                    resultDICT["rep"].append("rep")
+                else:
+                    pass
+            else:
+                resultDICT["rep"].append("rep")
 
     if utterance == "到國光路後右轉再前行":
         if CHATBOT_MODE:
@@ -242,6 +249,12 @@ def getResult(inputSTR, utterance, args, resultDICT, refDICT, pattern=""):
             resultDICT["rep"].append("rep")
             
     if utterance == "再低5-10度":
+        if CHATBOT_MODE:
+            resultDICT["response"] = getResponse(utterance, args)
+        else:
+            resultDICT["rep"].append("rep")
+            
+    if utterance == "室內不再濕答答":
         if CHATBOT_MODE:
             resultDICT["response"] = getResponse(utterance, args)
         else:

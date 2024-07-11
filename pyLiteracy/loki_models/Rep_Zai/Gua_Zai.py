@@ -48,6 +48,7 @@ from importlib import import_module
 from pathlib import Path
 from requests import post
 from requests import codes
+import time
 import json
 import math
 import os
@@ -278,22 +279,27 @@ def testIntent():
 if __name__ == "__main__":
     #refDICT = {"rep": []}
         
-    #inputSTR = "不再空洞無味"
+    #inputSTR = "再按下按鍵"
     #resultDICT = execLoki(inputSTR, refDICT=refDICT)
-    #print(resultDICT)
-    hit = 0
     
+    #print(resultDICT)
+    
+    hit = 0
     with open ('rep_zai_purged.txt','r',encoding='utf-8') as f:
         inputLIST = f.readlines()
         
         for i, p in enumerate(inputLIST[:], start=1):
-            refDICT = {"rep": []}
-            resultDICT = execLoki(p, refDICT=refDICT)
-            if resultDICT["rep"] != []:
-                print(i, ". ", "rep_zai")
-                hit += 1
+            time.sleep(1.5)
+            if p != "\n":                
+                refDICT = {"rep": []}
+                resultDICT = execLoki(p, refDICT=refDICT)
+                if resultDICT["rep"] != []:
+                    print(i, ". ", "rep_zai")
+                    hit += 1
+                else:
+                    print(i, ". ", p)
             else:
-                print(i, ". ", p)
+                pass
                 
     
     print("accuracy: {}".format(hit/8859))
