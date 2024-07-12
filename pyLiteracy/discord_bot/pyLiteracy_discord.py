@@ -127,7 +127,7 @@ class BotClient(discord.Client):
                             else:
                                 checkSTR =  ''.join(re.sub(pat, "", i))
                                 sentenceLIST.append(checkSTR)                        
-                        replySTR = "檢查結果如下：「{}」".format(''.join(sentenceLIST))        
+                        replySTR = "檢查結果如下：「{}」\n 「在」並無表示重複一事件或動作的語意功能，在此語境下應用 ｢再」。".format(''.join(sentenceLIST))
                     
                     else:
                         replySTR = "Somethine must be wrong with your message！"
