@@ -154,7 +154,7 @@ def getResult(inputSTR, utterance, args, resultDICT, refDICT, pattern=""):
             resultDICT["response"] = getResponse(utterance, args)
         else:
             if "<UserDefined>" in args[0]:
-                if args[2] in userDefinedDICT["as_Verb"]:  
+                if args[2] in userDefinedDICT["as_Verb"] or args[2] in userDefinedDICT["as_Noun"]:  
                     resultDICT["rep"].append("rep")
                 else:
                     pass
