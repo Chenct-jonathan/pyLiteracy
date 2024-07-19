@@ -57,8 +57,8 @@ def getResult(inputSTR, utterance, args, resultDICT, refDICT, pattern=""):
         if CHATBOT_MODE:
             resultDICT["response"] = getResponse(utterance, args)
         else:
-            if "<UserDefined>" in args[7]:
-                if args[8] in userDefinedDICT["as_Verb"]:
+            if "<UserDefined>" in args[8]:
+                if args[9] in userDefinedDICT["as_Verb"] or args[9] in userDefinedDICT["as_Mod"]:
                     resultDICT["rep"].append("rep")
                 else:
                     pass
@@ -76,7 +76,7 @@ def getResult(inputSTR, utterance, args, resultDICT, refDICT, pattern=""):
             resultDICT["response"] = getResponse(utterance, args)
         else:
             if "<UserDefined>" in args[0]:
-                if args[1] in userDefinedDICT["as_Mod"]:
+                if args[5] in userDefinedDICT["as_Mod"]:
                     resultDICT["rep"].append("rep")
                 else:
                     pass
@@ -255,6 +255,27 @@ def getResult(inputSTR, utterance, args, resultDICT, refDICT, pattern=""):
             resultDICT["rep"].append("rep")
             
     if utterance == "室內不再濕答答":
+        if CHATBOT_MODE:
+            resultDICT["response"] = getResponse(utterance, args)
+        else:
+            resultDICT["rep"].append("rep")
+            
+    if utterance == "要小心再小心":
+        if CHATBOT_MODE:
+            resultDICT["response"] = getResponse(utterance, args)
+        else:
+            if args[5] == args[8]:
+                resultDICT["rep"].append("rep")
+            else:
+                pass
+            
+    if utterance == "再則屋主不必承受自營旅宿的種種風險":
+        if CHATBOT_MODE:
+            resultDICT["response"] = getResponse(utterance, args)
+        else:
+            resultDICT["rep"].append("rep")
+            
+    if utterance == "再這樣下去會得老年痴呆症":
         if CHATBOT_MODE:
             resultDICT["response"] = getResponse(utterance, args)
         else:

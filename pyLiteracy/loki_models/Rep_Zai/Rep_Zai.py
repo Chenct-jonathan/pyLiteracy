@@ -279,7 +279,7 @@ def testIntent():
 if __name__ == "__main__":
     refDICT = {"rep": []}
         
-    inputSTR = "再興中學"
+    inputSTR = "不要再默默無名了"
     resultDICT = execLoki(inputSTR, refDICT=refDICT)
     
     print(resultDICT)
