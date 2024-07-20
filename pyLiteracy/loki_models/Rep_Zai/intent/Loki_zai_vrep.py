@@ -279,6 +279,12 @@ def getResult(inputSTR, utterance, args, resultDICT, refDICT, pattern=""):
         if CHATBOT_MODE:
             resultDICT["response"] = getResponse(utterance, args)
         else:
+            resultDICT["rep"].append("rep")
+            
+    if utterance == "無論煮得再大鍋也不能改變事實":
+        if CHATBOT_MODE:
+            resultDICT["response"] = getResponse(utterance, args)
+        else:
             resultDICT["rep"].append("rep")        
 
     return resultDICT
