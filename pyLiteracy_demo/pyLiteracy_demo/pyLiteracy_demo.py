@@ -48,18 +48,19 @@ from importlib import import_module
 from pathlib import Path
 from requests import post
 from requests import codes
-import time
+from pprint import pprint
 import json
 import math
 import os
 import re
 
 BASE_PATH = os.path.dirname(os.path.abspath(__file__))
+CWD_PATH = str(Path.cwd())
 
 lokiIntentDICT = {}
 for modulePath in glob("{}/intent/Loki_*.py".format(BASE_PATH)):
     moduleNameSTR = Path(modulePath).stem[5:]
-    modulePathSTR = modulePath.replace(BASE_PATH, "").replace(".py", "").replace("/", ".").replace("\\", ".")[1:]
+    modulePathSTR = modulePath.replace(CWD_PATH, "").replace(".py", "").replace("/", ".").replace("\\", ".")[1:]
     globals()[moduleNameSTR] = import_module(modulePathSTR)
     lokiIntentDICT[moduleNameSTR] = globals()[moduleNameSTR]
 
@@ -67,7 +68,7 @@ LOKI_URL = "https://api.droidtown.co/Loki/BulkAPI/"
 try:
     accountInfo = json.load(open(os.path.join(BASE_PATH, "account.info"), encoding="utf-8"))
     USERNAME = accountInfo["username"]
-    LOKI_KEY = accountInfo["lokiDICT"]["Rep_Zai"]
+    LOKI_KEY = accountInfo["loki_key"]
 except Exception as e:
     print("[ERROR] AccountInfo => {}".format(str(e)))
     USERNAME = ""
@@ -210,7 +211,6 @@ def runLoki(inputLIST, filterLIST=[], refDICT={}):
     return resultDICT
 
 def execLoki(content, filterLIST=[], splitLIST=[], refDICT={}):
-    print("execLoki")
     """
     input
         content       STR / STR[]    要執行 loki 分析的內容 (可以是字串或字串列表)
@@ -270,37 +270,20 @@ def testLoki(inputLIST, filterLIST):
         print(resultDICT["msg"])
 
 def testIntent():
-    # zai_vrep
-    print("[TEST] zai_vrep")
-    inputLIST = ['再見','再查查','不再如此','再接再厲','再多帶幾包','會再通知您','再也不怕忘記','再前行150公尺','請再慎重考量','再於課堂中提問','再不簽核就會來不及','再把這些要素融會整理','到國光路後右轉再前行','又再一次的超越自己了','希望時間可以再長一點','2013再戰明天飾懲教人員','1983年再向虎山行飾紀青雲','再將同學行李擺放至寢室內','再與冷熱進水彎頭連接鎖緊','再行長期出租予企業客戶使用','包妥好再一根一根的結合起來','臺中支局葉菸草再乾燥場建築群','再強悍的防毒軟體也會有失靈的一天','可享住宿再優惠9折2來店泡湯贈送養生茶乙壺','再處其負責人新臺幣十萬元以上五十萬元以下罰鍰']
-    testLoki(inputLIST, ['zai_vrep'])
+    # zai_loc
+    print("[TEST] zai_loc")
+    inputLIST = ['在臺灣','在90.6公里處','在彰化縣員林鎮山腳路5段312巷160號']
+    testLoki(inputLIST, ['zai_loc'])
     print("")
 
 
 if __name__ == "__main__":
-    refDICT = {"rep": []}
+    inputLIST = ["小美在馬來西亞", "小明在新竹市東去大學路1001號", "汽車位在64.8公里處"]     
+    refDICT = {
+        "loc_msg": "",
+        "clar_msg": ""
+    }
         
-    inputSTR = "族人已不再此生活"
-    resultDICT = execLoki(inputSTR, refDICT=refDICT)
+    resultDICT = execLoki(inputLIST, refDICT=refDICT)
+    pprint(resultDICT["clar_msg"])
     
-    print(resultDICT)
-    
-    #hit = 0
-    #with open ('rep_zai_purged.txt','r',encoding='utf-8') as f:
-        #inputLIST = f.readlines()
-        
-        #for i, p in enumerate(inputLIST[:], start=1):
-            #time.sleep(1.5)
-            #if p != "\n":                
-                #refDICT = {"rep": []}
-                #resultDICT = execLoki(p, refDICT=refDICT)
-                #if resultDICT["rep"] != []:
-                    #print(i, ". ", "rep_zai")
-                    #hit += 1
-                #else:
-                    #print(i, ". ", p)
-            #else:
-                #pass
-                
-    
-    #print("accuracy: {}".format(hit/8859))

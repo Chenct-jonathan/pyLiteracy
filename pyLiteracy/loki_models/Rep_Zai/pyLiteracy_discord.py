@@ -10,20 +10,20 @@ import re
 from datetime import datetime
 from pprint import pprint
 
-parent_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '../'))
-sys.path.append(parent_dir)
+#parent_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '../'))
+#sys.path.append(parent_dir)
 
-os.chdir(parent_dir)
+#os.chdir(parent_dir)
 current_working_directory = os.getcwd()
 print(f"Current working directory: {current_working_directory}")
 
 try:
-    from loki_models.Gua_Zai.Gua_Zai import execLoki
+    from Rep_Zai import execLoki
 except:
-    from .loki_models.Gua_Zai.Gua_Zai import execLoki
+    from Rep_Zai import execLoki
 from ArticutAPI import Articut
 
-accountDICT = json.load(open("../account.info",encoding="utf-8"))
+accountDICT = json.load(open("account.info",encoding="utf-8"))
 articut = Articut(username=accountDICT["username"],apikey=accountDICT["apikey"])
 
 logging.basicConfig(level=logging.DEBUG)
@@ -33,7 +33,7 @@ def getLokiResult(inputSTR):
     punctuationPat = re.compile("[,\.\?:;，。？、：；\n]+")
     inputLIST = punctuationPat.sub("\n", inputSTR).split("\n")
     filterLIST = []
-    resultDICT = runLoki(inputLIST, filterLIST)
+    resultDICT = execLoki(inputLIST, filterLIST)
     logging.debug("Loki Result => {}".format(resultDICT))
     return resultDICT
 
@@ -102,6 +102,7 @@ class BotClient(discord.Client):
                 else:
                     #print("msgSTR：{}".format(msgSTR))
                     articutDICT = articut.parse(msgSTR)
+                    #print(msgSTR)
                     if articutDICT["status"] == True:
                         #print(" Articut 處理結果：{}".format(articutDICT["result_pos"]))
                         for i in articutDICT["result_pos"]: #將 Articut 處理後的每一句，送入 Loki 模型中處理。
@@ -109,25 +110,26 @@ class BotClient(discord.Client):
                             if len(i) <= 1:
                                 sentenceLIST.append(i)
                                 #print("{} 不是句子。".format(i))
-                            elif "<FUNC_inner>在</FUNC_inner>" in i or "<ASPECT>在</ASPECT>" in i:
+                            elif "<MODIFIER>再</MODIFIER>" in i or "<MODIFIER>不再</MODIFIER>" in i:
                                 checkSTR = re.sub(pat, "", i)
                                 #print("「{}」裡面有「在」。".format(checkSTR))
                                 checkResultDICT = execLoki(checkSTR)
-                                if checkResultDICT["Zai"] != []:
-                                    #print("這句沒有錯誤。")
+                                print(checkResultDICT)
+                                if checkResultDICT != {}:
+                                    print("這句沒有錯誤。")
                                     sentenceLIST.append(checkSTR)
                                 else:
-                                    if "<FUNC_inner>在</FUNC_inner>" in i:
-                                        checkSTR = checkSTR.replace("在", " `在>再` ")
+                                    if "<MODIFIER>再</MODIFIER>" in i:
+                                        checkSTR = checkSTR.replace("再", " `再>在` ")
                                         #print("修正為：「{}」。".format(checkSTR))
                                     else: #"<ASPECT>在</ASPECT>"
-                                        checkSTR = checkSTR.replace("在", " `在>再` ")
+                                        checkSTR = checkSTR.replace("再", " `再>在` ")
                                         #print("修正為：「{}」。".format(checkSTR))
                                     sentenceLIST.append(checkSTR)
                             else:
                                 checkSTR =  ''.join(re.sub(pat, "", i))
                                 sentenceLIST.append(checkSTR)                        
-                        replySTR = "檢查結果如下：「{}」\n 「在」並無表示重複一事件或動作的語法功能，在此語境下應用 ｢再」。".format(''.join(sentenceLIST))
+                        replySTR = "檢查結果如下：「{}」\n 「再」並無表示引介地點或表示既定事實的前提的語法功能，在此語境下應用 ｢在」。".format(''.join(sentenceLIST))
                     
                     else:
                         replySTR = "Somethine must be wrong with your message！"
