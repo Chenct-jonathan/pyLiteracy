@@ -1,0 +1,80 @@
+{
+    "exec_time": 0.12102389335632324,
+    "result_segmentation": "戴克斯/的/原始/版本/僅/適用/於/找到/兩個/頂點/之/間/的/最/短路/徑",
+    "result_pos": [
+        "<ENTITY_person>戴克斯</ENTITY_person><FUNC_inner>的</FUNC_inner><MODIFIER>原始</MODIFIER><ENTITY_noun>版本</ENTITY_noun><MODIFIER>僅</MODIFIER><ACTION_verb>適用</ACTION_verb><FUNC_inner>於</FUNC_inner><ACTION_verb>找到</ACTION_verb><ENTITY_classifier>兩個</ENTITY_classifier><ENTITY_nouny>頂點</ENTITY_nouny><FUNC_inner>之</FUNC_inner><ENTITY_nouny>間</ENTITY_nouny><FUNC_inner>的</FUNC_inner><MODIFIER>最</MODIFIER><ACTION_verb>短路</ACTION_verb><ENTITY_nouny>徑</ENTITY_nouny>"
+    ],
+    "result_obj": [
+        [
+            {
+                "text": "戴克斯",
+                "pos": "ENTITY_person"
+            },
+            {
+                "text": "的",
+                "pos": "FUNC_inner"
+            },
+            {
+                "text": "原始",
+                "pos": "MODIFIER"
+            },
+            {
+                "text": "版本",
+                "pos": "ENTITY_noun"
+            },
+            {
+                "text": "僅",
+                "pos": "MODIFIER"
+            },
+            {
+                "text": "適用",
+                "pos": "ACTION_verb"
+            },
+            {
+                "text": "於",
+                "pos": "FUNC_inner"
+            },
+            {
+                "text": "找到",
+                "pos": "ACTION_verb"
+            },
+            {
+                "text": "兩個",
+                "pos": "ENTITY_classifier"
+            },
+            {
+                "text": "頂點",
+                "pos": "ENTITY_nouny"
+            },
+            {
+                "text": "之",
+                "pos": "FUNC_inner"
+            },
+            {
+                "text": "間",
+                "pos": "ENTITY_nouny"
+            },
+            {
+                "text": "的",
+                "pos": "FUNC_inner"
+            },
+            {
+                "text": "最",
+                "pos": "MODIFIER"
+            },
+            {
+                "text": "短路",
+                "pos": "ACTION_verb"
+            },
+            {
+                "text": "徑",
+                "pos": "ENTITY_nouny"
+            }
+        ]
+    ],
+    "level": "lv2",
+    "version": "v265",
+    "status": true,
+    "msg": "Success!",
+    "word_count_balance": 0
+}
