@@ -1,0 +1,1 @@
+To use the python interpreter, use the virtual environment at ".venv".
