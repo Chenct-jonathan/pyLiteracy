@@ -1,6 +1,11 @@
 
 from dataclasses import dataclass
-from typing import Any, Union, Generator, Optional, Literal, TypeVar
+from typing import Any, Union, Generator, Optional, Literal, TypeVar, List, assert_never
+
+import treeart
+
+def be(c,l,r):
+    return treeart.binary_edge(c,l,r,align='center')
 
 # prefix components:
 _space =  '   '
@@ -14,10 +19,19 @@ HeadType = Literal['initial','final']
 
 RangedStr = tuple[str, tuple[int,int]]
 
+def _tostr(x:Union[str,RangedStr,List[str]])->str:
+    if isinstance(x, str):
+        return x
+    elif isinstance(x, tuple):
+        return x[0]
+    elif isinstance(x, list):
+        return ",".join(x)
+    
+    assert_never(x)
 
 class Tree:
     # Range information is used for tree printing.
-    left: 'Union[str,RangedStr,Tree,list[str]]'
+    left: 'Union[str,RangedStr,Tree,List[str]]'
     head: Union[str, RangedStr]
     comp: 'Union[str, RangedStr,Tree]'
     parent: 'Optional[Tree]' = None
@@ -30,12 +44,12 @@ class Tree:
         if name in ['comp','left'] and isinstance(value,Tree):
             value.parent = self
 
-    def __init__(self,l: 'Optional[Union[str,RangedStr,Tree,list[str]]]' = None
+    def __init__(self,l: 'Optional[Union[str,RangedStr,Tree,List[str]]]' = None
                      ,h: Optional[Union[str,RangedStr]] = None
                      ,c: 'Optional[Union[str,RangedStr,Tree]]' = None
                      ,*
                      ,head_type: Literal['initial', 'final'] = 'initial'
-                     ,left: 'Optional[Union[str,Tree,list[str]]]' = None
+                     ,left: 'Optional[Union[str,Tree,List[str]]]' = None
                      ,head: Optional[Union[str,RangedStr]] = None
                      ,comp: 'Optional[Union[str,Tree]]' = None
                      ):
@@ -76,8 +90,16 @@ class Tree:
 
     def __printTreeLR(self) -> Generator[str,None,None]:
         ...
-    def __printWithTreeart(self):
-        ...
+
+    def treeart_str(self) -> str:
+        # treeart.binary_edge can't handle empty strings, so show them as ""
+        def s(x) -> str:
+            return _tostr(x) or '""'
+        def f(t:Tree):
+            l = f(t.left) if isinstance(t.left, Tree) else s(t.left)
+            r = f(t.comp) if isinstance(t.comp, Tree) else s(t.comp)
+            return be(s(t.head),l,r)
+        return f(self)
 
     def pstr(self) -> str:
         return (f"{type(self).__name__}[{self.head}]\n"+
