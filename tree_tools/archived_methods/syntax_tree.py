@@ -5,7 +5,7 @@ _A,_B,_C,_T = TypeVar('_A'),TypeVar('_B'),TypeVar('_C'),TypeVar('_T')
 
 
 #----------syntax_tree example(s)--------
-from syntax_tree.parser import parserOfRules
+from tree_tools.archived_methods.syntax_tree.parser import parserOfRules
 
 rule1 = '''
 p1 -> a p2
@@ -128,7 +128,7 @@ parserDict = parserOfRules(test_bintree)
 parserDict.ruleParser['p1'].parse('<a>x</a><a>y</a><a>z</a><a>x</a><a>y</a><b>0</b>').pprint()
 
 #------------RoseTree example------------
-from syntax_tree.type import RoseTree
+from tree_tools.archived_methods.syntax_tree.type import RoseTree
 
 _rt_sample1 = RoseTree('P',
     [RoseTree('P1',
