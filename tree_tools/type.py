@@ -3,6 +3,7 @@ from dataclasses import dataclass
 from typing import Any, Union, Generator, Optional, Literal, TypeVar, List, assert_never
 
 import treeart
+import re
 
 def be(c,l,r):
     return treeart.binary_edge(c,l,r,align='center')
@@ -28,6 +29,9 @@ def _tostr(x:Union[str,RangedStr,List[str]])->str:
         return ",".join(x)
     
     assert_never(x)
+
+def _rm_pos(s:str) -> str:
+    return re.sub(r"<[^>]+>", "", s)
 
 class Tree:
     # Range information is used for tree printing.
@@ -72,6 +76,22 @@ class Tree:
         else:
             raise Exception('Wrong use of the Tree constructor. ')
 
+        # Remove POS tags from head and left for printing purposes.
+        if type(self.head) is str:
+            self.head = _rm_pos(self.head)
+        elif type(self.head) is tuple:
+            self.head = (_rm_pos(self.head[0]), self.head[1])
+        else:
+            assert_never(self.head) #type: ignore
+        if type(self.left) is str:
+            self.left = _rm_pos(self.left)
+        elif type(self.left) is tuple:
+            self.left = (_rm_pos(self.left[0]), self.left[1])
+        elif type(self.left) is list:
+            self.left = [_rm_pos(x) for x in self.left]
+        else:
+            assert_never(self.left) #type: ignore
+
     def __printTree(self, prefix: str="") -> Generator[str,None,None]:
 
         left_content = "left:" + (type(self.left).__name__ + f"[{self.left.head}]" 
@@ -98,7 +118,7 @@ class Tree:
         def f(t:Tree):
             l = f(t.left) if isinstance(t.left, Tree) else s(t.left)
             r = f(t.comp) if isinstance(t.comp, Tree) else s(t.comp)
-            return be(s(t.head),l,r)
+            return be(f"{type(t).__name__}[{s(t.head)}]",l,r)
         return f(self)
 
     def pstr(self) -> str:
