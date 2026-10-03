@@ -76,6 +76,8 @@ class Tree:
 
     def __printTreeLR(self) -> Generator[str,None,None]:
         ...
+    def __printWithTreeart(self):
+        ...
 
     def pstr(self) -> str:
         return (f"{type(self).__name__}[{self.head}]\n"+
