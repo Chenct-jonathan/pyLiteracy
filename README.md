@@ -1,211 +1,187 @@
-# [PyLiteracy: A Linguistics-Based Mandarin Grammar Checker](https://github.com/Chenct-jonathan/pyLiteracy)
+# Mandarin Syntax Tree Parser
 
-無論是否為母語者，在繁體中文的使用上，諸如近義詞、錯別字的錯誤使用是常見的，此問題也間接導致訓練資料多來自網路的大型語言模型 (LLM)無法在中文文法檢查任務上扮演可靠的角色。然而從語言學的角度來看，僅針對正確及錯誤句的對照進行模型訓練並非最有效的方式，其實此類型錯誤與詞類和句型結構有著直接關係，若將正確的詞類及句型結構規則分析化簡之後以程式碼撰寫成模型，此類以語言學規則為本的模型即能以和人類兒童依類似方式掌握語言的使用，實現以少量語料完成高效率中文文法檢查的任務。
+A rule-based parser that turns Mandarin Chinese sentences into **X-bar–style syntax trees**
+(CP → TP → ModP → … → NP), built on top of the [Articut](https://api.droidtown.co/) word
+segmenter / POS tagger. It also models a couple of narrow-syntax operations
+(EPP subject movement and verb raising) and prints trees as Unicode box-drawing art that
+lines up correctly with CJK characters.
 
-檔案總覽
--------------
 ```
-│  pyLiteracy.py
-│  pyproject.toml
-│  README.md
-│  
-├─dist
-│      pyLiteracy-0.0.1-py3-none-any.whl
-│      pyLiteracy-0.0.1.tar.gz
-│      
-├─pyLiteracy
-│  │  pyLiteracy.py
-│  │  __init__.py
-│  │  
-│  ├─discord_bot
-│  │      pyLiteracy_discord.py
-│  │      
-│  ├─loki_models
-│  │  │  __init__.py
-│  │  │  
-│  │  ├─bing_jian_zhi
-│  │  │  │  bing_jian_zhi.py
-│  │  │  │  
-│  │  │  └─intent
-│  │  │          Loki_human_bing.py
-│  │  │          Updater.py
-│  │  │          USER_DEFINED.json
-│  │  │          
-│  │  ├─Gua_Zai # The Loki Model for 在
-│  │  │  │  Gua_Zai.py
-│  │  │  │  utteranceChecker.py
-│  │  │  │  __init__.py
-│  │  │  │  
-│  │  │  └─intent
-│  │  │        Loki_Zai_Aspect.py
-│  │  │        Loki_Zai_idiom.py
-│  │  │        Loki_Zai_Loc.py
-│  │  │        Loki_Zai_QMarker.py
-│  │  │        Loki_Zai_Range.py
-│  │  │        Loki_Zai_State.py
-│  │  │        Loki_Zai_verbP.py
-│  │  │        Updater.py
-│  │  │        USER_DEFINED.json
-│  │  │        __init__.py
-│  │  │     
-│  │  │          
-│  │  ├─gwan_ta_de
-│  │  │  │  gwan_ta_de.py
-│  │  │  │  
-│  │  │  └─intent
-│  │  │          Loki_gwan_ta_de.py
-│  │  │          Updater.py
-│  │  │          USER_DEFINED.json
-│  │  
-│  │          
-│  └─webpage
-│      ├─static
-│      │  ├─css
-│      │  │      main.css
-│      │  │      
-│      │  ├─js
-│      │  │      main.js
-│      │  │      
-│      │  └─media
-│      │          android-chrome-192x192.png
-│      │          android-chrome-512x512.png
-│      │          apple-touch-icon.png
-│      │          background.png
-│      │          favicon-16x16.png
-│      │          favicon-32x32.png
-│      │          favicon.ico
-│      │          person-man.gif
-│      │          site.webmanifest
-│      │          
-│      ├─templates
-│      │      homepage.html
-│      │      pyLiteracy.html
-│      │      
-│      └─UI
-│          │  naive_typo.py
-│          │  UI_main.py # A web-based testing tool
-│          │  
-│          ├─static
-│          │  ├─css
-│          │  │      main.css
-│          │  │      
-│          │  ├─js
-│          │  │      main.js
-│          │  │      
-│          │  └─media
-│          │          android-chrome-192x192.png
-│          │          android-chrome-512x512.png
-│          │          apple-touch-icon.png
-│          │          background.png
-│          │          favicon-16x16.png
-│          │          favicon-32x32.png
-│          │          favicon.ico
-│          │          person-man.gif
-│          │          site.webmanifest
-│          │          
-│          └─templates
-│                 homepage.html
-│                 pyLiteracy.html
-│                                   
-├─raw_data
-│  └─Corpus
-│      ├─purged
-│      │      loc_zai_purged.json
-│      │      loc_zai_purged.txt
-│      │      
-│      └─raw
-│              sketch engine 再.txt
-│              sketch engine 在.txt
-│              
-├─src
-│  ├─pyLiteracy
-│  │  │  
-│  │  └─loki models
-│  │      └─Gua_Zai
-│  │          └─intent
-│  │                  
-│  └─pyLiteracy.egg-info
-│          dependency_links.txt
-│          PKG-INFO
-│          SOURCES.txt
-│          top_level.txt
-│          
-├─tool
-│          
-└─workspace
-    ├─log
-    │      log file.txt
-    │      missing_zai_0-5000.json
-    │      missing_zai_1301-2300_revised.json
-    │      missing_zai_2301-3301_revised.json
-    │      missing_zai_301-1300_revised.json
-    │      missing_zai_3301-4301.json
-    │      missing_zai_5001-.json
-    │      
-    ├─ref_files
-    │  ├─bing_jian_zhi_ref
-    │  │      human_bing.ref
-    │  │      
-    │  ├─gwan_ta_de_ref
-    │  │      gwan_ta_de.ref
-    │  │      
-    │  └─zai_ref
-    │          Zai_Aspect.ref
-    │          Zai_idiom.ref
-    │          Zai_Loc.ref
-    │          Zai_QMarker.ref
-    │          Zai_Range.ref
-    │          Zai_State.ref
-    │          Zai_verbP.ref
-    │          
-    └─tool
-            corpus_pos.py
-            LokiTool.md
-            LokiTool.py
-            text_tool.py
-            USER_DEFINED.json
+    VP[吃]
+ ╭───┴────╮
+他   ClsP[五碗]
+      ╭──┴───╮
+     ""   NP[飯]
+           ╭─┴──╮
+          ""   ""
 ```
 
-設置環境
--------------
-- 環境需求
-    - Python 3.6 or above
-    - pip or pip3 is installed
-- 安裝相關套件
-    - 執行指令：`$ pip install -r requirements.txt`
+> Status: work in progress / research prototype. See [Known issues](#known-issues--todo).
 
-啟用 Loki 服務
--------------
-1. 登入後進入 [Loki 控制台](https://api.droidtown.co/loki/)
-2. 輸入專案名稱，點選 `建立專案`
-3. 點選剛建立完成的專案名稱以進入專案
-4. 點選 `選擇檔案` > 選擇所有 ref 內的檔案 > 點選 `讀取意圖`
-5. 點選左上角房子圖示，回到 [Loki 控制台](https://api.droidtown.co/loki/)，點選 `複製` 專案金鑰
-6. 將複製下來的金鑰貼上到檔案 account.info 中：
+---
+
+## How it works
+
+1. **Tagging.** A sentence is sent to Articut, which returns a POS-tagged string such as
+   `<ENTITY_pronoun>他</ENTITY_pronoun><MODAL>可以</MODAL><ACTION_verb>吃</ACTION_verb>…`
+   (see `sample.json` for a full Articut `lv2` response).
+2. **Head finding.** For each projection, a regex in `HeadPatterns` locates the head in the
+   tagged string. `split_pos()` cuts the string into `(left, head, comp)`; the `comp` part is
+   handed down to the next projection.
+3. **Projection chain.** The parser walks down a fixed spine:
+
+   ```
+   CP → TP → ModP → AuxP → NegP → AspP → LightVP → VP | DegP | PP → ClsP → NP
+                                                          └→ De_CompP (得-complements)
+   ```
+
+   | Projection | Head pattern matches (examples) |
+   |---|---|
+   | `CP` | sentence-final 了, `CLAUSE_particle` / `CLAUSE_YesNoQ` (嗎) |
+   | `TP` | always a null head `∅` |
+   | `ModP` | `MODAL` (可以), 可能, 要 + verb |
+   | `AuxP` | `AUX` 就 / 卻 / 是, A-not-A questions |
+   | `NegP` | `FUNC_negation` (不, 沒有) |
+   | `AspP` | `ASPECT` 過 / 了 / 完 / 著, 在 / 已經 before a verb |
+   | `LightVP` | `ACTION_lightVerb` (e.g. 被); otherwise `∅` |
+   | `VP` / `DegP` / `PP` | verbs; degree heads 很 / 太 (adjectival predicates); 從 / 在 |
+   | `ClsP` | `ENTITY_classifier` (五碗) |
+   | `NP` | nouns, pronouns, locations; 的-relative clauses become `left` |
+   | `De_CompP` | 得 |
+
+   Adverbials (…地, time expressions) in the `left` position are split out by `split_left()`.
+   An empty head `""` means "this projection is absent"; `∅` means "present but phonologically null".
+4. **Tree building.** `parse_S()` returns either a dict of all projections or, with
+   `genTree=True`, a single tree in which absent projections are pruned (`gen_realTree()`).
+5. **Movement (optional).** `ex_EPP_movement()` raises the subject to `TP.left` and leaves
+   `Subj_trace`s (or inserts *pro* when there is no overt subject). `ex_verb_raising()` raises
+   the verb from `VP` head to `AspP` head, leaving a `V_trace`.
+
+---
+
+## Repository layout
+
+| File | Purpose |
+|---|---|
+| `linguistic_parse.py` | **Current parser.** Head patterns, `parse_*` functions, `parse_S`, movement operations, and a set of built-in `test_sentences` (pre-tagged, so no API call is needed). |
+| `type.py` | The `Tree` datatype and its subclasses (`VP`, `ClsP`, `NP`, …). Tracks `parent` links, strips POS tags for display, and offers two printers: `pstr()` / `pprint()` (indented `├──` style) and `treeart_str()` (box-drawing tree). Includes the example tree `ex1`. |
+| `treeart.py` | Vendored copy of the [`treeart`](https://pypi.org/project/treeart/) package, patched with display-width helpers (`dwidth`, `dljust`, …) so full-width CJK characters align. |
+| `main.py` | Scratch entry point; currently prints `type.ex1` with `treeart_str()`. Commented code shows how to call Articut and save a response. |
+| `formalize_approach.py` | Earlier, self-contained version of the parser (its own `@dataclass Tree`, calls Articut directly, reads `./data/test_data.json`). Kept for reference. |
+| `sample.json` | Example Articut `lv2` output for 「戴克斯的原始版本僅適用於找到兩個頂點之間的最短路徑」. |
+
+---
+
+## Requirements
+
+- **Python 3.11+** (`type.py` uses `typing.assert_never`)
+- [`ArticutAPI`](https://github.com/Droidtown/ArticutAPI)
+
+```bash
+pip install ArticutAPI
 ```
-{
-    "username" : " ***輸入 USERNAME (註冊信箱)*** ",
-    "api-key" : " ***將 Articut 金鑰貼到這裡*** ",
-    "loki-key" : " ***將專案金鑰貼到這裡*** ",
-}
+
+### Articut credentials
+
+Live parsing needs a Droidtown account. The scripts expect one of:
+
+- `account.info` (used by `formalize_approach.py`):
+  ```json
+  { "username": "you@example.com", "apikey": "YOUR_KEY" }
+  ```
+- `DROIDTOWN.json` (commented out in `main.py`):
+  ```json
+  { "username": "you@example.com", "key": "YOUR_KEY" }
+  ```
+
+Add both to `.gitignore` so keys are never committed.
+
+---
+
+## Usage
+
+**Parse the built-in examples** (no API key needed — the inputs are already tagged):
+
+```bash
+python linguistic_parse.py
 ```
 
-開始使用
--------------
-- 執行指令：`$ python .\Loki\UI_main.py`
-- 在瀏覽器開啟 http://127.0.0.1:5000
+This parses 「他可以吃五碗飯」 and prints its full projection chain with `treeart_str()`.
 
+**Print the example tree:**
 
-聯絡資訊
--------------
-若您還有其他任何的疑問，歡迎透過E-mail聯繫我們，謝謝。 
+```bash
+python main.py
+```
 
-Jonathan Chen：[chenjonathan901210@gmail.com](mailto:chenjonathan901210@gmail.com)
+**From your own code:**
 
-Joe Huang：[joehuangx@gmail.com](mailto:joehuangx@gmail.com)      
+```python
+from ArticutAPI import Articut
+from linguistic_parse import parse_S, ex_EPP_movement, ex_verb_raising
 
-PeterWolf：[peter.w@droidtown.co](mailto:peter.w@droidtown.co)
+articut = Articut(username, apikey)
+tagged = articut.parse("他吃了五包他喜歡的零食", level="lv1")["result_pos"][0]
 
-Lisi Yang：[lisi16810@gmail.com](mailto:lisi16810@gmail.com)
+tree_dict = parse_S(tagged, genTree=False, showTree=True)   # dict of every projection
+tree      = parse_S(tagged, genTree=True,  showTree=True)   # pruned single tree
 
-Spec : https://github.com/Chenct-jonathan/pyLiteracy/blob/main/PyLiteracy.pdf
+ex_EPP_movement(tree_dict, genTree=True, showTree=True)
+ex_verb_raising(tree_dict, genTree=True, showTree=True)
+```
+
+**Build and print a tree by hand:**
+
+```python
+from type import VP, ClsP, NP
+
+t = VP(head="吃", left="他",
+       comp=ClsP(head="五碗", left="",
+                 comp=NP(head="飯", left="", comp="")))
+print(t.treeart_str())   # box-drawing tree
+t.pprint()               # indented ├── / └── tree
+```
+
+`Tree` accepts either `Tree(left, head, comp)` positionally (head-initial only) or keyword
+arguments `Tree(left=…, head=…, comp=…, head_type=…)` — the two forms cannot be mixed.
+
+### Example sentences covered
+
+| Sentence | What it exercises |
+|---|---|
+| 我覺得說他可以被吃五碗他喜歡的飯 | every projection at once |
+| 他可以吃五碗飯 | ModP, no C |
+| 他吃五碗飯 | no modal |
+| 她參加比賽 | no classifier |
+| 他很高 | DegP (adjectival predicate) |
+| 他跑得很快 | 得-complement |
+| 他吃了他喜歡的零食 | relative clause |
+| 他吃了五包他喜歡的零食 | relative clause + classifier |
+| 他白飯 | ungrammatical (no predicate) |
+| 樹上沒有葉子 | NegP |
+
+---
+
+## Known issues / TODO
+
+- `parent` links are not always set correctly (TODO in `linguistic_parse.py`).
+- In `parse_S`, every projection is chained into the next one's `comp`, so `De_CompP` ends up
+  under `NP` and still holds raw tagged text, and absent projections show up as `[""]` nodes
+  in `treeart_str()` output. `gen_realTree()` prunes these, but the two paths do not yet agree.
+- Sentence-final 了 is placed in the CP head as a stop-gap; it belongs in a right-headed CP.
+- 在…裡面 style prepositional phrases are not handled.
+- Only head-initial structures are modelled (CP is treated as head-final via the C pattern).
+- `main.py` does `import type`, which shadows Python's built-in `type()` in that file;
+  renaming the module (e.g. `syntax_tree.py`) would avoid surprises.
+- Planned: tree-printing variants sketched in the docstring of `type.py`
+  (left/right layouts, labelled `head:` / `comp:` edges, drawn movement arrows).
+
+---
+
+## Credits
+
+- POS tagging by [Articut](https://api.droidtown.co/) (Droidtown Linguistic Tech).
+- Tree rendering adapted from [`treeart`](https://pypi.org/project/treeart/).
+- Directory-tree printing algorithm in `type.py` adapted from
+  [this Stack Overflow answer](https://stackoverflow.com/questions/9727673/list-directory-tree-structure-in-python).
+- AspP background reading: <https://www.persee.fr/doc/clao_0153-3320_1995_num_24_1_1466>
