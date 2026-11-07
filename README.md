@@ -1,5 +1,5 @@
 # PyLiteracy
----
+
 ## Treetool
 A rule-based parser that turns Mandarin Chinese sentences into **X-bar–style syntax trees**
 (CP → TP → ModP → … → NP), built on top of the [Articut](https://api.droidtown.co/) word
